@@ -1,0 +1,221 @@
+{
+  "title": "Cashier",
+  "nav": {
+    "label": "Cashier menu"
+  },
+  "device": {
+    "chip": "{{code}} · {{name}}",
+    "notRegistered": {
+      "title": "This device isn't registered",
+      "body": "The cashier only works on devices activated for {{outlet}}. Ask a Manager to sign in on this device to activate it.",
+      "manager": "Name this device, then activate it as one of {{outlet}}'s cashiers. Its code goes into every receipt number it makes."
+    },
+    "revoked": {
+      "title": "This device was revoked",
+      "body": "This device can't sell anymore. Ask a Manager to activate it again.",
+      "manager": "This device can't sell anymore. Activate it again as a new device: name it, then activate it."
+    },
+    "name": "Device name",
+    "nameHint": "For example Front counter. At most 50 characters.",
+    "activate": "Activate this device",
+    "activating": "Activating…",
+    "toHistory": "See today's orders"
+  },
+  "menu": {
+    "heading": "Choose menu",
+    "search": "Search menu",
+    "searchPlaceholder": "Name or SKU",
+    "categories": "Categories",
+    "all": "All menus",
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} items",
+    "available": "{{count}} available",
+    "always": "Always available",
+    "out": "Sold out",
+    "low": "Low stock",
+    "inCart": "{{count}} in the order",
+    "none": "No menus on sale yet. A Manager adds them on the Menu page.",
+    "noMatch": "No menu matches."
+  },
+  "cart": {
+    "title": "Detail Items",
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} items",
+    "empty": "No order yet. Choose a menu to start.",
+    "type": "Order type",
+    "types": {
+      "dine_in": "Dine-in",
+      "takeaway": "Takeaway"
+    },
+    "less": "One less {{name}}",
+    "more": "One more {{name}}",
+    "count": "{{count}} {{name}}",
+    "remove": "Remove {{name}}",
+    "note": "Note",
+    "noteFor": "Note for {{name}}",
+    "notePlaceholder": "For example less sugar",
+    "line": "{{qty}} × {{price}}",
+    "stockLeft": "{{count}} left in stock",
+    "summary": {
+      "items": "Items",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "voucher": "Discount ({{code}})",
+      "service": "Service ({{rate}})",
+      "tax": "Tax ({{rate}})",
+      "total": "Total"
+    },
+    "method": "Payment method",
+    "methods": {
+      "cash": "Cash",
+      "qris": "QRIS",
+      "debit": "Debit"
+    },
+    "soon": "Coming soon",
+    "pay": "Pay {{total}}",
+    "view": "View order",
+    "close": "Close order",
+    "locked": "The last sale hasn't been answered. Settle it before changing the order.",
+    "tooMuch": "An order comes to at most Rp 1,000,000,000."
+  },
+  "pay": {
+    "title": "Pay in cash",
+    "total": "Total",
+    "received": "Cash received",
+    "quick": "Quick amounts",
+    "exact": "Exact amount",
+    "change": "Change",
+    "short": "{{amount}} short",
+    "confirm": "Pay",
+    "sending": "Saving…",
+    "unknown": "The server hasn't answered, so this sale may have been saved. Send it again: the same sale is never recorded twice.",
+    "resend": "Send again",
+    "abandon": "Cancel this sale",
+    "abandonWarning": "The order can change again. Check today's orders before charging again: this sale may have been saved."
+  },
+  "changed": {
+    "prices": "The price of {{names}} changed.",
+    "unavailable": "{{names}} is no longer on sale, so it was taken out of the order.",
+    "stock": "There isn't enough {{names}} left, so the quantity was cut.",
+    "total": "The outlet's tax or service charge, or the voucher's terms, changed.",
+    "method": "This payment method isn't available.",
+    "check": "Check the order and its total, then charge again."
+  },
+  "done": {
+    "title": "Sale saved",
+    "change": "Change {{amount}}",
+    "print": "Print receipt",
+    "new": "New sale"
+  },
+  "receipt": {
+    "label": "Receipt {{number}}",
+    "number": "Receipt no.",
+    "date": "Time",
+    "cashier": "Cashier",
+    "type": "Type",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "voucher": "Discount ({{code}})",
+    "service": "Service {{rate}}",
+    "tax": "Tax {{rate}}",
+    "total": "Total",
+    "change": "Change",
+    "void": "VOID",
+    "voidReason": "Reason: {{reason}}",
+    "thanks": "Thank you",
+    "table": "Table",
+    "stand": "Stand number"
+  },
+  "history": {
+    "title": "Today's orders",
+    "search": "Search receipt number",
+    "searchPlaceholder": "For example 0012",
+    "columns": {
+      "time": "Time",
+      "number": "Receipt no.",
+      "items": "Items",
+      "total": "Total",
+      "cashier": "Cashier",
+      "status": "Status",
+      "table": "Table"
+    },
+    "status": {
+      "paid": "Paid",
+      "void": "Void"
+    },
+    "empty": "No sales today yet.",
+    "noMatch": "No sale today has that number.",
+    "back": "Today's orders",
+    "reprint": "Print again",
+    "table": "Table {{name}}",
+    "noTable": "No table",
+    "stand": "No. {{number}}"
+  },
+  "void": {
+    "action": "Void sale",
+    "title": "Void sale {{number}}?",
+    "body": "The sale and its payment are cancelled, and its stock goes back. This can't be undone.",
+    "reason": "Reason",
+    "reasonHint": "Required, at most 200 characters.",
+    "confirm": "Void",
+    "done": "Sale {{number}} is void."
+  },
+  "voucher": {
+    "label": "Voucher",
+    "placeholder": "Voucher code",
+    "apply": "Apply",
+    "checking": "Checking…",
+    "remove": "Remove voucher {{code}}",
+    "minSpend": "This voucher needs a subtotal of at least {{amount}}. Add to the order or remove the voucher.",
+    "removed": "Voucher {{code}} was removed: {{reason}}"
+  },
+  "tables": {
+    "title": "Tables",
+    "intro": "Pick a table to see its status, order at it, or release it once its customers have gone.",
+    "empty": "This outlet has no tables yet. The Manager adds them on the admin Tables page.",
+    "numberMode": "This outlet uses number stands: dine-in customers take a numbered stand, and the cashier types its number in Detail Items instead of picking a table.",
+    "areas": "Areas",
+    "layout": "Layout of the {{area}} area",
+    "detailTitle": "Table {{name}}",
+    "seats": "Seats",
+    "noSeats": "Not given",
+    "seatCount_one": "{{count}} seat",
+    "seatCount_other": "{{count}} seats",
+    "since": "Seated since",
+    "orders": "Sales",
+    "inactive": "The Manager has turned this table off, so it can't be picked.",
+    "scheduled": "This table is scheduled off, so it can't be picked.",
+    "order": "Order at this table",
+    "pendingHint": "The last sale has no answer yet. Settle it first in Detail Items.",
+    "release": {
+      "action": "Release table",
+      "title": "Release table {{name}}?",
+      "body": "Do this once the customers have left. The table is free again for the next ones.",
+      "done": "Table {{name}} released."
+    },
+    "pick": {
+      "title": "Pick a table",
+      "intro": "Available and occupied tables can be picked. An order more at the same table is a sale of its own.",
+      "choose": "Pick a table",
+      "optional": "Optional",
+      "chosen": "Table {{name}}",
+      "change": "Change",
+      "remove": "Let go of table {{name}}",
+      "retry": "Try again"
+    },
+    "removed": "Table {{name}} taken off the order: {{reason}}",
+    "unavailable": {
+      "inactive": "it has been turned off.",
+      "scheduled": "it is scheduled off.",
+      "missing": "it has been deleted."
+    }
+  },
+  "stand": {
+    "label": "Stand number",
+    "placeholder": "Required, for example 12",
+    "format": "1–10 letters, digits or hyphens, for example 12, A5 or B-3.",
+    "tableDropped": "This outlet now uses number stands, so table {{name}} was taken off the order. Type the number on the customer's stand.",
+    "standDropped": "This outlet now uses tables, so stand number {{number}} was taken off the order.",
+    "nowNumber": "This outlet now uses number stands. Type the number on the customer's stand."
+  }
+}

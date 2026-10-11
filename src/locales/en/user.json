@@ -1,0 +1,101 @@
+{
+  "fields": {
+    "name": "Name",
+    "username": "Username",
+    "role": "Role",
+    "email": "Email",
+    "phone": "Phone number",
+    "password": "Temporary password",
+    "confirm": "Repeat the temporary password",
+    "lastLogin": "Last signed in",
+    "created": "Created"
+  },
+  "manager": "Manager",
+  "noRole": "No role",
+  "neverSignedIn": "Never signed in",
+  "list": {
+    "title": "Users",
+    "create": "Add user",
+    "createManager": "Add Manager",
+    "search": "Search users",
+    "searchPlaceholder": "Name or username",
+    "allRoles": "All roles",
+    "noMatch": "No user matches this search.",
+    "empty": "This outlet has no users yet."
+  },
+  "form": {
+    "usernameHint": "3–32 lowercase letters, digits, dots, dashes or underscores. Used to sign in, and can't be changed.",
+    "rolesHidden": "Roles with permissions beyond yours aren't shown.",
+    "chooseRole": "Choose a role",
+    "optional": "Optional.",
+    "passwordHint": "8–128 characters. Pass it on to the user, who must replace it when they sign in.",
+    "roleHint": "New permissions apply from this user's next request.",
+    "emailHint": "Optional. An email changed here needs its user to confirm it again."
+  },
+  "create": {
+    "title": "Add user",
+    "intro": "The user signs in with the username and this temporary password, then must choose their own password.",
+    "submit": "Save user",
+    "managerTitle": "Add Manager",
+    "managerIntro": "A Manager runs this outlet: its roles, users, menus, tables and cashiers. They sign in with this temporary password, then must choose their own.",
+    "managerSubmit": "Save Manager"
+  },
+  "edit": {
+    "submit": "Save changes",
+    "done": "Changes saved."
+  },
+  "detail": {
+    "back": "All users",
+    "account": "Account",
+    "password": "Password",
+    "temporaryPassword": "Temporary, not replaced yet",
+    "ownPassword": "Chosen by its user",
+    "profile": "Profile",
+    "actions": "Actions"
+  },
+  "modes": {
+    "own": "This is your own account, so it can't be changed here.",
+    "changePassword": "Change your password",
+    "promote": "The Owner manages Manager accounts. Staff accounts are their outlet's Managers' job, but you can make this user a Manager.",
+    "managerAccount": "Only the Owner changes a Manager's account.",
+    "stronger": "This user has permissions you don't, so you can't manage their account."
+  },
+  "reset": {
+    "action": "Reset password",
+    "title": "Reset {{name}}'s password?",
+    "body": "Type a new temporary password. The user is signed out of every device at once, and must replace this password at their next sign-in.",
+    "submit": "Save temporary password",
+    "done": "{{name}}'s temporary password is saved. They must replace it at their next sign-in."
+  },
+  "promote": {
+    "action": "Make Manager",
+    "title": "Make {{name}} a Manager?",
+    "body": "They get every permission in this outlet, and lose their role. They're signed out at once and need to sign in again.",
+    "done": "{{name}} is now a Manager."
+  },
+  "demote": {
+    "action": "Make staff",
+    "title": "Make {{name}} staff?",
+    "body": "They're no longer a Manager, and their permissions follow the role you choose. They're signed out at once and need to sign in again.",
+    "noRoles": "This outlet has no roles yet. Create one first in the Roles tab.",
+    "submit": "Make staff",
+    "done": "{{name}} is now staff."
+  },
+  "deactivate": {
+    "action": "Deactivate",
+    "title": "Deactivate {{name}}?",
+    "body": "{{name}} is signed out at once and can't sign in. Their transactions stay in their name, and the account can be activated again.",
+    "done": "{{name}} is deactivated."
+  },
+  "activate": {
+    "action": "Activate",
+    "title": "Activate {{name}}?",
+    "body": "{{name}} can sign in again with their password.",
+    "done": "{{name}} is active again."
+  },
+  "delete": {
+    "action": "Delete user",
+    "title": "Delete {{name}}?",
+    "body": "The account is deleted and its sessions end. Its username can't be used again, and its transactions stay in its name."
+  }
+}

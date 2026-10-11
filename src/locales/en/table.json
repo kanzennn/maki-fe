@@ -1,0 +1,244 @@
+{
+  "back": "Back to Tables",
+  "page": {
+    "title": "Tables",
+    "intro": "This outlet's areas, layouts and tables. Their statuses follow the cashier's sales.",
+    "schedules": "Table schedules",
+    "areas": "Manage areas",
+    "create": "Add table",
+    "areaTabs": "Areas",
+    "noAreas": "No areas yet. Create one first, such as Indoor or 2nd floor, then add its tables.",
+    "noAreasView": "This outlet has no table areas yet.",
+    "areaTab_one": "{{area}}, {{count}} table",
+    "areaTab_other": "{{area}}, {{count}} tables"
+  },
+  "mode": {
+    "title": "Dine-in mode",
+    "legend": "How the cashier records where dine-in customers sit",
+    "table": "Tables",
+    "tableHint": "The cashier picks a table from the layout, if needed.",
+    "number": "Number stands",
+    "numberHint": "Customers take a number stand. The cashier types its number, and a waiter brings the order there.",
+    "save": "Save mode",
+    "confirm": {
+      "titleTable": "Seat customers at tables?",
+      "titleNumber": "Use number stands?",
+      "bodyTable": "From the next sale on, the cashier picks a table from the layout for dine-in orders, if needed, and types no stand number.",
+      "bodyNumber": "From the next sale on, the cashier types the stand's number for every dine-in order and picks no table. The areas, layouts and tables stay.",
+      "action": "Change mode"
+    },
+    "done": {
+      "table": "This outlet now seats its customers at tables.",
+      "number": "This outlet now uses number stands."
+    },
+    "numberNotice": "This outlet uses number stands: the cashier types the stand's number and picks no table. The areas, layouts and tables below stay, for seating at tables again."
+  },
+  "layout": {
+    "title": "{{area}} layout",
+    "label": "Layout of the {{area}} area",
+    "edit": "Arrange layout",
+    "wideOnly": "Layouts are arranged on a screen 840 px wide or more, such as a tablet in landscape or a computer."
+  },
+  "list": {
+    "title": "Tables in {{area}}",
+    "empty": "No tables in this area yet.",
+    "unplaced": "Not placed on the layout",
+    "noCapacity": "Not given",
+    "seats_one": "{{count}} seat",
+    "seats_other": "{{count}} seats",
+    "seated_one": "Since {{time}} · {{count}} sale",
+    "seated_other": "Since {{time}} · {{count}} sales",
+    "offOnRelease": "Inactive once released",
+    "edit": "Edit"
+  },
+  "fields": {
+    "name": "Table name",
+    "area": "Area",
+    "capacity": "Seats",
+    "shape": "Shape"
+  },
+  "shape": {
+    "square": "Square",
+    "round": "Round",
+    "rectangle": "Rectangle"
+  },
+  "form": {
+    "createTitle": "Add table",
+    "editTitle": "Edit table {{name}}",
+    "nameHint": "A number or a name, such as A1 or Terrace 2. Up to 30 characters, unique in this outlet.",
+    "moveHint": "Moving it to another area takes it off the old area's layout. Place it again on the new area's layout.",
+    "capacityHint": "Optional, 1–99.",
+    "active": "Active: the cashier can pick it",
+    "create": "Add table",
+    "save": "Save table",
+    "created": "Table {{name}} added. Place it on the layout with Arrange layout.",
+    "saved": "Changes to table {{name}} saved."
+  },
+  "activate": {
+    "action": "Activate",
+    "title": "Activate table {{name}}?",
+    "body": "The cashier can pick this table again.",
+    "done": "Table {{name}} activated."
+  },
+  "deactivate": {
+    "action": "Deactivate",
+    "title": "Deactivate table {{name}}?",
+    "body": "The table stays on the layout, greyed out, but the cashier can't pick it. It can be activated again at any time.",
+    "bodyOccupied": "Customers are seated at this table, so it goes inactive once the cashier taps Release Table. From then on the cashier can't pick it until it's activated again.",
+    "done": "Table {{name}} deactivated."
+  },
+  "delete": {
+    "action": "Delete",
+    "title": "Delete table {{name}}?",
+    "body": "The table leaves the layout and the cashier. Sales that used it keep its name.",
+    "occupied": "Customers are seated at this table, so it can't be deleted yet. Release it at the cashier first.",
+    "done": "Table {{name}} deleted."
+  },
+  "areas": {
+    "title": "Areas",
+    "intro": "The order here is the cashier's order of areas. Each area has a layout of its own.",
+    "create": "Add area",
+    "empty": "No areas yet. Areas group tables, such as Indoor, Outdoor or 2nd floor.",
+    "tableCount_one": "{{count}} table",
+    "tableCount_other": "{{count}} tables",
+    "moveUp": "Move {{name}} up",
+    "moveDown": "Move {{name}} down",
+    "moved": "{{name}} is now number {{position}}.",
+    "rename": "Rename",
+    "fields": {
+      "name": "Area name"
+    },
+    "form": {
+      "createTitle": "Add area",
+      "editTitle": "Rename {{name}}",
+      "nameHint": "Up to 50 characters, unique in this outlet.",
+      "create": "Add area",
+      "save": "Save name",
+      "created": "Area {{name}} created.",
+      "saved": "Area renamed {{name}}."
+    },
+    "delete": {
+      "action": "Delete",
+      "title": "Delete area {{name}}?",
+      "body": "The area and its layout leave the list and the cashier.",
+      "notEmpty_one": "This area still holds {{count}} table. Move it to another area, or delete it first.",
+      "notEmpty_other": "This area still holds {{count}} tables. Move them to another area, or delete them first.",
+      "done": "Area {{name}} deleted."
+    }
+  },
+  "editor": {
+    "title": "Arrange the {{area}} layout",
+    "intro": "Move, resize and turn tables and decorations on the 48 × 32 grid. Changes reach the cashier once saved.",
+    "narrow": "The layout editor needs a screen 840 px wide or more. Open this page on a tablet in landscape or on a computer.",
+    "canvas": "Layout of the {{area}} area",
+    "keys": "Pick a table or decoration, then: arrows move it, Shift+arrows resize it, R turns it 90°, Delete takes it off the layout, Esc unpicks it.",
+    "save": "Save layout",
+    "saved": "Layout saved. The cashier sees it from now on.",
+    "discard": "Discard changes",
+    "discardTitle": "Discard changes?",
+    "discardBody": "The layout goes back to the last version saved.",
+    "unsaved": "There are changes not saved yet.",
+    "overlap": "Tables {{names}} are on top of one another. Move one of them before saving.",
+    "reload": "Reload layout",
+    "reloaded": "The latest layout is loaded. Your earlier changes weren't saved.",
+    "leaveTitle": "Leave the layout editor?",
+    "leaveBody": "Layout changes not saved yet will be lost.",
+    "stay": "Stay here",
+    "leave": "Leave",
+    "tableName": "Table {{name}}",
+    "item": "{{name}}, x {{x}}, y {{y}}, {{w}} × {{h}} cells",
+    "unplaced": "{{name}} taken off the layout.",
+    "removed": "{{name}} removed from the layout.",
+    "properties": "Properties",
+    "nothingSelected": "Pick a table or decoration on the layout to set its place, size, turn and shape.",
+    "x": "X (column)",
+    "y": "Y (row)",
+    "w": "Width",
+    "h": "Height",
+    "tableSides": "Tables are 2–16 cells a side.",
+    "decorationSides": "Decorations are 1 cell up to the layout's width.",
+    "rotation": "Rotation",
+    "degrees": "{{value}}°",
+    "rotate": "Turn 90°",
+    "unplace": "Take off the layout",
+    "remove": "Remove decoration",
+    "unplacedTitle": "Not placed",
+    "allPlaced": "Every table of this area is on the layout.",
+    "place": "Place",
+    "placeTable": "Place table {{name}}",
+    "newTables": "New tables are added on the Tables page, then placed here.",
+    "decorations": "Decorations",
+    "add": "Add",
+    "addDecoration": "Add {{name}}",
+    "decorationsHint": "Markers only, not tables. They may lie under tables."
+  },
+  "schedules": {
+    "title": "Table schedules",
+    "intro": "Tables go out of service on their own during their schedules, such as for an event or a renovation. Times in {{zone}}, this outlet's time zone.",
+    "back": "Back to Table schedules",
+    "create": "Create schedule",
+    "createTitle": "Create schedule",
+    "createIntro": "The tables picked are inactive at the cashier from the start to the end.",
+    "editTitle": "Edit schedule",
+    "edit": "Edit",
+    "save": "Save schedule",
+    "empty": "No schedules yet.",
+    "noMatch": "No schedules with this status.",
+    "more_one": "{{names}} and {{count}} more",
+    "more_other": "{{names}} and {{count}} more",
+    "details": "Schedule details",
+    "tables_one": "{{count}} table",
+    "tables_other": "{{count}} tables",
+    "deletedTable": "{{name}} (deleted)",
+    "inZone": "{{time}} {{zone}}",
+    "createdBy": "Created",
+    "cancelledBy": "Cancelled",
+    "byAt": "{{name}}, {{time}}",
+    "closed": "This schedule is finished or cancelled, so it can't change any more.",
+    "status": {
+      "upcoming": "Upcoming",
+      "ongoing": "Ongoing",
+      "finished": "Finished",
+      "cancelled": "Cancelled"
+    },
+    "columns": {
+      "title": "Title",
+      "period": "Time",
+      "tables": "Tables",
+      "status": "Status"
+    },
+    "fields": {
+      "title": "Title or reason",
+      "start": "Start",
+      "end": "End",
+      "tables": "Tables"
+    },
+    "form": {
+      "titleHint": "Such as Office party or Terrace renovation. Up to 100 characters.",
+      "when": "Time",
+      "zone": "In {{zone}} ({{timeZone}}), this outlet's time zone. The start can't be in the past, and the end comes after the start.",
+      "startPast": "The start can't be before now.",
+      "tablesHint": "Pick the tables one by one, or all of an area's tables at once.",
+      "noTables": "This outlet has no tables yet. Add them on the Tables page first.",
+      "wholeArea": "All of {{area}}",
+      "picked": "{{picked}} of {{total}} picked",
+      "ongoing": "This schedule is ongoing, so its tables are inactive now. Its start may stay as it is.",
+      "start": "Start ({{zone}})",
+      "end": "End ({{zone}})"
+    },
+    "overlap": {
+      "title": "Overlaps another schedule at the same tables:",
+      "item": "{{title}}, {{period}}: tables {{tables}}",
+      "body": "The schedule can still be saved. A table they share is inactive while either of them is ongoing.",
+      "confirm": "Save anyway",
+      "review": "Review"
+    },
+    "cancel": {
+      "action": "Cancel schedule",
+      "title": "Cancel schedule {{title}}?",
+      "body": "This schedule won't take its tables out of service. It stays saved, as history.",
+      "bodyOngoing": "This schedule is ongoing: its tables can be picked at the cashier again at once. It stays saved, as history.",
+      "done": "Schedule {{title}} cancelled."
+    }
+  }
+}

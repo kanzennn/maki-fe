@@ -1,0 +1,131 @@
+{
+  "list": {
+    "title": "Vouchers",
+    "intro": "The Owner's discounts, for the cashiers of every outlet or some. Their times are in WIB.",
+    "create": "Create a voucher",
+    "search": "Search vouchers",
+    "searchPlaceholder": "Code or name",
+    "empty": "No vouchers yet. Create the first one.",
+    "noMatch": "No voucher matches."
+  },
+  "outletList": {
+    "title": "Vouchers",
+    "intro": "The vouchers this outlet's cashiers can take. Only the Owner creates and changes them."
+  },
+  "columns": {
+    "code": "Code",
+    "discount": "Discount",
+    "outlets": "Valid at",
+    "used": "Used",
+    "period": "Period",
+    "status": "Status"
+  },
+  "status": {
+    "active": "Active",
+    "scheduled": "Scheduled",
+    "used_up": "Used up",
+    "expired": "Expired",
+    "inactive": "Inactive"
+  },
+  "type": {
+    "percent": "Percentage",
+    "amount": "Rupiah amount"
+  },
+  "terms": {
+    "max": "at most {{amount}}",
+    "min": "minimum spend {{amount}}"
+  },
+  "outlets": {
+    "all": "Every outlet",
+    "some": "Some outlets",
+    "none": "No outlets"
+  },
+  "used": "{{used}} / {{quota}}",
+  "period": {
+    "range": "{{start}} – {{end}} WIB",
+    "until": "Until {{end}} WIB"
+  },
+  "fields": {
+    "code": "Voucher code",
+    "name": "Name",
+    "type": "Discount type",
+    "percent": "Discount (%)",
+    "amount": "Discount",
+    "maxDiscount": "Maximum discount",
+    "minSpend": "Minimum spend",
+    "quota": "Uses",
+    "startAt": "Starts (WIB)",
+    "expiredAt": "Expires (WIB)",
+    "outlets": "Valid at",
+    "active": "Active"
+  },
+  "form": {
+    "identity": "Voucher",
+    "codeHint": "3–20 letters and digits, which the cashier types. Kept in capitals.",
+    "nameHint": "Optional, seen in the admin only.",
+    "discount": "Discount",
+    "percentHint": "Of the subtotal, before the service charge and the tax.",
+    "amountHint": "Rupiah, never more than the subtotal.",
+    "percentValueHint": "At most 2 decimals, up to 100.",
+    "optional": "Optional.",
+    "usage": "Use",
+    "quotaHint": "In every outlet together. A voided sale gives its use back.",
+    "quotaUsedHint": "Used already: the uses can only grow.",
+    "periodHint": "The start and the expiry are in WIB for every outlet.",
+    "startHint": "Leave it empty to start at once.",
+    "expiryUsedHint": "Used already: the expiry can only move later.",
+    "outlets": "Outlets",
+    "allOutletsHint": "Outlets created later too.",
+    "someOutletsHint": "Only the outlets picked below.",
+    "pickOutlets": "The outlets picked",
+    "activeHint": "Cashiers can take it once its period starts. It can be deactivated at any time.",
+    "usedNotice": "This voucher has been used, so its code and type are locked, its uses can only grow, and its expiry can only move later."
+  },
+  "create": {
+    "title": "Create a voucher",
+    "intro": "The cashier takes it by typing its code, one voucher per sale.",
+    "submit": "Create voucher"
+  },
+  "edit": {
+    "title": "Change the voucher",
+    "submit": "Save"
+  },
+  "detail": {
+    "back": "Vouchers",
+    "edit": "Change",
+    "terms": "Terms",
+    "noMinSpend": "No minimum",
+    "startsAtOnce": "At once",
+    "wib": "{{time}} WIB",
+    "firstUsed": "First used",
+    "neverUsed": "Never used yet",
+    "status": "Status",
+    "activeBody": "This voucher is active: cashiers can take it during its period, until its uses run out.",
+    "inactiveBody": "This voucher is inactive: cashiers can't take it. Its history stays.",
+    "deactivate": "Deactivate",
+    "deactivateTitle": "Deactivate {{code}}?",
+    "deactivateBody": "From the next sale on, cashiers can't take this voucher. You can activate it again.",
+    "deactivated": "Voucher deactivated.",
+    "activate": "Activate",
+    "activateTitle": "Activate {{code}}?",
+    "activateBody": "Cashiers can take it again during its period, until its uses run out.",
+    "activated": "Voucher activated.",
+    "delete": "Delete",
+    "deleteTitle": "Delete {{code}}?",
+    "deleteBody": "No sale has used this voucher. Once it's deleted, another voucher can have its code.",
+    "usedCantDelete": "A voucher that has been used can't be deleted: its sales still name it. Deactivate it instead."
+  },
+  "redemptions": {
+    "title": "Uses",
+    "empty": "No sale has used this voucher yet.",
+    "pastEnd": "This page is empty.",
+    "when": "Time",
+    "outlet": "Outlet",
+    "receipt": "Receipt number",
+    "discount": "Discount",
+    "status": {
+      "paid": "Paid",
+      "void": "Void"
+    }
+  }
+}

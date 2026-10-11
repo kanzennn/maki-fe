@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+/*
+ * Maki has one, light theme (DESIGN.md). shadcn/ui components ship dark:
+ * variants, which by default follow the OS setting and would grey out
+ * inputs on a dark-mode machine; tie them to a .dark class nobody sets.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens from Maki/DESIGN.md: the only colours, radii and type sizes
+ * the app uses. Tailwind turns them into utilities (bg-primary,
+ * text-on-surface-variant, rounded-card, text-body-md). Never write raw
+ * values such as bg-[#ff5c33].
+ */
+@theme {
+  /* Drop Tailwind's default palette so that only design tokens exist. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f3f3f3;
+  --color-surface-container-low: #fcfbfc;
+  --color-surface-container: #f4f4f4;
+  --color-surface-variant: #f3f3f3;
+  --color-on-surface: #050505;
+  --color-on-surface-variant: #6b6b6b;
+  --color-outline: #ebebeb;
+  --color-outline-variant: #f4f4f4;
+  --color-icon-muted: #8a8a8a;
+  --color-text-placeholder: #737373;
+
+  /* Borders, tints, focus ring, icon-only fills: 3.1:1 is enough there. */
+  --color-primary: #ff5c33;
+  /* Text, icons on tints, and buttons with a text label (WCAG AA). */
+  --color-primary-strong: #bc3f0b;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ffefeb;
+  --color-on-primary-container: #bc3f0b;
+  --color-primary-container-strong: #ffdfd8;
+  --color-primary-container-muted: #fbece8;
+
+  --color-warning-container: #fef3c7;
+  --color-on-warning-container: #92400e;
+
+  --color-error: #b42318;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee4e2;
+  --color-on-error-container: #912018;
+
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --text-headline-lg: 22px;
+  --text-headline-lg--line-height: 28px;
+  --text-headline-lg--font-weight: 700;
+  --text-headline-md: 18px;
+  --text-headline-md--line-height: 24px;
+  --text-headline-md--font-weight: 600;
+  --text-title-md: 14px;
+  --text-title-md--line-height: 20px;
+  --text-title-md--font-weight: 600;
+  --text-price-lg: 18px;
+  --text-price-lg--line-height: 24px;
+  --text-price-lg--font-weight: 700;
+  --text-body-md: 13px;
+  --text-body-md--line-height: 18px;
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--font-weight: 600;
+  --text-label-sm: 10px;
+  --text-label-sm--line-height: 14px;
+
+  --radius-control: 4px; /* stepper buttons */
+  --radius-card: 8px; /* product cards, thumbnails */
+  --radius-tile: 10px; /* category and payment tiles */
+  --radius-field: 12px; /* nav pill, search field */
+  /* The scale shadcn/ui components use, on the same sizes. */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  --shadow-card-subtle: 0 1px 2px rgb(0 0 0 / 0.04);
+
+  /*
+   * DESIGN.md's phone layout switch: from 840px wide (expanded:) the sidebar
+   * shows; below it, the bottom navigation. In rem like Tailwind's own
+   * breakpoints, so the variants sort among them (52.5rem = 840px).
+   */
+  --breakpoint-expanded: 52.5rem;
+}
+
+/* The names shadcn/ui components use, mapped onto the tokens above once. */
+@theme inline {
+  --color-foreground: var(--color-on-surface);
+  --color-card: var(--color-surface);
+  --color-card-foreground: var(--color-on-surface);
+  --color-popover: var(--color-surface);
+  --color-popover-foreground: var(--color-on-surface);
+  --color-primary-foreground: var(--color-on-primary);
+  --color-secondary: var(--color-surface-container);
+  --color-secondary-foreground: var(--color-on-surface);
+  --color-muted: var(--color-surface-container);
+  --color-muted-foreground: var(--color-on-surface-variant);
+  --color-accent: var(--color-primary-container);
+  --color-accent-foreground: var(--color-on-primary-container);
+  --color-destructive: var(--color-error);
+  --color-destructive-foreground: var(--color-on-error);
+  --color-border: var(--color-outline);
+  /* Form fields: 3:1 against white (DESIGN.md text-field), unlike card borders. */
+  --color-input: var(--color-icon-muted);
+  --color-ring: var(--color-primary);
+}
+
+/*
+ * The signed-in header's height: the cashier fills the rest of the screen
+ * from 840px wide, its columns scrolling on their own.
+ */
+:root {
+  --app-header: 4rem;
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-outline);
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-background font-sans text-body-md text-on-surface antialiased;
+  }
+
+  /* Components that draw their own focus ring (shadcn/ui) turn this off. */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/*
+ * A receipt printed from the cashier (features/pos/components/PrintProvider):
+ * the receipt alone, on the till's 58 mm roll, of which 48 mm prints. It
+ * sits in an element of its own outside #root, hidden on screen; printing
+ * hides everything else, the open dialogs included.
+ */
+.print-receipt {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: 58mm auto;
+    margin: 0;
+  }
+
+  body > :not(.print-receipt) {
+    display: none !important;
+  }
+
+  .print-receipt {
+    display: block;
+    width: 48mm;
+    margin: 0 auto;
+    padding: 3mm 0;
+    color: #000000;
+  }
+}

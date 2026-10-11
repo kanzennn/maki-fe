@@ -1,0 +1,33 @@
+{
+  "title": "Devices",
+  "intro": "This outlet's cashier devices. To add one, a Manager signs in on that device, then opens the Cashier.",
+  "columns": {
+    "code": "Code",
+    "name": "Name",
+    "platform": "Platform",
+    "status": "Status",
+    "activated": "Activated",
+    "lastSeen": "Last used",
+    "actions": "Actions"
+  },
+  "platform": {
+    "web": "Browser",
+    "android": "Android"
+  },
+  "status": {
+    "active": "Active",
+    "revoked": "Revoked"
+  },
+  "activated": "{{date}} by {{name}}",
+  "revoked": "Revoked {{date}} by {{name}}",
+  "never": "Never",
+  "empty": "No cashier devices yet.",
+  "revoke": {
+    "action": "Revoke",
+    "label": "Revoke {{name}}",
+    "title": "Revoke {{name}}?",
+    "body": "This device can't sell from now on; a sale under way finishes first. The code {{code}} won't be used again.",
+    "confirm": "Revoke device",
+    "done": "{{name}} is revoked."
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "fields": {
+    "name": "Outlet name",
+    "code": "Outlet code",
+    "address": "Address",
+    "phone": "Phone",
+    "openTime": "Opens at",
+    "closeTime": "Closes at",
+    "taxPct": "Tax (%)",
+    "servicePct": "Service charge (%)",
+    "timezone": "Time zone",
+    "locale": "Default language"
+  },
+  "form": {
+    "identity": "Outlet",
+    "codeHint": "2–10 letters and digits, e.g. BDG01. Printed in receipt numbers.",
+    "hours": "Opening hours",
+    "hoursHint": "Fill in both, or leave both empty. A closing time before the opening time means past midnight.",
+    "charges": "Tax & service charge",
+    "percentHint": "0–100, at most 2 decimals.",
+    "region": "Region & language",
+    "localeHint": "For receipts, and for users who haven't chosen their own language."
+  },
+  "timezones": {
+    "indonesia": "Indonesia",
+    "other": "Other",
+    "Asia/Jakarta": "WIB — Asia/Jakarta",
+    "Asia/Makassar": "WITA — Asia/Makassar",
+    "Asia/Jayapura": "WIT — Asia/Jayapura"
+  },
+  "locales": {
+    "id": "Bahasa Indonesia",
+    "en": "English"
+  },
+  "list": {
+    "title": "Outlets",
+    "create": "Add outlet",
+    "search": "Search outlets",
+    "searchPlaceholder": "Name or code",
+    "managers": "Manager",
+    "noManager": "No Manager yet",
+    "noMatch": "No outlet matches this search.",
+    "empty": "No outlets yet. Add your first one."
+  },
+  "create": {
+    "title": "Add outlet",
+    "intro": "A new outlet comes with a Cashier role. Once it's saved, add its Manager.",
+    "submit": "Save outlet"
+  },
+  "edit": {
+    "title": "Edit outlet",
+    "submit": "Save changes"
+  },
+  "detail": {
+    "back": "All outlets",
+    "title": "Outlet details",
+    "edit": "Edit",
+    "none": "—",
+    "hours": "Opening hours",
+    "hoursRange": "{{open}}–{{close}}",
+    "noHours": "Not set",
+    "charges": "Tax & service charge",
+    "chargesValue": "Tax {{tax}} · Service {{service}}",
+    "managers": "Managers",
+    "addManager": "Add Manager",
+    "noManagers": "This outlet has no Manager yet.",
+    "managersHint": "Open a Manager's account to reset their password, deactivate it, or make them staff again. Another user becomes a Manager from the Users tab.",
+    "status": "Outlet status",
+    "activeBody": "The outlet is active: its users can sign in and its cashiers can check out.",
+    "inactiveBody": "The outlet is inactive: its users can't sign in. Its data and reports stay."
+  },
+  "tabs": {
+    "label": "Outlet sections",
+    "info": "Info",
+    "users": "Users",
+    "roles": "Roles",
+    "menus": "Menu",
+    "tables": "Tables",
+    "devices": "Devices",
+    "vouchers": "Vouchers"
+  },
+  "deactivate": {
+    "action": "Deactivate outlet",
+    "title": "Deactivate {{name}}?",
+    "body": "The outlet's users are signed out at once and can't sign in, and its cashiers can't check out. Data and reports stay, and you can activate the outlet again at any time.",
+    "done": "{{name}} is deactivated."
+  },
+  "activate": {
+    "action": "Activate outlet",
+    "title": "Activate {{name}}?",
+    "body": "The outlet's users can sign in again, and its cashiers can check out again.",
+    "done": "{{name}} is active again."
+  },
+  "delete": {
+    "action": "Delete outlet",
+    "title": "Delete {{name}}?",
+    "body": "The outlet leaves the list and its code can't be used again. Its transactions stay on record.",
+    "confirm": "Type \"{{name}}\" to confirm",
+    "submit": "Delete outlet"
+  }
+}

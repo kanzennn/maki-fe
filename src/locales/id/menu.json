@@ -1,0 +1,192 @@
+{
+  "fields": {
+    "name": "Nama menu",
+    "category": "Kategori",
+    "price": "Harga",
+    "sku": "SKU",
+    "description": "Deskripsi",
+    "stockMode": "Mode stok",
+    "initialStock": "Stok awal",
+    "stockAlert": "Ambang stok menipis",
+    "active": "Tampilkan di kasir"
+  },
+  "form": {
+    "chooseCategory": "Pilih kategori",
+    "inactiveCategory": "{{name}} (nonaktif)",
+    "priceHint": "Rupiah, tanpa desimal. Maksimal Rp 100.000.000.",
+    "skuHint": "Opsional. Huruf, angka, titik, strip atau garis bawah, maksimal 32. Unik di outlet ini.",
+    "descriptionHint": "Opsional, maksimal 500 karakter.",
+    "untracked": "Tanpa stok",
+    "untrackedHint": "Selalu tersedia di kasir.",
+    "tracked": "Stok terlacak",
+    "trackedHint": "Berkurang tiap terjual. Habis berarti tidak bisa dipesan.",
+    "initialStockHint": "Jumlah porsi atau pcs yang ada sekarang, sampai 1.000.000.",
+    "stockNow": "Stok sekarang {{stock}}. Stok berubah lewat penyesuaian stok, bukan dari form ini.",
+    "stopTracking": "Stok dan riwayatnya disimpan, tapi tidak dipakai lagi: menu ini selalu tersedia di kasir.",
+    "alertHint": "Stok sama dengan atau di bawah angka ini tampil Menipis. Kosongkan atau isi 0 untuk mematikan.",
+    "activeHint": "Menu nonaktif tidak tampil di kasir, tapi tetap ada di sini dan di laporan."
+  },
+  "list": {
+    "title": "Menu",
+    "create": "Tambah menu",
+    "categories": "Kategori",
+    "search": "Cari menu",
+    "searchPlaceholder": "Nama atau SKU",
+    "allCategories": "Semua kategori",
+    "stock": "Kondisi stok",
+    "allStock": "Semua kondisi",
+    "menu": "Menu",
+    "sku": "SKU {{sku}}",
+    "categoryInactive": "{{name}} (nonaktif)",
+    "empty": "Belum ada menu.",
+    "noCategories": "Belum ada kategori. Buat kategori dulu, lalu menunya.",
+    "noMatch": "Tidak ada menu yang cocok."
+  },
+  "stock": {
+    "title": "Stok",
+    "status": {
+      "ok": "Aman",
+      "low": "Menipis",
+      "out": "Habis",
+      "untracked": "Tanpa stok"
+    },
+    "untracked": "Stok menu ini tidak dilacak: selalu tersedia di kasir.",
+    "alertAt": "Tampil Menipis di {{stock}} atau kurang.",
+    "alertOff": "Alert stok menipis mati."
+  },
+  "create": {
+    "title": "Tambah menu",
+    "submit": "Simpan menu",
+    "needCategory": "Setiap menu masuk satu kategori, dan outlet ini belum punya kategori.",
+    "toCategories": "Buat kategori"
+  },
+  "detail": {
+    "back": "Semua menu",
+    "details": "Detail menu",
+    "none": "—",
+    "actions": "Aksi"
+  },
+  "edit": {
+    "submit": "Simpan perubahan",
+    "done": "Perubahan disimpan."
+  },
+  "activate": {
+    "action": "Aktifkan",
+    "title": "Aktifkan {{name}}?",
+    "body": "{{name}} tampil lagi di kasir.",
+    "done": "{{name}} diaktifkan."
+  },
+  "deactivate": {
+    "action": "Nonaktifkan",
+    "title": "Nonaktifkan {{name}}?",
+    "body": "{{name}} tidak tampil di kasir, tapi tetap ada di sini dan di laporan. Bisa diaktifkan lagi kapan saja.",
+    "done": "{{name}} dinonaktifkan."
+  },
+  "delete": {
+    "action": "Hapus menu",
+    "title": "Hapus {{name}}?",
+    "body": "Menu ini hilang dari kasir dan dari daftar ini. Transaksi yang sudah terjadi tetap menyimpan nama dan harganya."
+  },
+  "adjust": {
+    "action": "Sesuaikan stok",
+    "title": "Sesuaikan stok {{name}}",
+    "current": "Stok sekarang {{stock}}.",
+    "type": "Jenis penyesuaian",
+    "types": {
+      "in": "Tambah",
+      "out": "Kurang",
+      "set": "Set jumlah"
+    },
+    "typeHints": {
+      "in": "Barang masuk",
+      "out": "Rusak, basi, terpakai",
+      "set": "Stok opname: hasil hitung"
+    },
+    "qty": {
+      "in": "Jumlah yang ditambah",
+      "out": "Jumlah yang dikurangi",
+      "set": "Jumlah hasil hitung"
+    },
+    "after": "Stok sesudahnya: {{stock}}",
+    "reason": "Alasan",
+    "reasons": {
+      "restock": "Restock",
+      "damaged": "Rusak/basi",
+      "correction": "Koreksi",
+      "other": "Lainnya"
+    },
+    "note": "Catatan",
+    "noteHint": "Maksimal 200 karakter. Wajib untuk alasan Lainnya.",
+    "submit": "Simpan penyesuaian",
+    "done": "Stok {{name}} sekarang {{stock}}."
+  },
+  "alert": {
+    "action": "Ubah ambang",
+    "title": "Ambang stok menipis {{name}}",
+    "submit": "Simpan ambang",
+    "done": "Ambang stok {{name}} disimpan."
+  },
+  "history": {
+    "title": "Riwayat stok",
+    "empty": "Belum ada riwayat stok.",
+    "when": "Waktu",
+    "what": "Keterangan",
+    "change": "Perubahan",
+    "after": "Stok",
+    "by": "oleh {{name}}",
+    "types": {
+      "initial": "Stok awal",
+      "in": "Tambah",
+      "out": "Kurang",
+      "set": "Stok opname",
+      "sale": "Penjualan",
+      "void": "Void"
+    }
+  },
+  "categories": {
+    "title": "Kategori",
+    "intro": "Urutan di sini adalah urutan di kasir. Kategori nonaktif, beserta menunya, tidak tampil di kasir.",
+    "create": "Tambah kategori",
+    "empty": "Belum ada kategori. Kategori mengelompokkan menu di kasir, mis. Minuman atau Makanan.",
+    "menuCount": "{{count}} menu",
+    "noIcon": "Tanpa ikon",
+    "moveUp": "Naikkan {{name}}",
+    "moveDown": "Turunkan {{name}}",
+    "moved": "{{name}} sekarang di urutan {{position}}.",
+    "fields": {
+      "name": "Nama kategori",
+      "icon": "Ikon",
+      "customIcon": "Emoji lain"
+    },
+    "nameHint": "Maksimal 50 karakter, unik di outlet ini.",
+    "iconHint": "Tampil di kasir, dan di menunya selama belum punya foto.",
+    "customIconHint": "Satu emoji, mis. dari keyboard HP Anda.",
+    "form": {
+      "createTitle": "Tambah kategori",
+      "editTitle": "Ubah {{name}}",
+      "edit": "Ubah",
+      "submit": "Simpan kategori",
+      "created": "Kategori {{name}} dibuat.",
+      "saved": "Perubahan {{name}} disimpan."
+    },
+    "activate": {
+      "action": "Aktifkan",
+      "title": "Aktifkan {{name}}?",
+      "body": "{{name}} dan menunya yang aktif tampil lagi di kasir.",
+      "done": "{{name}} diaktifkan."
+    },
+    "deactivate": {
+      "action": "Nonaktifkan",
+      "title": "Nonaktifkan {{name}}?",
+      "body": "{{name}} dan semua menunya tidak tampil di kasir, tapi tetap ada di sini. Bisa diaktifkan lagi kapan saja.",
+      "done": "{{name}} dinonaktifkan."
+    },
+    "delete": {
+      "action": "Hapus",
+      "title": "Hapus {{name}}?",
+      "body": "Kategori ini hilang dari daftar dan dari kasir.",
+      "inUse": "Kategori ini masih berisi {{count}} menu. Pindahkan menunya ke kategori lain, atau hapus menunya dulu.",
+      "done": "{{name}} dihapus."
+    }
+  }
+}

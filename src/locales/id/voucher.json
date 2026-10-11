@@ -1,0 +1,131 @@
+{
+  "list": {
+    "title": "Voucher",
+    "intro": "Diskon dari Owner untuk kasir semua outlet atau beberapa. Waktunya dalam WIB.",
+    "create": "Buat voucher",
+    "search": "Cari voucher",
+    "searchPlaceholder": "Kode atau nama",
+    "empty": "Belum ada voucher. Buat yang pertama.",
+    "noMatch": "Tidak ada voucher yang cocok."
+  },
+  "outletList": {
+    "title": "Voucher",
+    "intro": "Voucher yang bisa dipakai kasir outlet ini. Hanya Owner yang membuat dan mengubahnya."
+  },
+  "columns": {
+    "code": "Kode",
+    "discount": "Potongan",
+    "outlets": "Outlet berlaku",
+    "used": "Terpakai",
+    "period": "Periode",
+    "status": "Status"
+  },
+  "status": {
+    "active": "Aktif",
+    "scheduled": "Terjadwal",
+    "used_up": "Habis",
+    "expired": "Expired",
+    "inactive": "Nonaktif"
+  },
+  "type": {
+    "percent": "Persen",
+    "amount": "Nominal Rp"
+  },
+  "terms": {
+    "max": "maks. {{amount}}",
+    "min": "min. belanja {{amount}}"
+  },
+  "outlets": {
+    "all": "Semua outlet",
+    "some": "Pilih outlet",
+    "none": "Tidak ada outlet"
+  },
+  "used": "{{used}} / {{quota}}",
+  "period": {
+    "range": "{{start}} – {{end}} WIB",
+    "until": "Sampai {{end}} WIB"
+  },
+  "fields": {
+    "code": "Kode voucher",
+    "name": "Nama",
+    "type": "Tipe potongan",
+    "percent": "Potongan (%)",
+    "amount": "Potongan",
+    "maxDiscount": "Maksimal potongan",
+    "minSpend": "Minimal belanja",
+    "quota": "Kuota pemakaian",
+    "startAt": "Mulai (WIB)",
+    "expiredAt": "Expired (WIB)",
+    "outlets": "Berlaku di",
+    "active": "Aktif"
+  },
+  "form": {
+    "identity": "Voucher",
+    "codeHint": "3–20 huruf dan angka, yang diketik kasir. Disimpan dengan huruf besar.",
+    "nameHint": "Opsional, hanya terlihat di admin.",
+    "discount": "Potongan",
+    "percentHint": "Dari subtotal, sebelum service dan pajak.",
+    "amountHint": "Rupiah, tidak lebih dari subtotal.",
+    "percentValueHint": "Maksimal 2 desimal, sampai 100.",
+    "optional": "Opsional.",
+    "usage": "Pemakaian",
+    "quotaHint": "Gabungan semua outlet. Transaksi yang di-void mengembalikan kuotanya.",
+    "quotaUsedHint": "Sudah dipakai: kuota hanya bisa ditambah.",
+    "periodHint": "Jam mulai dan expired dalam WIB untuk semua outlet.",
+    "startHint": "Kosongkan agar langsung berlaku.",
+    "expiryUsedHint": "Sudah dipakai: expired hanya bisa diperpanjang.",
+    "outlets": "Outlet",
+    "allOutletsHint": "Termasuk outlet yang dibuat nanti.",
+    "someOutletsHint": "Hanya outlet yang dipilih di bawah.",
+    "pickOutlets": "Outlet yang dipilih",
+    "activeHint": "Kasir bisa memakainya begitu periodenya mulai. Bisa dinonaktifkan kapan saja.",
+    "usedNotice": "Voucher ini sudah pernah dipakai, jadi kode dan tipenya terkunci, kuotanya hanya bisa ditambah, dan expired-nya hanya bisa diperpanjang."
+  },
+  "create": {
+    "title": "Buat voucher",
+    "intro": "Kasir memakainya dengan mengetik kodenya, satu voucher per transaksi.",
+    "submit": "Buat voucher"
+  },
+  "edit": {
+    "title": "Ubah voucher",
+    "submit": "Simpan"
+  },
+  "detail": {
+    "back": "Voucher",
+    "edit": "Ubah",
+    "terms": "Syarat",
+    "noMinSpend": "Tanpa minimal",
+    "startsAtOnce": "Langsung berlaku",
+    "wib": "{{time}} WIB",
+    "firstUsed": "Pertama dipakai",
+    "neverUsed": "Belum pernah dipakai",
+    "status": "Status",
+    "activeBody": "Voucher ini aktif: kasir bisa memakainya selama periodenya, sampai kuotanya habis.",
+    "inactiveBody": "Voucher ini nonaktif: kasir tidak bisa memakainya. Riwayatnya tetap ada.",
+    "deactivate": "Nonaktifkan",
+    "deactivateTitle": "Nonaktifkan {{code}}?",
+    "deactivateBody": "Mulai transaksi berikutnya, kasir tidak bisa memakai voucher ini. Anda bisa mengaktifkannya lagi.",
+    "deactivated": "Voucher dinonaktifkan.",
+    "activate": "Aktifkan",
+    "activateTitle": "Aktifkan {{code}}?",
+    "activateBody": "Kasir bisa memakainya lagi selama periodenya, sampai kuotanya habis.",
+    "activated": "Voucher diaktifkan.",
+    "delete": "Hapus",
+    "deleteTitle": "Hapus {{code}}?",
+    "deleteBody": "Voucher ini belum pernah dipakai. Setelah dihapus, kodenya bisa dipakai voucher lain.",
+    "usedCantDelete": "Voucher yang sudah pernah dipakai tidak bisa dihapus, karena transaksinya tetap menyebutnya. Nonaktifkan saja."
+  },
+  "redemptions": {
+    "title": "Riwayat pemakaian",
+    "empty": "Belum ada transaksi yang memakai voucher ini.",
+    "pastEnd": "Halaman ini kosong.",
+    "when": "Waktu",
+    "outlet": "Outlet",
+    "receipt": "Nomor struk",
+    "discount": "Potongan",
+    "status": {
+      "paid": "Lunas",
+      "void": "Void"
+    }
+  }
+}

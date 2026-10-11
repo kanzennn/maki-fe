@@ -1,0 +1,181 @@
+# maki-fe's pipeline (spec, Infra & deploy): on every push and pull request,
+# the checks, the unit tests, the build and the end-to-end tests against the
+# real backend; on main, the build's files to the VPS, where Caddy serves
+# them. maki-be is checked out beside this repository, as in development
+# (../maki-be): the API types must match its contract, and the end-to-end
+# tests run its api and worker.
+#
+# The deploy waits until the repository's DEPLOY_ENABLED variable is true;
+# the production environment holds its server and secrets. A private maki-be
+# needs the MAKI_BE_TOKEN secret, a token that may read it. See
+# docs/deployment.md.
+name: maki-fe
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+defaults:
+  run:
+    working-directory: maki-fe
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: maki-fe
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ github.repository_owner }}/maki-be
+          token: ${{ secrets.MAKI_BE_TOKEN || github.token }}
+          path: maki-be
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: maki-fe/package-lock.json
+      - run: npm ci
+      - name: Lint, and the translations complete
+        run: npm run lint
+      - name: The API types match maki-be's contract
+        run: |
+          npm run gen:api
+          git diff --exit-code -- src/shared/api/schema.d.ts
+      - name: Unit and screen tests
+        run: npm test
+      - name: Build
+        run: npm run build
+      - uses: actions/upload-artifact@v7
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          name: dist
+          path: maki-fe/dist
+          retention-days: 7
+
+  e2e:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: maki
+          POSTGRES_PASSWORD: maki
+          POSTGRES_DB: maki
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U maki -d maki"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      APP_ENV: development
+      DATABASE_URL: postgres://maki:maki@localhost:5432/maki?sslmode=disable
+      HTTP_ADDR: 127.0.0.1:8080
+      API_PROXY_TARGET: http://127.0.0.1:8080
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: maki-fe
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ github.repository_owner }}/maki-be
+          token: ${{ secrets.MAKI_BE_TOKEN || github.token }}
+          path: maki-be
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: maki-be/go.mod
+          cache-dependency-path: maki-be/go.sum
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: maki-fe/package-lock.json
+      - name: The backend, with its Owner
+        working-directory: maki-be
+        run: |
+          mkdir -p "$RUNNER_TEMP/bin"
+          go build -o "$RUNNER_TEMP/bin/" ./cmd/api ./cmd/worker
+          # A secret of this run only, never printed.
+          echo "JWT_SECRET=$(openssl rand -base64 48)" >> "$GITHUB_ENV"
+          password="$(openssl rand -hex 16)"
+          echo "::add-mask::$password"
+          echo "E2E_PASSWORD=$password" >> "$GITHUB_ENV"
+          "$RUNNER_TEMP/bin/api" migrate
+          printf 'E2E Owner\ne2e.owner\ne2e@maki.local\n%s\n%s\n' "$password" "$password" | "$RUNNER_TEMP/bin/api" create-owner
+      - name: The api and the worker, running
+        run: |
+          nohup "$RUNNER_TEMP/bin/api" > "$RUNNER_TEMP/api.log" 2>&1 &
+          nohup "$RUNNER_TEMP/bin/worker" > "$RUNNER_TEMP/worker.log" 2>&1 &
+          for _ in $(seq 1 50); do curl -sf http://127.0.0.1:8080/readyz > /dev/null && exit 0; sleep 0.2; done
+          cat "$RUNNER_TEMP/api.log"
+          exit 1
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: The admin area and the cashier
+        env:
+          E2E_OWNER_USERNAME: e2e.owner
+          E2E_OWNER_PASSWORD: ${{ env.E2E_PASSWORD }}
+        run: npx playwright test e2e/admin.spec.ts e2e/pos.spec.ts e2e/voucher.spec.ts e2e/tables.spec.ts
+      - name: Signing in, which resets the Owner's password, last
+        env:
+          E2E_USERNAME: e2e.owner
+          E2E_WORKER_LOG: ${{ runner.temp }}/worker.log
+        run: npx playwright test e2e/auth.spec.ts e2e/smoke.spec.ts
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright
+          path: |
+            maki-fe/playwright-report
+            maki-fe/test-results
+            ${{ runner.temp }}/*.log
+          retention-days: 7
+
+  deploy:
+    needs: [check, e2e]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: production
+      cancel-in-progress: false
+    env:
+      HOST: ${{ vars.DEPLOY_HOST }}
+      DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      - name: The server's key
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy
+          chmod 600 ~/.ssh/deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf 'Host deploy\n  HostName %s\n  User %s\n  IdentityFile ~/.ssh/deploy\n  BatchMode yes\n' \
+            "$HOST" "$DEPLOY_USER" > ~/.ssh/config
+      - name: Deploy
+        # The build to incoming/, then deploy/release.sh makes it a release of
+        # its own and switches current to it at once.
+        run: |
+          tar -C dist -czf web.tar.gz .
+          ssh deploy 'mkdir -p /srv/maki/web/incoming'
+          scp web.tar.gz "deploy:/srv/maki/web/incoming/$GITHUB_SHA.tar.gz"
+          ssh deploy "sh -s -- $GITHUB_SHA" < deploy/release.sh

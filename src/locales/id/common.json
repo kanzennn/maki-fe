@@ -1,0 +1,172 @@
+{
+  "app": {
+    "name": "Maki"
+  },
+  "error": {
+    "title": "Terjadi kesalahan",
+    "body": "Halaman ini tidak bisa dimuat. Coba lagi sebentar lagi.",
+    "requestId": "Kode referensi: {{id}}"
+  },
+  "notFound": {
+    "title": "Halaman tidak ditemukan",
+    "body": "Alamat yang Anda buka tidak ada.",
+    "home": "Kembali ke beranda",
+    "gone": "Data yang Anda buka tidak ada, atau sudah dihapus."
+  },
+  "apiError": {
+    "internal_error": "Terjadi kesalahan di server. Coba lagi.",
+    "not_found": "Data tidak ditemukan.",
+    "method_not_allowed": "Aksi ini tidak diizinkan.",
+    "payload_too_large": "Data yang dikirim terlalu besar.",
+    "not_ready": "Layanan sedang tidak tersedia. Coba lagi sebentar lagi.",
+    "network": "Tidak bisa terhubung ke server. Periksa koneksi internet.",
+    "invalid_credentials": "Username atau password salah.",
+    "account_disabled": "Akun ini dinonaktifkan. Hubungi Manager atau Owner.",
+    "rate_limited": "Terlalu banyak percobaan. Coba lagi dalam {{count}} menit.",
+    "token_invalid": "Link ini sudah tidak berlaku. Minta link baru.",
+    "wrong_password": "Password saat ini salah.",
+    "password_too_short": "Password minimal {{min}} karakter.",
+    "password_too_long": "Password maksimal {{max}} karakter.",
+    "password_same_as_username": "Password tidak boleh sama dengan username.",
+    "validation_failed": "Periksa lagi isian yang ditandai.",
+    "invalid_request": "Permintaan tidak valid. Muat ulang halaman, lalu coba lagi.",
+    "unauthorized": "Sesi Anda sudah berakhir. Silakan masuk lagi.",
+    "refresh_superseded": "Sesi baru saja diperbarui. Coba lagi.",
+    "email_unchanged": "Itu sudah email akun Anda.",
+    "password_change_required": "Ganti password Anda dulu sebelum melanjutkan.",
+    "forbidden": "Anda tidak punya izin untuk melakukan ini.",
+    "outlet_not_found": "Outlet ini tidak ada, atau Anda tidak punya akses ke outlet ini.",
+    "outlet_inactive": "Outlet Anda sedang dinonaktifkan. Hubungi Owner.",
+    "outlet_code_taken": "Kode ini sudah dipakai outlet lain. Kode outlet yang sudah dihapus juga tidak bisa dipakai lagi.",
+    "outlet_active": "Nonaktifkan outlet ini dulu sebelum menghapusnya.",
+    "outlet_name_mismatch": "Nama yang diketik tidak sama dengan nama outlet.",
+    "role_not_found": "Role ini tidak ada lagi.",
+    "role_name_taken": "Nama ini sudah dipakai role lain di outlet ini.",
+    "role_in_use": "Role ini masih dipakai. Pindahkan dulu user-nya ke role lain.",
+    "permission_not_held": "Tindakan ini melibatkan izin yang tidak Anda punya sendiri.",
+    "user_not_found": "User ini tidak ada di outlet ini.",
+    "username_taken": "Username ini sudah dipakai. Username user yang sudah dihapus juga tidak bisa dipakai lagi.",
+    "own_account": "Akun Anda sendiri tidak bisa diubah di sini.",
+    "owner_manages_managers": "Owner mengelola akun Manager. Akun staf dikelola Manager outletnya.",
+    "manager_account": "Akun Manager hanya bisa dibuat dan diubah oleh Owner.",
+    "category_not_found": "Kategori ini tidak ada lagi.",
+    "category_name_taken": "Nama ini sudah dipakai kategori lain di outlet ini.",
+    "category_in_use": "Kategori ini masih berisi {{menus}} menu. Pindahkan atau hapus menunya dulu.",
+    "categories_changed": "Daftar kategori baru saja berubah. Urutannya sudah dimuat ulang, coba lagi.",
+    "menu_not_found": "Menu ini tidak ada lagi.",
+    "menu_sku_taken": "SKU ini sudah dipakai menu lain di outlet ini.",
+    "stock_insufficient": "Stok tidak cukup: tersisa {{available}}.",
+    "stock_not_tracked": "Stok menu ini tidak dilacak.",
+    "voucher_not_found": "Tidak ada voucher dengan kode ini.",
+    "voucher_code_taken": "Kode ini sudah dipakai voucher lain. Kode voucher yang sudah dihapus boleh dipakai lagi.",
+    "voucher_used": "Voucher ini sudah pernah dipakai, jadi tidak bisa dihapus. Nonaktifkan saja.",
+    "voucher_inactive": "Voucher ini sedang nonaktif.",
+    "voucher_not_started": "Voucher ini belum berlaku.",
+    "voucher_expired": "Voucher ini sudah expired.",
+    "voucher_used_up": "Kuota voucher ini sudah habis.",
+    "voucher_not_for_outlet": "Voucher ini tidak berlaku di outlet ini.",
+    "voucher_min_spend": "Belanja belum mencapai minimal belanja voucher ini.",
+    "area_not_found": "Area tidak ditemukan.",
+    "area_name_taken": "Nama ini sudah dipakai area lain di outlet ini.",
+    "area_not_empty": "Area ini masih berisi {{tables}} meja. Pindahkan atau hapus mejanya dulu.",
+    "areas_changed": "Daftar area baru saja berubah. Urutannya sudah dimuat ulang, coba lagi.",
+    "layout_changed": "Layout atau meja di area ini berubah sejak editor dibuka. Muat ulang layout-nya, lalu atur lagi.",
+    "table_not_found": "Meja tidak ditemukan.",
+    "table_name_taken": "Nama ini sudah dipakai meja lain di outlet ini.",
+    "table_occupied": "Meja ini sedang terisi. Kosongkan mejanya dulu.",
+    "table_unavailable": "Meja ini sedang tidak bisa dipilih.",
+    "dine_in_mode_changed": "Cara outlet ini mencatat tempat tamu dine-in baru saja berubah: di meja, atau dengan nomor papan.",
+    "schedule_not_found": "Jadwal tidak ditemukan.",
+    "schedule_closed": "Jadwal ini sudah selesai atau dibatalkan, jadi tidak bisa diubah lagi.",
+    "schedule_overlaps": "Jadwal ini bentrok dengan jadwal lain di meja yang sama."
+  },
+  "nav": {
+    "label": "Menu utama",
+    "dashboard": "Dasbor",
+    "menus": "Menu",
+    "outlets": "Outlet",
+    "vouchers": "Voucher",
+    "roles": "Role",
+    "users": "User",
+    "pos": "Kasir",
+    "history": "Riwayat",
+    "devices": "Perangkat",
+    "admin": "Admin",
+    "tables": "Meja"
+  },
+  "actions": {
+    "save": "Simpan",
+    "saving": "Menyimpan…",
+    "cancel": "Batal",
+    "retry": "Coba lagi"
+  },
+  "dialog": {
+    "close": "Tutup"
+  },
+  "status": {
+    "label": "Status",
+    "all": "Semua status",
+    "active": "Aktif",
+    "inactive": "Nonaktif"
+  },
+  "list": {
+    "loading": "Memuat…",
+    "pages": "Halaman daftar",
+    "range": "{{from, number}}–{{to, number}} dari {{total, number}}",
+    "previous": "Halaman sebelumnya",
+    "next": "Halaman berikutnya",
+    "pastEnd": "Halaman ini kosong.",
+    "firstPage": "Ke halaman pertama"
+  },
+  "validation": {
+    "required": "Wajib diisi.",
+    "max": "Terlalu panjang.",
+    "min": "Terlalu pendek.",
+    "format": "Formatnya belum sesuai.",
+    "email": "Alamat email tidak valid.",
+    "timezone": "Zona waktu tidak dikenal.",
+    "oneof": "Pilihan ini tidak tersedia.",
+    "different": "Jam tutup tidak boleh sama dengan jam buka.",
+    "range": "Angkanya di luar batas.",
+    "insufficient": "Lebih dari stok yang ada.",
+    "decimals": "Maksimal 2 angka di belakang koma.",
+    "exists": "Pilihan ini sudah tidak ada. Muat ulang halaman, lalu pilih lagi.",
+    "mismatch": "Password tidak sama.",
+    "invalid": "Isian ini tidak valid.",
+    "locked": "Voucher ini sudah pernah dipakai, jadi isian ini tidak bisa diubah.",
+    "decrease": "Voucher ini sudah pernah dipakai, jadi kuotanya hanya bisa ditambah.",
+    "earlier": "Voucher ini sudah pernah dipakai, jadi expired-nya hanya bisa diperpanjang.",
+    "future": "Harus nanti, bukan sekarang atau sebelumnya.",
+    "after": "Harus setelah waktu mulai.",
+    "duplicate": "Ada yang terpilih dua kali.",
+    "overlap": "Bertumpuk dengan meja lain.",
+    "dine_in": "Takeaway tidak memakai meja."
+  },
+  "noAccess": {
+    "title": "Belum ada halaman untuk akun Anda",
+    "body": "Akun Anda belum punya akses ke halaman mana pun di sini. Hubungi Manager outlet Anda."
+  },
+  "floor": {
+    "legend": "Keterangan:",
+    "status": {
+      "available": "Tersedia",
+      "occupied": "Terisi",
+      "inactive": "Nonaktif",
+      "scheduled": "Nonaktif terjadwal"
+    },
+    "decoration": {
+      "wall": "Dinding",
+      "cashier": "Kasir",
+      "door": "Pintu"
+    },
+    "seats": "{{count}} kursi",
+    "tableLabel": "Meja {{name}}, {{status}}",
+    "tableLabelSeats": "Meja {{name}}, {{status}}, {{seats}}",
+    "unplaced": "Belum ditempatkan di layout:",
+    "zoomWhat": "layout"
+  },
+  "zoom": {
+    "in": "Perbesar {{what}}",
+    "out": "Perkecil {{what}}"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "fields": {
+    "name": "Nama role",
+    "description": "Deskripsi",
+    "permissions": "Izin"
+  },
+  "form": {
+    "descriptionHint": "Opsional, maksimal 200 karakter.",
+    "permissionsHint": "Centang yang boleh dilakukan pemegang role ini. Mengelola sesuatu ikut mencentang izin melihatnya.",
+    "notHeld": "Anda tidak punya izin ini, jadi tidak bisa memberikannya."
+  },
+  "modules": {
+    "dashboard": "Dasbor",
+    "role": "Role",
+    "user": "User",
+    "menu": "Menu & stok",
+    "table": "Meja",
+    "checkout": "Kasir",
+    "payment": "Payment Control",
+    "log": "Log Action"
+  },
+  "permissions": {
+    "dashboard": {
+      "view": "Lihat dasbor outlet"
+    },
+    "role": {
+      "view": "Lihat role",
+      "manage": "Buat, ubah & hapus role"
+    },
+    "user": {
+      "view": "Lihat user",
+      "manage": "Buat, ubah & hapus user"
+    },
+    "menu": {
+      "view": "Lihat menu",
+      "manage": "Buat, ubah, hapus & nonaktifkan menu"
+    },
+    "stock": {
+      "adjust": "Tambah/kurangi stok & atur stok alert"
+    },
+    "table": {
+      "view": "Lihat meja",
+      "manage": "Kelola meja, layout & jadwal nonaktif"
+    },
+    "checkout": {
+      "create": "Bertransaksi di kasir"
+    },
+    "order": {
+      "void": "Membatalkan transaksi (dengan alasan)"
+    },
+    "payment": {
+      "manage": "Mengatur Payment Control"
+    },
+    "log": {
+      "view": "Lihat Log Action outlet"
+    }
+  },
+  "list": {
+    "title": "Role",
+    "intro": "Kumpulan izin yang diberikan ke user. Owner dan Manager punya izin tetap, di luar daftar ini.",
+    "create": "Tambah role",
+    "empty": "Belum ada role di outlet ini.",
+    "permissions": "Izin",
+    "users": "User",
+    "permissionCount": "{{count}} izin",
+    "userCount": "{{count}} user"
+  },
+  "create": {
+    "title": "Tambah role",
+    "submit": "Simpan role"
+  },
+  "edit": {
+    "submit": "Simpan perubahan",
+    "done": "Role disimpan. Pemegangnya memakai izin baru mulai permintaan berikutnya."
+  },
+  "detail": {
+    "back": "Semua role",
+    "holders": "Dipegang {{count}} user",
+    "noHolders": "Belum ada user dengan role ini.",
+    "noPermissions": "Role ini belum punya izin."
+  },
+  "delete": {
+    "action": "Hapus role",
+    "title": "Hapus role {{name}}?",
+    "body": "Role ini hilang dari outlet. Tindakan ini tidak bisa dibatalkan.",
+    "inUse": "Role ini masih dipegang {{count}} user. Pindahkan mereka ke role lain dulu:",
+    "submit": "Hapus role"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Perangkat",
+  "intro": "Perangkat kasir outlet ini. Untuk menambah perangkat, Manager masuk di perangkat itu, lalu membuka Kasir.",
+  "columns": {
+    "code": "Kode",
+    "name": "Nama",
+    "platform": "Platform",
+    "status": "Status",
+    "activated": "Diaktifkan",
+    "lastSeen": "Terakhir dipakai",
+    "actions": "Aksi"
+  },
+  "platform": {
+    "web": "Browser",
+    "android": "Android"
+  },
+  "status": {
+    "active": "Aktif",
+    "revoked": "Dicabut"
+  },
+  "activated": "{{date}} oleh {{name}}",
+  "revoked": "Dicabut {{date}} oleh {{name}}",
+  "never": "Belum pernah",
+  "empty": "Belum ada perangkat kasir.",
+  "revoke": {
+    "action": "Cabut",
+    "label": "Cabut {{name}}",
+    "title": "Cabut {{name}}?",
+    "body": "Perangkat ini langsung tidak bisa bertransaksi; transaksi yang sedang berjalan selesai dulu. Kode {{code}} tidak dipakai lagi.",
+    "confirm": "Cabut perangkat",
+    "done": "{{name}} sudah dicabut."
+  }
+}

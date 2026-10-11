@@ -1,0 +1,194 @@
+{
+  "fields": {
+    "name": "Menu name",
+    "category": "Category",
+    "price": "Price",
+    "sku": "SKU",
+    "description": "Description",
+    "stockMode": "Stock mode",
+    "initialStock": "Starting stock",
+    "stockAlert": "Low stock threshold",
+    "active": "Show at the cashier"
+  },
+  "form": {
+    "chooseCategory": "Choose a category",
+    "inactiveCategory": "{{name}} (inactive)",
+    "priceHint": "Rupiah, no decimals. At most Rp 100,000,000.",
+    "skuHint": "Optional. Letters, digits, dots, dashes or underscores, up to 32. Unique in this outlet.",
+    "descriptionHint": "Optional, up to 500 characters.",
+    "untracked": "No stock",
+    "untrackedHint": "Always available at the cashier.",
+    "tracked": "Tracked stock",
+    "trackedHint": "Goes down with every sale. Out of stock means it can't be ordered.",
+    "initialStockHint": "The portions or pieces there are now, up to 1,000,000.",
+    "stockNow": "{{stock}} in stock. Stock changes through stock adjustments, not in this form.",
+    "stopTracking": "The count and its history are kept, but no longer used: this menu is always available at the cashier.",
+    "alertHint": "Stock at or below this number shows as Low. Leave it empty or 0 to turn it off.",
+    "activeHint": "An inactive menu is hidden at the cashier, but stays here and in the reports."
+  },
+  "list": {
+    "title": "Menu",
+    "create": "Add menu",
+    "categories": "Categories",
+    "search": "Search menus",
+    "searchPlaceholder": "Name or SKU",
+    "allCategories": "All categories",
+    "stock": "Stock",
+    "allStock": "Any stock",
+    "menu": "Menu",
+    "sku": "SKU {{sku}}",
+    "categoryInactive": "{{name}} (inactive)",
+    "empty": "No menus yet.",
+    "noCategories": "No categories yet. Create a category first, then its menus.",
+    "noMatch": "No menus match."
+  },
+  "stock": {
+    "title": "Stock",
+    "status": {
+      "ok": "In stock",
+      "low": "Low",
+      "out": "Out of stock",
+      "untracked": "No stock"
+    },
+    "untracked": "This menu's stock isn't tracked: it is always available at the cashier.",
+    "alertAt": "Shows as Low at {{stock}} or less.",
+    "alertOff": "The low stock alert is off."
+  },
+  "create": {
+    "title": "Add menu",
+    "submit": "Save menu",
+    "needCategory": "Every menu belongs to a category, and this outlet has none yet.",
+    "toCategories": "Create a category"
+  },
+  "detail": {
+    "back": "All menus",
+    "details": "Menu details",
+    "none": "—",
+    "actions": "Actions"
+  },
+  "edit": {
+    "submit": "Save changes",
+    "done": "Changes saved."
+  },
+  "activate": {
+    "action": "Activate",
+    "title": "Activate {{name}}?",
+    "body": "{{name}} shows at the cashier again.",
+    "done": "{{name}} activated."
+  },
+  "deactivate": {
+    "action": "Deactivate",
+    "title": "Deactivate {{name}}?",
+    "body": "{{name}} is hidden at the cashier, but stays here and in the reports. You can activate it again at any time.",
+    "done": "{{name}} deactivated."
+  },
+  "delete": {
+    "action": "Delete menu",
+    "title": "Delete {{name}}?",
+    "body": "This menu disappears from the cashier and from this list. Past sales keep its name and price."
+  },
+  "adjust": {
+    "action": "Adjust stock",
+    "title": "Adjust the stock of {{name}}",
+    "current": "{{stock}} in stock now.",
+    "type": "Kind of adjustment",
+    "types": {
+      "in": "Add",
+      "out": "Remove",
+      "set": "Set count"
+    },
+    "typeHints": {
+      "in": "Stock coming in",
+      "out": "Damaged, spoiled, used up",
+      "set": "Stock take: the count found"
+    },
+    "qty": {
+      "in": "Amount to add",
+      "out": "Amount to remove",
+      "set": "Count found"
+    },
+    "after": "Stock afterwards: {{stock}}",
+    "reason": "Reason",
+    "reasons": {
+      "restock": "Restock",
+      "damaged": "Damaged/spoiled",
+      "correction": "Correction",
+      "other": "Other"
+    },
+    "note": "Note",
+    "noteHint": "Up to 200 characters. Required for the reason Other.",
+    "submit": "Save adjustment",
+    "done": "{{name}} now has {{stock}} in stock."
+  },
+  "alert": {
+    "action": "Change threshold",
+    "title": "Low stock threshold of {{name}}",
+    "submit": "Save threshold",
+    "done": "The stock threshold of {{name}} is saved."
+  },
+  "history": {
+    "title": "Stock history",
+    "empty": "No stock history yet.",
+    "when": "When",
+    "what": "Details",
+    "change": "Change",
+    "after": "Stock",
+    "by": "by {{name}}",
+    "types": {
+      "initial": "Starting stock",
+      "in": "Added",
+      "out": "Removed",
+      "set": "Stock take",
+      "sale": "Sale",
+      "void": "Void"
+    }
+  },
+  "categories": {
+    "title": "Categories",
+    "intro": "The order here is the order at the cashier. An inactive category, with its menus, is hidden at the cashier.",
+    "create": "Add category",
+    "empty": "No categories yet. Categories group the menus at the cashier, e.g. Drinks or Food.",
+    "menuCount_one": "{{count}} menu",
+    "menuCount_other": "{{count}} menus",
+    "noIcon": "No icon",
+    "moveUp": "Move {{name}} up",
+    "moveDown": "Move {{name}} down",
+    "moved": "{{name}} is now number {{position}}.",
+    "fields": {
+      "name": "Category name",
+      "icon": "Icon",
+      "customIcon": "Another emoji"
+    },
+    "nameHint": "Up to 50 characters, unique in this outlet.",
+    "iconHint": "Shown at the cashier, and on its menus until they have a photo.",
+    "customIconHint": "One emoji, e.g. from your phone's keyboard.",
+    "form": {
+      "createTitle": "Add category",
+      "editTitle": "Change {{name}}",
+      "edit": "Change",
+      "submit": "Save category",
+      "created": "Category {{name}} created.",
+      "saved": "Changes to {{name}} saved."
+    },
+    "activate": {
+      "action": "Activate",
+      "title": "Activate {{name}}?",
+      "body": "{{name}} and its active menus show at the cashier again.",
+      "done": "{{name}} activated."
+    },
+    "deactivate": {
+      "action": "Deactivate",
+      "title": "Deactivate {{name}}?",
+      "body": "{{name}} and all its menus are hidden at the cashier, but stay here. You can activate it again at any time.",
+      "done": "{{name}} deactivated."
+    },
+    "delete": {
+      "action": "Delete",
+      "title": "Delete {{name}}?",
+      "body": "This category disappears from the list and from the cashier.",
+      "inUse_one": "This category still holds {{count}} menu. Move it to another category, or delete it first.",
+      "inUse_other": "This category still holds {{count}} menus. Move them to another category, or delete them first.",
+      "done": "{{name}} deleted."
+    }
+  }
+}

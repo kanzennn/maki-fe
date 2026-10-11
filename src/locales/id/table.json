@@ -1,0 +1,237 @@
+{
+  "back": "Kembali ke Meja",
+  "page": {
+    "title": "Meja",
+    "intro": "Area, layout dan meja outlet ini. Statusnya mengikuti transaksi di kasir.",
+    "schedules": "Jadwal meja",
+    "areas": "Kelola area",
+    "create": "Tambah meja",
+    "areaTabs": "Area",
+    "noAreas": "Belum ada area. Buat area dulu, mis. Indoor atau Lantai 2, lalu tambahkan mejanya.",
+    "noAreasView": "Outlet ini belum punya area meja.",
+    "areaTab": "{{area}}, {{count}} meja"
+  },
+  "mode": {
+    "title": "Mode dine-in",
+    "legend": "Cara kasir mencatat tempat tamu dine-in",
+    "table": "Meja",
+    "tableHint": "Kasir memilih meja dari layout, kalau perlu.",
+    "number": "Nomor papan",
+    "numberHint": "Tamu membawa papan nomor. Kasir mengetik nomornya, lalu waiter mengantar pesanan ke sana.",
+    "save": "Simpan mode",
+    "confirm": {
+      "titleTable": "Pakai Mode Meja?",
+      "titleNumber": "Pakai Mode Nomor?",
+      "bodyTable": "Mulai transaksi berikutnya, kasir memilih meja dari layout untuk pesanan dine-in, kalau perlu, dan tidak mengetik nomor papan.",
+      "bodyNumber": "Mulai transaksi berikutnya, kasir mengetik nomor papan untuk setiap pesanan dine-in dan tidak memilih meja. Area, layout dan meja tetap tersimpan.",
+      "action": "Ganti mode"
+    },
+    "done": {
+      "table": "Outlet ini sekarang memakai Mode Meja.",
+      "number": "Outlet ini sekarang memakai Mode Nomor."
+    },
+    "numberNotice": "Outlet ini memakai Mode Nomor: kasir mengetik nomor papan dan tidak memilih meja. Area, layout dan meja di bawah tetap tersimpan untuk Mode Meja."
+  },
+  "layout": {
+    "title": "Layout {{area}}",
+    "label": "Layout area {{area}}",
+    "edit": "Atur layout",
+    "wideOnly": "Layout bisa diatur di layar selebar 840 px atau lebih, mis. tablet mendatar atau komputer."
+  },
+  "list": {
+    "title": "Meja di {{area}}",
+    "empty": "Belum ada meja di area ini.",
+    "unplaced": "Belum ditempatkan di layout",
+    "noCapacity": "Tidak diisi",
+    "seats": "{{count}} kursi",
+    "seated": "Sejak {{time}} · {{count}} transaksi",
+    "offOnRelease": "Nonaktif setelah dikosongkan",
+    "edit": "Ubah"
+  },
+  "fields": {
+    "name": "Nama meja",
+    "area": "Area",
+    "capacity": "Kapasitas kursi",
+    "shape": "Bentuk"
+  },
+  "shape": {
+    "square": "Persegi",
+    "round": "Bulat",
+    "rectangle": "Persegi panjang"
+  },
+  "form": {
+    "createTitle": "Tambah meja",
+    "editTitle": "Ubah meja {{name}}",
+    "nameHint": "Nomor atau nama, mis. A1 atau Teras 2. Maksimal 30 karakter, unik di outlet ini.",
+    "moveHint": "Pindah ke area lain mengeluarkan meja dari layout area lamanya. Tempatkan lagi di layout area barunya.",
+    "capacityHint": "Opsional, 1–99.",
+    "active": "Aktif: bisa dipilih di kasir",
+    "create": "Tambah meja",
+    "save": "Simpan meja",
+    "created": "Meja {{name}} ditambahkan. Tempatkan di layout lewat Atur layout.",
+    "saved": "Perubahan meja {{name}} disimpan."
+  },
+  "activate": {
+    "action": "Aktifkan",
+    "title": "Aktifkan meja {{name}}?",
+    "body": "Meja ini bisa dipilih lagi di kasir.",
+    "done": "Meja {{name}} diaktifkan."
+  },
+  "deactivate": {
+    "action": "Nonaktifkan",
+    "title": "Nonaktifkan meja {{name}}?",
+    "body": "Meja ini tetap di layout dengan tampilan abu-abu, tapi tidak bisa dipilih di kasir. Bisa diaktifkan lagi kapan saja.",
+    "bodyOccupied": "Meja ini sedang terisi, jadi nonaktifnya baru berlaku setelah kasir menekan Kosongkan Meja. Sesudah itu meja tidak bisa dipilih di kasir sampai diaktifkan lagi.",
+    "done": "Meja {{name}} dinonaktifkan."
+  },
+  "delete": {
+    "action": "Hapus",
+    "title": "Hapus meja {{name}}?",
+    "body": "Meja ini hilang dari layout dan dari kasir. Transaksi yang pernah memakainya tetap menyimpan namanya.",
+    "occupied": "Meja ini sedang terisi, jadi belum bisa dihapus. Kosongkan mejanya dulu di kasir.",
+    "done": "Meja {{name}} dihapus."
+  },
+  "areas": {
+    "title": "Area",
+    "intro": "Urutan di sini adalah urutan area di kasir. Tiap area punya layout sendiri.",
+    "create": "Tambah area",
+    "empty": "Belum ada area. Area mengelompokkan meja, mis. Indoor, Outdoor atau Lantai 2.",
+    "tableCount": "{{count}} meja",
+    "moveUp": "Naikkan {{name}}",
+    "moveDown": "Turunkan {{name}}",
+    "moved": "{{name}} sekarang di urutan {{position}}.",
+    "rename": "Ganti nama",
+    "fields": {
+      "name": "Nama area"
+    },
+    "form": {
+      "createTitle": "Tambah area",
+      "editTitle": "Ganti nama {{name}}",
+      "nameHint": "Maksimal 50 karakter, unik di outlet ini.",
+      "create": "Tambah area",
+      "save": "Simpan nama",
+      "created": "Area {{name}} dibuat.",
+      "saved": "Nama area diganti menjadi {{name}}."
+    },
+    "delete": {
+      "action": "Hapus",
+      "title": "Hapus area {{name}}?",
+      "body": "Area ini dan layout-nya hilang dari daftar dan dari kasir.",
+      "notEmpty": "Area ini masih berisi {{count}} meja. Pindahkan mejanya ke area lain, atau hapus mejanya dulu.",
+      "done": "Area {{name}} dihapus."
+    }
+  },
+  "editor": {
+    "title": "Atur layout {{area}}",
+    "intro": "Geser, ubah ukuran dan putar meja serta dekorasi di grid 48 × 32 kotak. Perubahan baru berlaku di kasir setelah disimpan.",
+    "narrow": "Layout editor butuh layar selebar 840 px atau lebih. Buka halaman ini di tablet mendatar atau komputer.",
+    "canvas": "Layout area {{area}}",
+    "keys": "Pilih meja atau dekorasi, lalu: panah menggeser, Shift+panah mengubah ukuran, R memutar 90°, Delete mengeluarkannya dari layout, Esc batal memilih.",
+    "save": "Simpan layout",
+    "saved": "Layout disimpan. Kasir melihat layout ini mulai sekarang.",
+    "discard": "Batalkan perubahan",
+    "discardTitle": "Batalkan perubahan?",
+    "discardBody": "Layout kembali ke versi terakhir yang disimpan.",
+    "unsaved": "Ada perubahan yang belum disimpan.",
+    "overlap": "Meja {{names}} bertumpuk. Geser salah satunya sebelum menyimpan.",
+    "reload": "Muat ulang layout",
+    "reloaded": "Layout terbaru sudah dimuat. Perubahan Anda sebelumnya tidak disimpan.",
+    "leaveTitle": "Tinggalkan layout editor?",
+    "leaveBody": "Perubahan layout yang belum disimpan akan hilang.",
+    "stay": "Tetap di sini",
+    "leave": "Tinggalkan",
+    "tableName": "Meja {{name}}",
+    "item": "{{name}}, x {{x}}, y {{y}}, {{w}} × {{h}} kotak",
+    "unplaced": "{{name}} dikeluarkan dari layout.",
+    "removed": "{{name}} dihapus dari layout.",
+    "properties": "Properti",
+    "nothingSelected": "Pilih meja atau dekorasi di layout untuk mengatur posisi, ukuran, rotasi dan bentuknya.",
+    "x": "X (kolom)",
+    "y": "Y (baris)",
+    "w": "Lebar",
+    "h": "Tinggi",
+    "tableSides": "Meja 2–16 kotak per sisi.",
+    "decorationSides": "Dekorasi 1 kotak sampai selebar layout.",
+    "rotation": "Rotasi",
+    "degrees": "{{value}}°",
+    "rotate": "Putar 90°",
+    "unplace": "Keluarkan dari layout",
+    "remove": "Hapus dekorasi",
+    "unplacedTitle": "Belum ditempatkan",
+    "allPlaced": "Semua meja area ini sudah di layout.",
+    "place": "Tempatkan",
+    "placeTable": "Tempatkan meja {{name}}",
+    "newTables": "Meja baru ditambahkan di halaman Meja, lalu ditempatkan di sini.",
+    "decorations": "Dekorasi",
+    "add": "Tambah",
+    "addDecoration": "Tambah {{name}}",
+    "decorationsHint": "Penanda saja, bukan meja. Boleh bertumpuk dengan meja."
+  },
+  "schedules": {
+    "title": "Jadwal meja",
+    "intro": "Meja dinonaktifkan otomatis selama jadwalnya, mis. untuk acara atau renovasi. Waktu dalam {{zone}}, zona waktu outlet ini.",
+    "back": "Kembali ke Jadwal meja",
+    "create": "Buat jadwal",
+    "createTitle": "Buat jadwal",
+    "createIntro": "Meja yang dipilih nonaktif di kasir dari waktu mulai sampai waktu selesai.",
+    "editTitle": "Ubah jadwal",
+    "edit": "Ubah",
+    "save": "Simpan jadwal",
+    "empty": "Belum ada jadwal.",
+    "noMatch": "Tidak ada jadwal dengan status ini.",
+    "more": "{{names}} dan {{count}} lainnya",
+    "details": "Detail jadwal",
+    "tables": "{{count}} meja",
+    "deletedTable": "{{name}} (sudah dihapus)",
+    "inZone": "{{time}} {{zone}}",
+    "createdBy": "Dibuat",
+    "cancelledBy": "Dibatalkan",
+    "byAt": "{{name}}, {{time}}",
+    "closed": "Jadwal ini sudah selesai atau dibatalkan, jadi tidak bisa diubah lagi.",
+    "status": {
+      "upcoming": "Akan datang",
+      "ongoing": "Berlangsung",
+      "finished": "Selesai",
+      "cancelled": "Dibatalkan"
+    },
+    "columns": {
+      "title": "Judul",
+      "period": "Waktu",
+      "tables": "Meja",
+      "status": "Status"
+    },
+    "fields": {
+      "title": "Judul atau alasan",
+      "start": "Mulai",
+      "end": "Selesai",
+      "tables": "Meja"
+    },
+    "form": {
+      "titleHint": "Mis. Acara kantor atau Renovasi teras. Maksimal 100 karakter.",
+      "when": "Waktu",
+      "zone": "Diisi dalam {{zone}} ({{timeZone}}), zona waktu outlet ini. Mulai tidak boleh di masa lalu, dan selesai harus setelah mulai.",
+      "startPast": "Mulai tidak boleh sebelum sekarang.",
+      "tablesHint": "Pilih mejanya satu per satu, atau semua meja satu area sekaligus.",
+      "noTables": "Outlet ini belum punya meja. Tambahkan mejanya dulu di halaman Meja.",
+      "wholeArea": "Semua meja {{area}}",
+      "picked": "{{picked}} dari {{total}} dipilih",
+      "ongoing": "Jadwal ini sedang berlangsung, jadi mejanya sedang nonaktif. Waktu mulainya boleh dibiarkan.",
+      "start": "Mulai ({{zone}})",
+      "end": "Selesai ({{zone}})"
+    },
+    "overlap": {
+      "title": "Bentrok dengan jadwal lain di meja yang sama:",
+      "item": "{{title}}, {{period}}: meja {{tables}}",
+      "body": "Jadwal tetap bisa disimpan. Meja yang sama nonaktif selama salah satu jadwalnya berlangsung.",
+      "confirm": "Simpan tetap",
+      "review": "Periksa lagi"
+    },
+    "cancel": {
+      "action": "Batalkan jadwal",
+      "title": "Batalkan jadwal {{title}}?",
+      "body": "Mejanya tidak dinonaktifkan oleh jadwal ini. Jadwalnya tetap tersimpan sebagai riwayat.",
+      "bodyOngoing": "Jadwal ini sedang berlangsung: mejanya langsung kembali bisa dipilih di kasir. Jadwalnya tetap tersimpan sebagai riwayat.",
+      "done": "Jadwal {{title}} dibatalkan."
+    }
+  }
+}

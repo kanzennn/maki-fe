@@ -1,0 +1,101 @@
+{
+  "fields": {
+    "name": "Nama",
+    "username": "Username",
+    "role": "Role",
+    "email": "Email",
+    "phone": "Nomor HP",
+    "password": "Password sementara",
+    "confirm": "Ulangi password sementara",
+    "lastLogin": "Login terakhir",
+    "created": "Dibuat"
+  },
+  "manager": "Manager",
+  "noRole": "Tanpa role",
+  "neverSignedIn": "Belum pernah masuk",
+  "list": {
+    "title": "User",
+    "create": "Tambah user",
+    "createManager": "Tambah Manager",
+    "search": "Cari user",
+    "searchPlaceholder": "Nama atau username",
+    "allRoles": "Semua role",
+    "noMatch": "Tidak ada user yang cocok dengan pencarian ini.",
+    "empty": "Belum ada user di outlet ini."
+  },
+  "form": {
+    "usernameHint": "3–32 huruf kecil, angka, titik, strip atau garis bawah. Dipakai untuk masuk, dan tidak bisa diganti.",
+    "rolesHidden": "Role yang punya izin di luar izin Anda tidak ditampilkan.",
+    "chooseRole": "Pilih role",
+    "optional": "Opsional.",
+    "passwordHint": "8–128 karakter. Sampaikan ke user-nya; ia wajib menggantinya saat masuk nanti.",
+    "roleHint": "Izin baru berlaku mulai permintaan berikutnya user ini.",
+    "emailHint": "Opsional. Email yang diubah di sini perlu dikonfirmasi lagi oleh user-nya."
+  },
+  "create": {
+    "title": "Tambah user",
+    "intro": "User masuk dengan username dan password sementara ini, lalu wajib membuat password sendiri.",
+    "submit": "Simpan user",
+    "managerTitle": "Tambah Manager",
+    "managerIntro": "Manager mengelola outlet ini: role, user, menu, meja dan kasirnya. Ia masuk dengan password sementara ini, lalu wajib membuat password sendiri.",
+    "managerSubmit": "Simpan Manager"
+  },
+  "edit": {
+    "submit": "Simpan perubahan",
+    "done": "Perubahan disimpan."
+  },
+  "detail": {
+    "back": "Semua user",
+    "account": "Akun",
+    "password": "Password",
+    "temporaryPassword": "Sementara, belum diganti user-nya",
+    "ownPassword": "Dibuat sendiri oleh user-nya",
+    "profile": "Profil",
+    "actions": "Tindakan"
+  },
+  "modes": {
+    "own": "Ini akun Anda sendiri, jadi tidak bisa diubah di sini.",
+    "changePassword": "Ganti password Anda",
+    "promote": "Owner mengelola akun Manager. Akun staf dikelola Manager outletnya, tapi Anda bisa menjadikan user ini Manager.",
+    "managerAccount": "Akun Manager hanya bisa diubah oleh Owner.",
+    "stronger": "User ini punya izin yang tidak Anda punya, jadi Anda tidak bisa mengelola akunnya."
+  },
+  "reset": {
+    "action": "Reset password",
+    "title": "Reset password {{name}}?",
+    "body": "Ketik password sementara yang baru. User ini langsung dikeluarkan dari semua perangkat, dan wajib mengganti password ini saat masuk berikutnya.",
+    "submit": "Simpan password sementara",
+    "done": "Password sementara {{name}} disimpan. Ia wajib menggantinya saat masuk berikutnya."
+  },
+  "promote": {
+    "action": "Jadikan Manager",
+    "title": "Jadikan {{name}} Manager?",
+    "body": "Ia mendapat semua izin di outlet ini, dan role-nya dilepas. Ia langsung dikeluarkan dan perlu masuk lagi.",
+    "done": "{{name}} sekarang Manager."
+  },
+  "demote": {
+    "action": "Jadikan staf",
+    "title": "Jadikan {{name}} staf?",
+    "body": "Ia tidak lagi Manager, dan izinnya mengikuti role yang Anda pilih. Ia langsung dikeluarkan dan perlu masuk lagi.",
+    "noRoles": "Outlet ini belum punya role. Buat role dulu di tab Role.",
+    "submit": "Jadikan staf",
+    "done": "{{name}} sekarang staf."
+  },
+  "deactivate": {
+    "action": "Nonaktifkan",
+    "title": "Nonaktifkan {{name}}?",
+    "body": "{{name}} langsung dikeluarkan dan tidak bisa masuk. Data transaksinya tetap atas namanya, dan akunnya bisa diaktifkan lagi.",
+    "done": "{{name}} dinonaktifkan."
+  },
+  "activate": {
+    "action": "Aktifkan",
+    "title": "Aktifkan {{name}}?",
+    "body": "{{name}} bisa masuk lagi dengan password-nya.",
+    "done": "{{name}} aktif lagi."
+  },
+  "delete": {
+    "action": "Hapus user",
+    "title": "Hapus {{name}}?",
+    "body": "Akun dihapus dan sesinya berakhir. Username-nya tidak bisa dipakai lagi, dan data transaksinya tetap atas namanya."
+  }
+}

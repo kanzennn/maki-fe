@@ -1,0 +1,218 @@
+{
+  "title": "Kasir",
+  "nav": {
+    "label": "Menu kasir"
+  },
+  "device": {
+    "chip": "{{code}} · {{name}}",
+    "notRegistered": {
+      "title": "Perangkat ini belum terdaftar",
+      "body": "Kasir hanya bisa dipakai di perangkat yang sudah diaktifkan untuk {{outlet}}. Minta Manager masuk di perangkat ini untuk mengaktifkannya.",
+      "manager": "Beri nama perangkat ini, lalu aktifkan sebagai kasir {{outlet}}. Kodenya dipakai di setiap nomor struk dari perangkat ini."
+    },
+    "revoked": {
+      "title": "Perangkat ini sudah dicabut",
+      "body": "Perangkat ini tidak bisa bertransaksi lagi. Minta Manager mengaktifkannya lagi.",
+      "manager": "Perangkat ini tidak bisa bertransaksi lagi. Aktifkan lagi sebagai perangkat baru: beri nama, lalu aktifkan."
+    },
+    "name": "Nama perangkat",
+    "nameHint": "Misalnya Kasir depan. Paling banyak 50 karakter.",
+    "activate": "Aktifkan perangkat ini",
+    "activating": "Mengaktifkan…",
+    "toHistory": "Lihat riwayat hari ini"
+  },
+  "menu": {
+    "heading": "Pilih menu",
+    "search": "Cari menu",
+    "searchPlaceholder": "Nama atau SKU",
+    "categories": "Kategori",
+    "all": "Semua menu",
+    "items": "{{count}} item",
+    "available": "Tersedia {{count}}",
+    "always": "Selalu tersedia",
+    "out": "Habis",
+    "low": "Stok menipis",
+    "inCart": "{{count}} di pesanan",
+    "none": "Belum ada menu yang dijual. Manager menambahkannya di halaman Menu.",
+    "noMatch": "Tidak ada menu yang cocok."
+  },
+  "cart": {
+    "title": "Detail Items",
+    "items": "{{count}} item",
+    "empty": "Belum ada pesanan. Pilih menu untuk mulai.",
+    "type": "Tipe pesanan",
+    "types": {
+      "dine_in": "Dine-in",
+      "takeaway": "Takeaway"
+    },
+    "less": "Kurangi {{name}}",
+    "more": "Tambah {{name}}",
+    "count": "{{count}} {{name}}",
+    "remove": "Hapus {{name}}",
+    "note": "Catatan",
+    "noteFor": "Catatan untuk {{name}}",
+    "notePlaceholder": "Misalnya less sugar",
+    "line": "{{qty}} × {{price}}",
+    "stockLeft": "Sisa stok {{count}}",
+    "summary": {
+      "items": "Item",
+      "subtotal": "Subtotal",
+      "discount": "Potongan",
+      "voucher": "Potongan ({{code}})",
+      "service": "Service ({{rate}})",
+      "tax": "Pajak ({{rate}})",
+      "total": "Total"
+    },
+    "method": "Metode bayar",
+    "methods": {
+      "cash": "Tunai",
+      "qris": "QRIS",
+      "debit": "Debit"
+    },
+    "soon": "Segera hadir",
+    "pay": "Bayar {{total}}",
+    "view": "Lihat pesanan",
+    "close": "Tutup pesanan",
+    "locked": "Transaksi sebelumnya belum terjawab. Selesaikan dulu sebelum mengubah pesanan.",
+    "tooMuch": "Total pesanan paling banyak Rp 1.000.000.000."
+  },
+  "pay": {
+    "title": "Bayar tunai",
+    "total": "Total",
+    "received": "Uang diterima",
+    "quick": "Nominal cepat",
+    "exact": "Uang pas",
+    "change": "Kembalian",
+    "short": "Kurang {{amount}}",
+    "confirm": "Bayar",
+    "sending": "Menyimpan…",
+    "unknown": "Server belum menjawab, jadi transaksi ini mungkin sudah tersimpan. Kirim ulang: transaksi yang sama tidak akan tercatat dua kali.",
+    "resend": "Kirim ulang",
+    "abandon": "Batalkan transaksi ini",
+    "abandonWarning": "Pesanan bisa diubah lagi. Periksa Riwayat sebelum menagih lagi: transaksi ini mungkin sudah tersimpan."
+  },
+  "changed": {
+    "prices": "Harga {{names}} berubah.",
+    "unavailable": "{{names}} tidak dijual lagi, jadi dihapus dari pesanan.",
+    "stock": "Stok {{names}} tidak cukup lagi, jadi jumlahnya disesuaikan.",
+    "total": "Pajak, service charge, atau syarat voucher berubah.",
+    "method": "Metode bayar ini tidak tersedia.",
+    "check": "Periksa pesanan dan totalnya, lalu tagih lagi."
+  },
+  "done": {
+    "title": "Transaksi tersimpan",
+    "change": "Kembalian {{amount}}",
+    "print": "Cetak struk",
+    "new": "Transaksi baru"
+  },
+  "receipt": {
+    "label": "Struk {{number}}",
+    "number": "No. struk",
+    "date": "Waktu",
+    "cashier": "Kasir",
+    "type": "Tipe",
+    "subtotal": "Subtotal",
+    "discount": "Potongan",
+    "voucher": "Potongan ({{code}})",
+    "service": "Service {{rate}}",
+    "tax": "Pajak {{rate}}",
+    "total": "Total",
+    "change": "Kembalian",
+    "void": "VOID",
+    "voidReason": "Alasan: {{reason}}",
+    "thanks": "Terima kasih",
+    "table": "Meja",
+    "stand": "Nomor papan"
+  },
+  "history": {
+    "title": "Riwayat hari ini",
+    "search": "Cari nomor struk",
+    "searchPlaceholder": "Misalnya 0012",
+    "columns": {
+      "time": "Waktu",
+      "number": "No. struk",
+      "items": "Item",
+      "total": "Total",
+      "cashier": "Kasir",
+      "status": "Status",
+      "table": "Meja"
+    },
+    "status": {
+      "paid": "Lunas",
+      "void": "Void"
+    },
+    "empty": "Belum ada transaksi hari ini.",
+    "noMatch": "Tidak ada transaksi hari ini dengan nomor itu.",
+    "back": "Riwayat hari ini",
+    "reprint": "Cetak ulang",
+    "table": "Meja {{name}}",
+    "noTable": "Tanpa meja",
+    "stand": "No. {{number}}"
+  },
+  "void": {
+    "action": "Void transaksi",
+    "title": "Void transaksi {{number}}?",
+    "body": "Transaksi dan pembayarannya dibatalkan, dan stoknya kembali. Tidak bisa diurungkan.",
+    "reason": "Alasan",
+    "reasonHint": "Wajib, paling banyak 200 karakter.",
+    "confirm": "Void",
+    "done": "Transaksi {{number}} sudah di-void."
+  },
+  "voucher": {
+    "label": "Voucher",
+    "placeholder": "Kode voucher",
+    "apply": "Pakai",
+    "checking": "Memeriksa…",
+    "remove": "Lepas voucher {{code}}",
+    "minSpend": "Belanja minimal {{amount}} untuk voucher ini. Tambah pesanan atau lepas vouchernya.",
+    "removed": "Voucher {{code}} dilepas: {{reason}}"
+  },
+  "tables": {
+    "title": "Meja",
+    "intro": "Pilih meja untuk melihat statusnya, memesan di sana, atau mengosongkannya setelah customer pergi.",
+    "empty": "Outlet ini belum punya meja. Manager menambahkannya di halaman Meja admin.",
+    "numberMode": "Outlet ini memakai Mode Nomor: tamu dine-in membawa papan nomor, dan kasir mengetik nomornya di Detail Items, tanpa memilih meja.",
+    "areas": "Area",
+    "layout": "Layout area {{area}}",
+    "detailTitle": "Meja {{name}}",
+    "seats": "Kursi",
+    "noSeats": "Tidak diisi",
+    "seatCount": "{{count}} kursi",
+    "since": "Terisi sejak",
+    "orders": "Transaksi",
+    "inactive": "Meja ini sedang dinonaktifkan Manager, jadi tidak bisa dipilih.",
+    "scheduled": "Meja ini sedang nonaktif terjadwal, jadi tidak bisa dipilih.",
+    "order": "Pesan di meja ini",
+    "pendingHint": "Transaksi sebelumnya belum terjawab. Selesaikan dulu di Detail Items.",
+    "release": {
+      "action": "Kosongkan Meja",
+      "title": "Kosongkan meja {{name}}?",
+      "body": "Lakukan setelah customer meninggalkan meja. Meja jadi tersedia lagi untuk customer berikutnya.",
+      "done": "Meja {{name}} dikosongkan."
+    },
+    "pick": {
+      "title": "Pilih meja",
+      "intro": "Meja yang tersedia atau terisi bisa dipilih. Pesanan tambahan di meja yang sama jadi transaksi baru.",
+      "choose": "Pilih meja",
+      "optional": "Opsional",
+      "chosen": "Meja {{name}}",
+      "change": "Ganti",
+      "remove": "Lepas meja {{name}}",
+      "retry": "Coba lagi"
+    },
+    "removed": "Meja {{name}} dilepas dari pesanan: {{reason}}",
+    "unavailable": {
+      "inactive": "mejanya sedang dinonaktifkan.",
+      "scheduled": "mejanya sedang nonaktif terjadwal.",
+      "missing": "mejanya sudah dihapus."
+    }
+  },
+  "stand": {
+    "label": "Nomor papan",
+    "placeholder": "Wajib, misalnya 12",
+    "format": "1–10 huruf, angka atau tanda hubung, misalnya 12, A5 atau B-3.",
+    "tableDropped": "Outlet ini sekarang memakai Mode Nomor, jadi meja {{name}} dilepas dari pesanan. Isi nomor papan tamu.",
+    "standDropped": "Outlet ini sekarang memakai Mode Meja, jadi nomor papan {{number}} dilepas dari pesanan.",
+    "nowNumber": "Outlet ini sekarang memakai Mode Nomor. Isi nomor papan tamu."
+  }
+}

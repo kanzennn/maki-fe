@@ -1,0 +1,14 @@
+# Text with LF endings in the repository, whatever the checkout's platform:
+# CI compares generated files (the API client) byte for byte on Linux.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.jar binary
+*.jks binary
+*.keystore binary

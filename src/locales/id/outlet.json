@@ -1,0 +1,101 @@
+{
+  "fields": {
+    "name": "Nama outlet",
+    "code": "Kode outlet",
+    "address": "Alamat",
+    "phone": "Telepon",
+    "openTime": "Jam buka",
+    "closeTime": "Jam tutup",
+    "taxPct": "Pajak (%)",
+    "servicePct": "Service charge (%)",
+    "timezone": "Zona waktu",
+    "locale": "Bahasa default"
+  },
+  "form": {
+    "identity": "Outlet",
+    "codeHint": "2–10 huruf dan angka, mis. BDG01. Tercetak di nomor struk.",
+    "hours": "Jam operasional",
+    "hoursHint": "Isi keduanya, atau kosongkan keduanya. Jam tutup sebelum jam buka berarti lewat tengah malam.",
+    "charges": "Pajak & service charge",
+    "percentHint": "0–100, maksimal 2 angka di belakang koma.",
+    "region": "Wilayah & bahasa",
+    "localeHint": "Untuk struk, dan untuk user yang belum memilih bahasanya sendiri."
+  },
+  "timezones": {
+    "indonesia": "Indonesia",
+    "other": "Lainnya",
+    "Asia/Jakarta": "WIB — Asia/Jakarta",
+    "Asia/Makassar": "WITA — Asia/Makassar",
+    "Asia/Jayapura": "WIT — Asia/Jayapura"
+  },
+  "locales": {
+    "id": "Bahasa Indonesia",
+    "en": "English"
+  },
+  "list": {
+    "title": "Outlet",
+    "create": "Tambah outlet",
+    "search": "Cari outlet",
+    "searchPlaceholder": "Nama atau kode",
+    "managers": "Manager",
+    "noManager": "Belum ada Manager",
+    "noMatch": "Tidak ada outlet yang cocok dengan pencarian ini.",
+    "empty": "Belum ada outlet. Tambahkan outlet pertama Anda."
+  },
+  "create": {
+    "title": "Tambah outlet",
+    "intro": "Outlet baru langsung punya role Kasir. Setelah disimpan, tambahkan Manager-nya.",
+    "submit": "Simpan outlet"
+  },
+  "edit": {
+    "title": "Ubah outlet",
+    "submit": "Simpan perubahan"
+  },
+  "detail": {
+    "back": "Semua outlet",
+    "title": "Detail outlet",
+    "edit": "Ubah",
+    "none": "—",
+    "hours": "Jam operasional",
+    "hoursRange": "{{open}}–{{close}}",
+    "noHours": "Belum diatur",
+    "charges": "Pajak & service charge",
+    "chargesValue": "Pajak {{tax}} · Service {{service}}",
+    "managers": "Manager",
+    "addManager": "Tambah Manager",
+    "noManagers": "Outlet ini belum punya Manager.",
+    "managersHint": "Buka akun Manager untuk mereset password, menonaktifkan, atau menjadikannya staf lagi. User lain bisa dijadikan Manager dari tab User.",
+    "status": "Status outlet",
+    "activeBody": "Outlet aktif: user-nya bisa masuk dan kasirnya bisa bertransaksi.",
+    "inactiveBody": "Outlet nonaktif: user-nya tidak bisa masuk. Data dan laporannya tetap ada."
+  },
+  "tabs": {
+    "label": "Bagian outlet",
+    "info": "Info",
+    "users": "User",
+    "roles": "Role",
+    "menus": "Menu",
+    "tables": "Meja",
+    "devices": "Perangkat",
+    "vouchers": "Voucher"
+  },
+  "deactivate": {
+    "action": "Nonaktifkan outlet",
+    "title": "Nonaktifkan {{name}}?",
+    "body": "User outlet ini langsung dikeluarkan dan tidak bisa masuk, dan kasirnya tidak bisa bertransaksi. Data dan laporan tetap ada, dan outlet bisa diaktifkan lagi kapan saja.",
+    "done": "{{name}} dinonaktifkan."
+  },
+  "activate": {
+    "action": "Aktifkan outlet",
+    "title": "Aktifkan {{name}}?",
+    "body": "User outlet ini bisa masuk lagi, dan kasirnya bisa bertransaksi lagi.",
+    "done": "{{name}} aktif lagi."
+  },
+  "delete": {
+    "action": "Hapus outlet",
+    "title": "Hapus {{name}}?",
+    "body": "Outlet hilang dari daftar dan kodenya tidak bisa dipakai lagi. Data transaksinya tetap tersimpan.",
+    "confirm": "Ketik \"{{name}}\" untuk konfirmasi",
+    "submit": "Hapus outlet"
+  }
+}

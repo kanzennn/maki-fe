@@ -1,0 +1,93 @@
+{
+  "fields": {
+    "name": "Role name",
+    "description": "Description",
+    "permissions": "Permissions"
+  },
+  "form": {
+    "descriptionHint": "Optional, at most 200 characters.",
+    "permissionsHint": "Tick what holders of this role may do. Managing something ticks seeing it too.",
+    "notHeld": "You don't have this permission, so you can't give it."
+  },
+  "modules": {
+    "dashboard": "Dashboard",
+    "role": "Roles",
+    "user": "Users",
+    "menu": "Menu & stock",
+    "table": "Tables",
+    "checkout": "Cashier",
+    "payment": "Payment Control",
+    "log": "Log Action"
+  },
+  "permissions": {
+    "dashboard": {
+      "view": "See the outlet dashboard"
+    },
+    "role": {
+      "view": "See roles",
+      "manage": "Create, edit and delete roles"
+    },
+    "user": {
+      "view": "See users",
+      "manage": "Create, edit and delete users"
+    },
+    "menu": {
+      "view": "See menus",
+      "manage": "Create, edit, delete and deactivate menus"
+    },
+    "stock": {
+      "adjust": "Add or reduce stock, set stock alerts"
+    },
+    "table": {
+      "view": "See tables",
+      "manage": "Manage tables, layout and closing schedules"
+    },
+    "checkout": {
+      "create": "Check out at the cashier"
+    },
+    "order": {
+      "void": "Void transactions (with a reason)"
+    },
+    "payment": {
+      "manage": "Set up Payment Control"
+    },
+    "log": {
+      "view": "See the outlet's Log Action"
+    }
+  },
+  "list": {
+    "title": "Roles",
+    "intro": "Sets of permissions given to users. The Owner and Managers have fixed permissions, outside this list.",
+    "create": "Add role",
+    "empty": "This outlet has no roles yet.",
+    "permissions": "Permissions",
+    "users": "Users",
+    "permissionCount_one": "{{count}} permission",
+    "permissionCount_other": "{{count}} permissions",
+    "userCount_one": "{{count}} user",
+    "userCount_other": "{{count}} users"
+  },
+  "create": {
+    "title": "Add role",
+    "submit": "Save role"
+  },
+  "edit": {
+    "submit": "Save changes",
+    "done": "Role saved. Its holders get the new permissions from their next request."
+  },
+  "detail": {
+    "back": "All roles",
+    "holders_one": "Held by {{count}} user",
+    "holders_other": "Held by {{count}} users",
+    "noHolders": "No user has this role yet.",
+    "noPermissions": "This role has no permissions yet."
+  },
+  "delete": {
+    "action": "Delete role",
+    "title": "Delete the role {{name}}?",
+    "body": "The role leaves the outlet. This can't be undone.",
+    "inUse_one": "{{count}} user still holds this role. Move them to another role first:",
+    "inUse_other": "{{count}} users still hold this role. Move them to another role first:",
+    "submit": "Delete role"
+  }
+}
