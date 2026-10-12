@@ -66,8 +66,9 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     services:
+      # The production major version, as in maki-be's CI.
       postgres:
-        image: postgres:16
+        image: postgres:18
         env:
           POSTGRES_USER: maki
           POSTGRES_PASSWORD: maki

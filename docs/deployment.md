@@ -45,7 +45,7 @@ checked out beside this repository, as in development (`../maki-be`):
 | Job | When | What |
 | --- | --- | --- |
 | `check` | every push and pull request | `npm run lint` (ESLint and the translations' keys), the API types against maki-be's contract (`npm run gen:api`, then no difference), the unit and screen tests, the build; on `main`, the build kept as an artifact |
-| `e2e` | every push and pull request | Playwright, in its own Chromium, against maki-be's api and worker built from the checkout, on a PostgreSQL 16 service with an Owner made for the run: the admin area, the cashier, vouchers and tables, then signing in (which resets the Owner's password) last |
+| `e2e` | every push and pull request | Playwright, in its own Chromium, against maki-be's api and worker built from the checkout, on a PostgreSQL 18 service (production's version) with an Owner made for the run: the admin area, the cashier, vouchers and tables, then signing in (which resets the Owner's password) last |
 | `deploy` | a push to `main`, both passing, `DEPLOY_ENABLED` `true` | through the `production` environment: the build's tarball to `incoming/`, then [`deploy/release.sh`](../deploy/release.sh) over SSH |
 
 `release.sh` unpacks the build into `releases/<sha>`, notes its own hashed
