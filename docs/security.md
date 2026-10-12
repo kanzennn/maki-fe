@@ -8,7 +8,9 @@ workspace standard is React + Vite §9; the backend's side is
 
 Caddy serves the app, so its headers are set there:
 [maki-be's `deploy/Caddyfile`](../../maki-be/deploy/Caddyfile), on every
-response of the domain, the API's included.
+response of the domain, the API's included. The server's Nginx in front
+holds TLS and passes them on as they are, adding none of its own (maki-be's
+[deployment.md](../../maki-be/docs/deployment.md#nginxs-site)).
 
 | Header | Value |
 | --- | --- |

@@ -1,7 +1,8 @@
 # Deployment
 
 How maki-fe gets to production: a static build, served by the VPS's Caddy
-on the same domain as the API. The server, its stack and its first setup are
+on the same domain as the API, behind the server's own Nginx, which holds
+the certificate. The server, its stack and its first setup are
 [maki-be's deployment.md](../../maki-be/docs/deployment.md).
 
 ## The build
