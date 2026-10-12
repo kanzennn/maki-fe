@@ -104,11 +104,16 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/bin"
           go build -o "$RUNNER_TEMP/bin/" ./cmd/api ./cmd/worker
-          # A secret of this run only, never printed.
-          echo "JWT_SECRET=$(openssl rand -base64 48)" >> "$GITHUB_ENV"
+          # Secrets of this run only, never printed. GITHUB_ENV hands them
+          # to the steps after this one; migrate and create-owner, here,
+          # need the JWT secret too.
+          secret="$(openssl rand -base64 48)"
           password="$(openssl rand -hex 16)"
+          echo "::add-mask::$secret"
           echo "::add-mask::$password"
+          echo "JWT_SECRET=$secret" >> "$GITHUB_ENV"
           echo "E2E_PASSWORD=$password" >> "$GITHUB_ENV"
+          export JWT_SECRET="$secret"
           "$RUNNER_TEMP/bin/api" migrate
           printf 'E2E Owner\ne2e.owner\ne2e@maki.local\n%s\n%s\n' "$password" "$password" | "$RUNNER_TEMP/bin/api" create-owner
       - name: The api and the worker, running
