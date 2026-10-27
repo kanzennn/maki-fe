@@ -53,8 +53,11 @@ browser's console shows no CSP violation on the admin area and the cashier.
 
 ## Tokens and cookies
 
-- The **access token** lives in memory only (`shared/lib/session.ts`): a
-  reload starts with a refresh.
+- The **access token** lives in memory only (`lib/session.ts`), and only
+  `lib/http.ts`, the one axios instance, puts it on requests: a reload
+  starts with a refresh. A `401` refreshes once; when the refresh fails too,
+  the token is cleared and `auth:unauthorized` sends the screen to
+  sign-in, with the cached data dropped.
 - The **refresh token** is the backend's cookie `maki_refresh`: `HttpOnly`,
   `Secure` outside development, `SameSite=Strict`, sent to the refresh and
   sign-out paths only. No script reads it.
@@ -67,8 +70,8 @@ browser's console shows no CSP violation on the admin area and the cashier.
 ## Build-time configuration
 
 Anything `VITE_` is inlined into the bundle and public. `.env.example` has
-only `VITE_API_ORIGIN`, empty in production (the same domain). No secret
-ever goes behind `VITE_`.
+only `VITE_API_BASE_URL`, empty in production: `/api/v1` on the same
+domain. No secret ever goes behind `VITE_`.
 
 ## Errors
 

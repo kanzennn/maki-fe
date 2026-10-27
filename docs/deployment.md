@@ -14,8 +14,10 @@ npm run build    # tsr generate, tsc -b, vite build → dist/
 
 `dist/` is the whole app: `index.html`, the files in `public/`, and
 `assets/`, every file there named with its content's hash. The one build
-variable is `VITE_API_ORIGIN`, empty: the API is on the same domain
-(`.env.example`).
+variable is `VITE_API_BASE_URL`, empty: the API is `/api/v1` on the same
+domain (`.env.example`). Set it only for an API elsewhere, as its whole
+base URL (`https://api.example.com/api/v1`), and add that origin to the
+CSP's `connect-src` ([security.md](./security.md)).
 
 ## Hosting
 

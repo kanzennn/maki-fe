@@ -2,7 +2,7 @@
 
 | Doc | Covers |
 | --- | --- |
-| [architecture.md](./architecture.md) | Areas and routes, the admin area (navigation, guards, an outlet's pages), the cashier (devices, catalog, cart, vouchers, tables, charging without charging twice, receipts and printing, today's orders), the Owner's vouchers, an outlet's tables (the layout editor, schedules), layout, state, API client, forms, loading and errors, i18n, accessibility, testing |
+| [architecture.md](./architecture.md) | The layers and how ESLint holds them, the modules, areas and routes, the admin area (navigation, guards, an outlet's pages), the cashier (devices, catalog, cart, vouchers, tables, charging without charging twice, receipts and printing, today's orders), the Owner's vouchers, an outlet's tables (the layout editor, schedules), layout, state and list pages, the API client (axios), validation and forms, loading and errors, i18n, accessibility, testing |
 | [security.md](./security.md) | The headers the app is served with and its CSP, tokens and cookies, build-time configuration, errors |
 | [deployment.md](./deployment.md) | The build, hosting on the VPS's Caddy (routes, the SPA fallback, caching, releases), the pipeline and its deploy, rollback, the pre-launch checks |
 | [design-system.md](./design-system.md) | How `Maki/DESIGN.md` maps onto Tailwind tokens and shadcn/ui, the components and what was changed in them, icons, the admin navigation, the cashier's screens, the admin screens and the tables |
@@ -19,6 +19,10 @@ it.
   [`Spesifikasi Fitur POS Multi-Outlet.md`](../../Spesifikasi%20Fitur%20POS%20Multi-Outlet.md),
   the design system is [`DESIGN.md`](../../DESIGN.md).
 - A client-rendered SPA built to static files; the backend is `../maki-be`.
+- Layered: routes and components (presentation) call each feature's
+  usecases (`src/modules/<feature>/`), which validate and then call its
+  repositories; every request goes through one axios instance
+  (`src/lib/http.ts`). ESLint fails an import that breaks the layers.
 - API types are generated from `../maki-be/api/openapi.yaml` and never
   written by hand.
 - Every user-facing string comes from `src/locales/`; `npm run lint` fails

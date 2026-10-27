@@ -32,15 +32,17 @@ borders' `outline` #EBEBEB is 1.2:1. This is DESIGN.md's `text-field`.
 ties them to a `.dark` class that is never set, so a dark-mode OS doesn't
 grey out inputs.
 
-`cn()` in `shared/lib/utils.ts` knows the custom text sizes and radii.
+`cn()` in `lib/utils.ts` knows the custom text sizes and radii.
 Without that, tailwind-merge would read `text-body-md` as a colour and drop
 it next to `text-on-surface`.
 
 ## shadcn/ui
 
 Components are added with `npx shadcn@latest add <name>` into
-`src/shared/ui/` and then owned by the project. The names shadcn uses are
-mapped onto the tokens once, in `globals.css`:
+`src/components/ui/` (`components.json`'s `ui` alias), where they stay as
+generated. One changed for DESIGN.md is the project's own from then on, and
+lives in `src/components/shared/`. The names shadcn uses are mapped onto the
+tokens once, in `globals.css`:
 
 | shadcn | Token |
 | --- | --- |
@@ -68,17 +70,19 @@ component:
 - answer **no** when it offers to overwrite `button.tsx`, which is edited
   here (`printf 'n\n' | npx shadcn@latest add …`).
 
-The components added so far, and what was changed in them:
+The components added so far, and what was changed in them (the changed
+ones are in `components/shared/`, the rest in `components/ui/`):
 
 | Component | Changed |
 | --- | --- |
-| `button`, `input`, `label` | `default` button in `primary-strong` |
+| `button` | `default` button in `primary-strong` |
+| `input`, `label` | Nothing |
 | `dialog`, `alert-dialog` | No drop shadow (a 1px `outline` border, over a black/50 overlay), titles `headline-md`, text `body-md`, left-aligned at every width. The close button's label comes from `common:dialog.close` and its target is 44px |
 | `checkbox` | 20px, bordered in `input` (`icon-muted`); checked, it is an icon-only fill in `primary` |
 | `badge` | Every variant pairs a tint with text that passes AA (shadcn's default put white on `primary`): `default` `primary-container`, `secondary` `surface-container`, `outline`, `destructive` `error-container`, and `warning`, DESIGN.md's low-stock badge (`warning-container` with `on-warning-container`), for nothing else |
 | `table` | `body-md` cells, `label-md` headings in `on-surface-variant`, 44px heading row |
 | `native-select` | A text-field: 44px, `input` border, `className` sizes the wrapper so it can fill a form or sit in a filter bar |
-| `textarea` | Nothing; `TextareaField` (`features/menu`) sizes it to `body-md` like the other fields |
+| `textarea` | Nothing; `TextareaField` (`components/shared`) sizes it to `body-md` like the other fields |
 
 The tailwind-animate classes shadcn writes are dropped: nothing animates,
 which also suits `prefers-reduced-motion`. Any component that turns off the
@@ -94,8 +98,9 @@ button has an `aria-label`.
 
 ## Admin navigation
 
-DESIGN.md's sidebar-nav, in `app/AdminLayout.tsx`, with its items drawn
-by `app/NavLink.tsx`, which the cashier's frame uses too:
+DESIGN.md's sidebar-nav, in `app/_auth/admin/_components/admin-layout.tsx`,
+with its items drawn by `components/layout/nav-link.tsx`, which the
+cashier's frame uses too:
 
 - **Where:** from 840px wide (the `expanded:` variant, `--breakpoint-expanded:
   52.5rem` in `globals.css`), a 96px sidebar with a 1px `outline` border
@@ -121,8 +126,8 @@ by `app/NavLink.tsx`, which the cashier's frame uses too:
 
 ## Cashier screens
 
-DESIGN.md's point-of-sale screen, in `app/PosLayout.tsx` and
-`features/pos`:
+DESIGN.md's point-of-sale screen, in `app/_auth/pos/_components/` (the
+frame, `pos-layout.tsx`, and the sell screen) and `components/pos/`:
 
 - **From 840px wide:** the icon sidebar (Kasir, Meja when the outlet has
   tables, Riwayat, Admin), the menu
