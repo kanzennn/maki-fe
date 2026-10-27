@@ -51,7 +51,7 @@ jobs:
       - name: The API types match maki-be's contract
         run: |
           npm run gen:api
-          git diff --exit-code -- src/shared/api/schema.d.ts
+          git diff --exit-code -- src/lib/api-schema.d.ts
       - name: Unit and screen tests
         run: npm test
       - name: Build

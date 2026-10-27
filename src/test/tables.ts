@@ -1,4 +1,4 @@
-import type { components } from '@/shared/api/schema'
+import type { components } from '@/lib/api-schema'
 
 type Area = components['schemas']['Area']
 type Table = components['schemas']['Table']

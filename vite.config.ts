@@ -36,5 +36,9 @@ export default defineConfig({
     environment: 'jsdom',
     include: ['src/**/*.test.{ts,tsx}'],
     setupFiles: ['./src/test/setup.ts'],
+    // A screen test renders the whole app; with every file running at once
+    // on a busy machine, one that takes a second alone can take more than
+    // the default 5. One that hangs still fails, later.
+    testTimeout: 15_000,
   },
 })

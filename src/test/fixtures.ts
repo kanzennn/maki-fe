@@ -1,5 +1,5 @@
-import type { components } from '@/shared/api/schema'
-import type { Me } from '@/shared/lib/session'
+import type { components } from '@/lib/api-schema'
+import type { Me } from '@/modules/auth/types'
 
 type Outlet = components['schemas']['Outlet']
 type Role = components['schemas']['Role']

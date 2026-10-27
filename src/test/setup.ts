@@ -3,8 +3,8 @@ import '@testing-library/jest-dom/vitest'
 import { cleanup, configure } from '@testing-library/react'
 import { afterEach, beforeEach, vi } from 'vitest'
 
-import i18n from '@/app/i18n'
-import { useSession } from '@/shared/lib/session'
+import i18n from '@/providers/i18n'
+import { sessionStore } from '@/lib/session'
 
 // The suite runs its files at once, each in a jsdom of its own: on a busy
 // machine a page can take longer than findBy's default second to appear. A
@@ -29,5 +29,5 @@ afterEach(() => {
   cleanup()
   // A test's fetch stub and session never reach the next test.
   vi.unstubAllGlobals()
-  useSession.getState().clear()
+  sessionStore.getState().clear()
 })

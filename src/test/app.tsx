@@ -3,10 +3,11 @@ import { createMemoryHistory, createRouter, RouterProvider } from '@tanstack/rea
 import { render } from '@testing-library/react'
 import { vi } from 'vitest'
 
-import { routeDefaults } from '@/app/route-defaults'
-import { ensureSession } from '@/features/auth/api'
+import { routeDefaults } from '@/providers/route-defaults'
+import { ensureSession } from '@/modules/auth/usecases/ensure-session.usecase'
 import { routeTree } from '@/routeTree.gen'
-import { useSession, type Me } from '@/shared/lib/session'
+import { sessionStore } from '@/lib/session'
+import type { Me } from '@/modules/auth/types'
 
 export const json = (status: number, body?: unknown) =>
   new Response(body === undefined ? null : JSON.stringify(body), {
@@ -42,13 +43,13 @@ export async function bodyOf(requests: Request[], method: string, path: string):
 
 /** Renders the whole app at path, signed in as user, or signed out with null. */
 export function renderApp(path: string, user: Me | null) {
-  useSession.getState().clear()
-  if (user) useSession.getState().setSession({ access_token: 'access-1', token_type: 'Bearer', expires_in: 900, user })
+  sessionStore.getState().clear()
+  if (user) sessionStore.getState().setSession({ access_token: 'access-1', token_type: 'Bearer', expires_in: 900, user })
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
   const router = createRouter({
     routeTree,
     history: createMemoryHistory({ initialEntries: [path] }),
-    context: { queryClient, auth: { ensureSession, user: () => useSession.getState().user } },
+    context: { queryClient, auth: { ensureSession, user: () => sessionStore.getState().user } },
     ...routeDefaults,
   })
   render(

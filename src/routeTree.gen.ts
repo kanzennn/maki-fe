@@ -8,57 +8,57 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthRouteImport } from './routes/_auth'
-import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as VerifyEmailRouteImport } from './routes/verify-email'
-import { Route as AuthAdminRouteImport } from './routes/_auth/admin'
-import { Route as AuthChangePasswordRouteImport } from './routes/_auth/change-password'
-import { Route as AuthPosRouteImport } from './routes/_auth/pos'
-import { Route as AuthAdminIndexRouteImport } from './routes/_auth/admin/index'
-import { Route as AuthAdminNoAccessRouteImport } from './routes/_auth/admin/no-access'
-import { Route as AuthPosIndexRouteImport } from './routes/_auth/pos/index'
-import { Route as AuthPosTablesRouteImport } from './routes/_auth/pos/tables'
-import { Route as AuthAdminOutletsIndexRouteImport } from './routes/_auth/admin/outlets/index'
-import { Route as AuthAdminOutletsOidRouteImport } from './routes/_auth/admin/outlets/$oid'
-import { Route as AuthAdminOutletsNewRouteImport } from './routes/_auth/admin/outlets/new'
-import { Route as AuthAdminVouchersIndexRouteImport } from './routes/_auth/admin/vouchers/index'
-import { Route as AuthAdminVouchersVidRouteImport } from './routes/_auth/admin/vouchers/$vid'
-import { Route as AuthAdminVouchersNewRouteImport } from './routes/_auth/admin/vouchers/new'
-import { Route as AuthPosHistoryIndexRouteImport } from './routes/_auth/pos/history/index'
-import { Route as AuthPosHistoryOridRouteImport } from './routes/_auth/pos/history/$orid'
-import { Route as AuthAdminOutletsOidIndexRouteImport } from './routes/_auth/admin/outlets/$oid/index'
-import { Route as AuthAdminOutletsOidDevicesRouteImport } from './routes/_auth/admin/outlets/$oid/devices'
-import { Route as AuthAdminOutletsOidVouchersRouteImport } from './routes/_auth/admin/outlets/$oid/vouchers'
-import { Route as AuthAdminOutletsOidEditRouteImport } from './routes/_auth/admin/outlets/$oid_.edit'
-import { Route as AuthAdminVouchersVidEditRouteImport } from './routes/_auth/admin/vouchers/$vid_.edit'
-import { Route as AuthAdminOutletsOidMenusIndexRouteImport } from './routes/_auth/admin/outlets/$oid/menus/index'
-import { Route as AuthAdminOutletsOidMenusMidRouteImport } from './routes/_auth/admin/outlets/$oid/menus/$mid'
-import { Route as AuthAdminOutletsOidMenusCategoriesRouteImport } from './routes/_auth/admin/outlets/$oid/menus/categories'
-import { Route as AuthAdminOutletsOidMenusNewRouteImport } from './routes/_auth/admin/outlets/$oid/menus/new'
-import { Route as AuthAdminOutletsOidRolesIndexRouteImport } from './routes/_auth/admin/outlets/$oid/roles/index'
-import { Route as AuthAdminOutletsOidRolesRidRouteImport } from './routes/_auth/admin/outlets/$oid/roles/$rid'
-import { Route as AuthAdminOutletsOidRolesNewRouteImport } from './routes/_auth/admin/outlets/$oid/roles/new'
-import { Route as AuthAdminOutletsOidTablesIndexRouteImport } from './routes/_auth/admin/outlets/$oid/tables/index'
-import { Route as AuthAdminOutletsOidTablesAreasRouteImport } from './routes/_auth/admin/outlets/$oid/tables/areas'
-import { Route as AuthAdminOutletsOidUsersIndexRouteImport } from './routes/_auth/admin/outlets/$oid/users/index'
-import { Route as AuthAdminOutletsOidUsersUidRouteImport } from './routes/_auth/admin/outlets/$oid/users/$uid'
-import { Route as AuthAdminOutletsOidUsersNewRouteImport } from './routes/_auth/admin/outlets/$oid/users/new'
-import { Route as AuthAdminOutletsOidTablesLayoutAidRouteImport } from './routes/_auth/admin/outlets/$oid/tables/layout.$aid'
-import { Route as AuthAdminOutletsOidTablesSchedulesIndexRouteImport } from './routes/_auth/admin/outlets/$oid/tables/schedules/index'
-import { Route as AuthAdminOutletsOidTablesSchedulesSidRouteImport } from './routes/_auth/admin/outlets/$oid/tables/schedules/$sid'
-import { Route as AuthAdminOutletsOidTablesSchedulesNewRouteImport } from './routes/_auth/admin/outlets/$oid/tables/schedules/new'
-import { Route as AuthAdminOutletsOidTablesSchedulesSidEditRouteImport } from './routes/_auth/admin/outlets/$oid/tables/schedules/$sid_.edit'
+import { Route as rootRouteImport } from './app/__root'
+import { Route as IndexRouteImport } from './app/index'
+import { Route as AuthRouteRouteImport } from './app/_auth/route'
+import { Route as ForgotPasswordRouteImport } from './app/forgot-password'
+import { Route as LoginRouteImport } from './app/login'
+import { Route as ResetPasswordRouteImport } from './app/reset-password'
+import { Route as VerifyEmailRouteImport } from './app/verify-email'
+import { Route as AuthAdminRouteRouteImport } from './app/_auth/admin/route'
+import { Route as AuthChangePasswordRouteImport } from './app/_auth/change-password'
+import { Route as AuthPosRouteRouteImport } from './app/_auth/pos/route'
+import { Route as AuthAdminIndexRouteImport } from './app/_auth/admin/index'
+import { Route as AuthAdminNoAccessRouteImport } from './app/_auth/admin/no-access'
+import { Route as AuthPosIndexRouteImport } from './app/_auth/pos/index'
+import { Route as AuthPosTablesRouteImport } from './app/_auth/pos/tables'
+import { Route as AuthAdminOutletsIndexRouteImport } from './app/_auth/admin/outlets/index'
+import { Route as AuthAdminOutletsOidRouteRouteImport } from './app/_auth/admin/outlets/$oid/route'
+import { Route as AuthAdminOutletsNewRouteImport } from './app/_auth/admin/outlets/new'
+import { Route as AuthAdminVouchersIndexRouteImport } from './app/_auth/admin/vouchers/index'
+import { Route as AuthAdminVouchersVidRouteImport } from './app/_auth/admin/vouchers/$vid'
+import { Route as AuthAdminVouchersNewRouteImport } from './app/_auth/admin/vouchers/new'
+import { Route as AuthPosHistoryIndexRouteImport } from './app/_auth/pos/history/index'
+import { Route as AuthPosHistoryOridRouteImport } from './app/_auth/pos/history/$orid'
+import { Route as AuthAdminOutletsOidIndexRouteImport } from './app/_auth/admin/outlets/$oid/index'
+import { Route as AuthAdminOutletsOidDevicesRouteImport } from './app/_auth/admin/outlets/$oid/devices'
+import { Route as AuthAdminOutletsOidVouchersRouteImport } from './app/_auth/admin/outlets/$oid/vouchers'
+import { Route as AuthAdminOutletsOidEditRouteImport } from './app/_auth/admin/outlets/$oid_.edit'
+import { Route as AuthAdminVouchersVidEditRouteImport } from './app/_auth/admin/vouchers/$vid_.edit'
+import { Route as AuthAdminOutletsOidMenusIndexRouteImport } from './app/_auth/admin/outlets/$oid/menus/index'
+import { Route as AuthAdminOutletsOidMenusMidRouteImport } from './app/_auth/admin/outlets/$oid/menus/$mid'
+import { Route as AuthAdminOutletsOidMenusCategoriesRouteImport } from './app/_auth/admin/outlets/$oid/menus/categories'
+import { Route as AuthAdminOutletsOidMenusNewRouteImport } from './app/_auth/admin/outlets/$oid/menus/new'
+import { Route as AuthAdminOutletsOidRolesIndexRouteImport } from './app/_auth/admin/outlets/$oid/roles/index'
+import { Route as AuthAdminOutletsOidRolesRidRouteImport } from './app/_auth/admin/outlets/$oid/roles/$rid'
+import { Route as AuthAdminOutletsOidRolesNewRouteImport } from './app/_auth/admin/outlets/$oid/roles/new'
+import { Route as AuthAdminOutletsOidTablesIndexRouteImport } from './app/_auth/admin/outlets/$oid/tables/index'
+import { Route as AuthAdminOutletsOidTablesAreasRouteImport } from './app/_auth/admin/outlets/$oid/tables/areas'
+import { Route as AuthAdminOutletsOidUsersIndexRouteImport } from './app/_auth/admin/outlets/$oid/users/index'
+import { Route as AuthAdminOutletsOidUsersUidRouteImport } from './app/_auth/admin/outlets/$oid/users/$uid'
+import { Route as AuthAdminOutletsOidUsersNewRouteImport } from './app/_auth/admin/outlets/$oid/users/new'
+import { Route as AuthAdminOutletsOidTablesLayoutAidRouteImport } from './app/_auth/admin/outlets/$oid/tables/layout.$aid'
+import { Route as AuthAdminOutletsOidTablesSchedulesIndexRouteImport } from './app/_auth/admin/outlets/$oid/tables/schedules/index'
+import { Route as AuthAdminOutletsOidTablesSchedulesSidRouteImport } from './app/_auth/admin/outlets/$oid/tables/schedules/$sid'
+import { Route as AuthAdminOutletsOidTablesSchedulesNewRouteImport } from './app/_auth/admin/outlets/$oid/tables/schedules/new'
+import { Route as AuthAdminOutletsOidTablesSchedulesSidEditRouteImport } from './app/_auth/admin/outlets/$oid/tables/schedules/$sid_.edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthRoute = AuthRouteImport.update({
+const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/_auth',
   getParentRoute: () => rootRouteImport,
 } as any)
@@ -82,211 +82,212 @@ const VerifyEmailRoute = VerifyEmailRouteImport.update({
   path: '/verify-email',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthAdminRoute = AuthAdminRouteImport.update({
+const AuthAdminRouteRoute = AuthAdminRouteRouteImport.update({
   id: '/admin',
   path: '/admin',
-  getParentRoute: () => AuthRoute,
+  getParentRoute: () => AuthRouteRoute,
 } as any)
 const AuthChangePasswordRoute = AuthChangePasswordRouteImport.update({
   id: '/change-password',
   path: '/change-password',
-  getParentRoute: () => AuthRoute,
+  getParentRoute: () => AuthRouteRoute,
 } as any)
-const AuthPosRoute = AuthPosRouteImport.update({
+const AuthPosRouteRoute = AuthPosRouteRouteImport.update({
   id: '/pos',
   path: '/pos',
-  getParentRoute: () => AuthRoute,
+  getParentRoute: () => AuthRouteRoute,
 } as any)
 const AuthAdminIndexRoute = AuthAdminIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthAdminNoAccessRoute = AuthAdminNoAccessRouteImport.update({
   id: '/no-access',
   path: '/no-access',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthPosIndexRoute = AuthPosIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AuthPosRoute,
+  getParentRoute: () => AuthPosRouteRoute,
 } as any)
 const AuthPosTablesRoute = AuthPosTablesRouteImport.update({
   id: '/tables',
   path: '/tables',
-  getParentRoute: () => AuthPosRoute,
+  getParentRoute: () => AuthPosRouteRoute,
 } as any)
 const AuthAdminOutletsIndexRoute = AuthAdminOutletsIndexRouteImport.update({
   id: '/outlets/',
   path: '/outlets/',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
-const AuthAdminOutletsOidRoute = AuthAdminOutletsOidRouteImport.update({
-  id: '/outlets/$oid',
-  path: '/outlets/$oid',
-  getParentRoute: () => AuthAdminRoute,
-} as any)
+const AuthAdminOutletsOidRouteRoute =
+  AuthAdminOutletsOidRouteRouteImport.update({
+    id: '/outlets/$oid',
+    path: '/outlets/$oid',
+    getParentRoute: () => AuthAdminRouteRoute,
+  } as any)
 const AuthAdminOutletsNewRoute = AuthAdminOutletsNewRouteImport.update({
   id: '/outlets/new',
   path: '/outlets/new',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthAdminVouchersIndexRoute = AuthAdminVouchersIndexRouteImport.update({
   id: '/vouchers/',
   path: '/vouchers/',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthAdminVouchersVidRoute = AuthAdminVouchersVidRouteImport.update({
   id: '/vouchers/$vid',
   path: '/vouchers/$vid',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthAdminVouchersNewRoute = AuthAdminVouchersNewRouteImport.update({
   id: '/vouchers/new',
   path: '/vouchers/new',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthPosHistoryIndexRoute = AuthPosHistoryIndexRouteImport.update({
   id: '/history/',
   path: '/history/',
-  getParentRoute: () => AuthPosRoute,
+  getParentRoute: () => AuthPosRouteRoute,
 } as any)
 const AuthPosHistoryOridRoute = AuthPosHistoryOridRouteImport.update({
   id: '/history/$orid',
   path: '/history/$orid',
-  getParentRoute: () => AuthPosRoute,
+  getParentRoute: () => AuthPosRouteRoute,
 } as any)
 const AuthAdminOutletsOidIndexRoute =
   AuthAdminOutletsOidIndexRouteImport.update({
     id: '/',
     path: '/',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidDevicesRoute =
   AuthAdminOutletsOidDevicesRouteImport.update({
     id: '/devices',
     path: '/devices',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidVouchersRoute =
   AuthAdminOutletsOidVouchersRouteImport.update({
     id: '/vouchers',
     path: '/vouchers',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidEditRoute = AuthAdminOutletsOidEditRouteImport.update({
   id: '/outlets/$oid_/edit',
   path: '/outlets/$oid/edit',
-  getParentRoute: () => AuthAdminRoute,
+  getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthAdminVouchersVidEditRoute =
   AuthAdminVouchersVidEditRouteImport.update({
     id: '/vouchers/$vid_/edit',
     path: '/vouchers/$vid/edit',
-    getParentRoute: () => AuthAdminRoute,
+    getParentRoute: () => AuthAdminRouteRoute,
   } as any)
 const AuthAdminOutletsOidMenusIndexRoute =
   AuthAdminOutletsOidMenusIndexRouteImport.update({
     id: '/menus/',
     path: '/menus/',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidMenusMidRoute =
   AuthAdminOutletsOidMenusMidRouteImport.update({
     id: '/menus/$mid',
     path: '/menus/$mid',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidMenusCategoriesRoute =
   AuthAdminOutletsOidMenusCategoriesRouteImport.update({
     id: '/menus/categories',
     path: '/menus/categories',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidMenusNewRoute =
   AuthAdminOutletsOidMenusNewRouteImport.update({
     id: '/menus/new',
     path: '/menus/new',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidRolesIndexRoute =
   AuthAdminOutletsOidRolesIndexRouteImport.update({
     id: '/roles/',
     path: '/roles/',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidRolesRidRoute =
   AuthAdminOutletsOidRolesRidRouteImport.update({
     id: '/roles/$rid',
     path: '/roles/$rid',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidRolesNewRoute =
   AuthAdminOutletsOidRolesNewRouteImport.update({
     id: '/roles/new',
     path: '/roles/new',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidTablesIndexRoute =
   AuthAdminOutletsOidTablesIndexRouteImport.update({
     id: '/tables/',
     path: '/tables/',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidTablesAreasRoute =
   AuthAdminOutletsOidTablesAreasRouteImport.update({
     id: '/tables/areas',
     path: '/tables/areas',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidUsersIndexRoute =
   AuthAdminOutletsOidUsersIndexRouteImport.update({
     id: '/users/',
     path: '/users/',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidUsersUidRoute =
   AuthAdminOutletsOidUsersUidRouteImport.update({
     id: '/users/$uid',
     path: '/users/$uid',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidUsersNewRoute =
   AuthAdminOutletsOidUsersNewRouteImport.update({
     id: '/users/new',
     path: '/users/new',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidTablesLayoutAidRoute =
   AuthAdminOutletsOidTablesLayoutAidRouteImport.update({
     id: '/tables/layout/$aid',
     path: '/tables/layout/$aid',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidTablesSchedulesIndexRoute =
   AuthAdminOutletsOidTablesSchedulesIndexRouteImport.update({
     id: '/tables/schedules/',
     path: '/tables/schedules/',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidTablesSchedulesSidRoute =
   AuthAdminOutletsOidTablesSchedulesSidRouteImport.update({
     id: '/tables/schedules/$sid',
     path: '/tables/schedules/$sid',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidTablesSchedulesNewRoute =
   AuthAdminOutletsOidTablesSchedulesNewRouteImport.update({
     id: '/tables/schedules/new',
     path: '/tables/schedules/new',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidTablesSchedulesSidEditRoute =
   AuthAdminOutletsOidTablesSchedulesSidEditRouteImport.update({
     id: '/tables/schedules/$sid_/edit',
     path: '/tables/schedules/$sid/edit',
-    getParentRoute: () => AuthAdminOutletsOidRoute,
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -295,14 +296,14 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
-  '/admin': typeof AuthAdminRouteWithChildren
+  '/admin': typeof AuthAdminRouteRouteWithChildren
+  '/pos': typeof AuthPosRouteRouteWithChildren
   '/change-password': typeof AuthChangePasswordRoute
-  '/pos': typeof AuthPosRouteWithChildren
   '/admin/no-access': typeof AuthAdminNoAccessRoute
   '/pos/tables': typeof AuthPosTablesRoute
   '/admin/': typeof AuthAdminIndexRoute
   '/pos/': typeof AuthPosIndexRoute
-  '/admin/outlets/$oid': typeof AuthAdminOutletsOidRouteWithChildren
+  '/admin/outlets/$oid': typeof AuthAdminOutletsOidRouteRouteWithChildren
   '/admin/outlets/new': typeof AuthAdminOutletsNewRoute
   '/admin/vouchers/$vid': typeof AuthAdminVouchersVidRoute
   '/admin/vouchers/new': typeof AuthAdminVouchersNewRoute
@@ -377,19 +378,19 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_auth': typeof AuthRouteWithChildren
+  '/_auth': typeof AuthRouteRouteWithChildren
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
-  '/_auth/admin': typeof AuthAdminRouteWithChildren
+  '/_auth/admin': typeof AuthAdminRouteRouteWithChildren
+  '/_auth/pos': typeof AuthPosRouteRouteWithChildren
   '/_auth/change-password': typeof AuthChangePasswordRoute
-  '/_auth/pos': typeof AuthPosRouteWithChildren
   '/_auth/admin/no-access': typeof AuthAdminNoAccessRoute
   '/_auth/pos/tables': typeof AuthPosTablesRoute
   '/_auth/admin/': typeof AuthAdminIndexRoute
   '/_auth/pos/': typeof AuthPosIndexRoute
-  '/_auth/admin/outlets/$oid': typeof AuthAdminOutletsOidRouteWithChildren
+  '/_auth/admin/outlets/$oid': typeof AuthAdminOutletsOidRouteRouteWithChildren
   '/_auth/admin/outlets/new': typeof AuthAdminOutletsNewRoute
   '/_auth/admin/vouchers/$vid': typeof AuthAdminVouchersVidRoute
   '/_auth/admin/vouchers/new': typeof AuthAdminVouchersNewRoute
@@ -429,8 +430,8 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/verify-email'
     | '/admin'
-    | '/change-password'
     | '/pos'
+    | '/change-password'
     | '/admin/no-access'
     | '/pos/tables'
     | '/admin/'
@@ -515,8 +516,8 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/verify-email'
     | '/_auth/admin'
-    | '/_auth/change-password'
     | '/_auth/pos'
+    | '/_auth/change-password'
     | '/_auth/admin/no-access'
     | '/_auth/pos/tables'
     | '/_auth/admin/'
@@ -555,7 +556,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthRoute: typeof AuthRouteWithChildren
+  AuthRouteRoute: typeof AuthRouteRouteWithChildren
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
@@ -575,7 +576,7 @@ declare module '@tanstack/react-router' {
       id: '/_auth'
       path: ''
       fullPath: '/'
-      preLoaderRoute: typeof AuthRouteImport
+      preLoaderRoute: typeof AuthRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forgot-password': {
@@ -610,265 +611,265 @@ declare module '@tanstack/react-router' {
       id: '/_auth/admin'
       path: '/admin'
       fullPath: '/admin'
-      preLoaderRoute: typeof AuthAdminRouteImport
-      parentRoute: typeof AuthRoute
+      preLoaderRoute: typeof AuthAdminRouteRouteImport
+      parentRoute: typeof AuthRouteRoute
     }
     '/_auth/change-password': {
       id: '/_auth/change-password'
       path: '/change-password'
       fullPath: '/change-password'
       preLoaderRoute: typeof AuthChangePasswordRouteImport
-      parentRoute: typeof AuthRoute
+      parentRoute: typeof AuthRouteRoute
     }
     '/_auth/pos': {
       id: '/_auth/pos'
       path: '/pos'
       fullPath: '/pos'
-      preLoaderRoute: typeof AuthPosRouteImport
-      parentRoute: typeof AuthRoute
+      preLoaderRoute: typeof AuthPosRouteRouteImport
+      parentRoute: typeof AuthRouteRoute
     }
     '/_auth/admin/': {
       id: '/_auth/admin/'
       path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AuthAdminIndexRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/no-access': {
       id: '/_auth/admin/no-access'
       path: '/no-access'
       fullPath: '/admin/no-access'
       preLoaderRoute: typeof AuthAdminNoAccessRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/pos/': {
       id: '/_auth/pos/'
       path: '/'
       fullPath: '/pos/'
       preLoaderRoute: typeof AuthPosIndexRouteImport
-      parentRoute: typeof AuthPosRoute
+      parentRoute: typeof AuthPosRouteRoute
     }
     '/_auth/pos/tables': {
       id: '/_auth/pos/tables'
       path: '/tables'
       fullPath: '/pos/tables'
       preLoaderRoute: typeof AuthPosTablesRouteImport
-      parentRoute: typeof AuthPosRoute
+      parentRoute: typeof AuthPosRouteRoute
     }
     '/_auth/admin/outlets/': {
       id: '/_auth/admin/outlets/'
       path: '/outlets'
       fullPath: '/admin/outlets/'
       preLoaderRoute: typeof AuthAdminOutletsIndexRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/outlets/$oid': {
       id: '/_auth/admin/outlets/$oid'
       path: '/outlets/$oid'
       fullPath: '/admin/outlets/$oid'
-      preLoaderRoute: typeof AuthAdminOutletsOidRouteImport
-      parentRoute: typeof AuthAdminRoute
+      preLoaderRoute: typeof AuthAdminOutletsOidRouteRouteImport
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/outlets/new': {
       id: '/_auth/admin/outlets/new'
       path: '/outlets/new'
       fullPath: '/admin/outlets/new'
       preLoaderRoute: typeof AuthAdminOutletsNewRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/vouchers/': {
       id: '/_auth/admin/vouchers/'
       path: '/vouchers'
       fullPath: '/admin/vouchers/'
       preLoaderRoute: typeof AuthAdminVouchersIndexRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/vouchers/$vid': {
       id: '/_auth/admin/vouchers/$vid'
       path: '/vouchers/$vid'
       fullPath: '/admin/vouchers/$vid'
       preLoaderRoute: typeof AuthAdminVouchersVidRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/vouchers/new': {
       id: '/_auth/admin/vouchers/new'
       path: '/vouchers/new'
       fullPath: '/admin/vouchers/new'
       preLoaderRoute: typeof AuthAdminVouchersNewRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/pos/history/': {
       id: '/_auth/pos/history/'
       path: '/history'
       fullPath: '/pos/history/'
       preLoaderRoute: typeof AuthPosHistoryIndexRouteImport
-      parentRoute: typeof AuthPosRoute
+      parentRoute: typeof AuthPosRouteRoute
     }
     '/_auth/pos/history/$orid': {
       id: '/_auth/pos/history/$orid'
       path: '/history/$orid'
       fullPath: '/pos/history/$orid'
       preLoaderRoute: typeof AuthPosHistoryOridRouteImport
-      parentRoute: typeof AuthPosRoute
+      parentRoute: typeof AuthPosRouteRoute
     }
     '/_auth/admin/outlets/$oid/': {
       id: '/_auth/admin/outlets/$oid/'
       path: '/'
       fullPath: '/admin/outlets/$oid/'
       preLoaderRoute: typeof AuthAdminOutletsOidIndexRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/devices': {
       id: '/_auth/admin/outlets/$oid/devices'
       path: '/devices'
       fullPath: '/admin/outlets/$oid/devices'
       preLoaderRoute: typeof AuthAdminOutletsOidDevicesRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/vouchers': {
       id: '/_auth/admin/outlets/$oid/vouchers'
       path: '/vouchers'
       fullPath: '/admin/outlets/$oid/vouchers'
       preLoaderRoute: typeof AuthAdminOutletsOidVouchersRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid_/edit': {
       id: '/_auth/admin/outlets/$oid_/edit'
       path: '/outlets/$oid/edit'
       fullPath: '/admin/outlets/$oid/edit'
       preLoaderRoute: typeof AuthAdminOutletsOidEditRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/vouchers/$vid_/edit': {
       id: '/_auth/admin/vouchers/$vid_/edit'
       path: '/vouchers/$vid/edit'
       fullPath: '/admin/vouchers/$vid/edit'
       preLoaderRoute: typeof AuthAdminVouchersVidEditRouteImport
-      parentRoute: typeof AuthAdminRoute
+      parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/outlets/$oid/menus/': {
       id: '/_auth/admin/outlets/$oid/menus/'
       path: '/menus'
       fullPath: '/admin/outlets/$oid/menus/'
       preLoaderRoute: typeof AuthAdminOutletsOidMenusIndexRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/menus/$mid': {
       id: '/_auth/admin/outlets/$oid/menus/$mid'
       path: '/menus/$mid'
       fullPath: '/admin/outlets/$oid/menus/$mid'
       preLoaderRoute: typeof AuthAdminOutletsOidMenusMidRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/menus/categories': {
       id: '/_auth/admin/outlets/$oid/menus/categories'
       path: '/menus/categories'
       fullPath: '/admin/outlets/$oid/menus/categories'
       preLoaderRoute: typeof AuthAdminOutletsOidMenusCategoriesRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/menus/new': {
       id: '/_auth/admin/outlets/$oid/menus/new'
       path: '/menus/new'
       fullPath: '/admin/outlets/$oid/menus/new'
       preLoaderRoute: typeof AuthAdminOutletsOidMenusNewRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/roles/': {
       id: '/_auth/admin/outlets/$oid/roles/'
       path: '/roles'
       fullPath: '/admin/outlets/$oid/roles/'
       preLoaderRoute: typeof AuthAdminOutletsOidRolesIndexRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/roles/$rid': {
       id: '/_auth/admin/outlets/$oid/roles/$rid'
       path: '/roles/$rid'
       fullPath: '/admin/outlets/$oid/roles/$rid'
       preLoaderRoute: typeof AuthAdminOutletsOidRolesRidRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/roles/new': {
       id: '/_auth/admin/outlets/$oid/roles/new'
       path: '/roles/new'
       fullPath: '/admin/outlets/$oid/roles/new'
       preLoaderRoute: typeof AuthAdminOutletsOidRolesNewRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/tables/': {
       id: '/_auth/admin/outlets/$oid/tables/'
       path: '/tables'
       fullPath: '/admin/outlets/$oid/tables/'
       preLoaderRoute: typeof AuthAdminOutletsOidTablesIndexRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/tables/areas': {
       id: '/_auth/admin/outlets/$oid/tables/areas'
       path: '/tables/areas'
       fullPath: '/admin/outlets/$oid/tables/areas'
       preLoaderRoute: typeof AuthAdminOutletsOidTablesAreasRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/users/': {
       id: '/_auth/admin/outlets/$oid/users/'
       path: '/users'
       fullPath: '/admin/outlets/$oid/users/'
       preLoaderRoute: typeof AuthAdminOutletsOidUsersIndexRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/users/$uid': {
       id: '/_auth/admin/outlets/$oid/users/$uid'
       path: '/users/$uid'
       fullPath: '/admin/outlets/$oid/users/$uid'
       preLoaderRoute: typeof AuthAdminOutletsOidUsersUidRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/users/new': {
       id: '/_auth/admin/outlets/$oid/users/new'
       path: '/users/new'
       fullPath: '/admin/outlets/$oid/users/new'
       preLoaderRoute: typeof AuthAdminOutletsOidUsersNewRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/tables/layout/$aid': {
       id: '/_auth/admin/outlets/$oid/tables/layout/$aid'
       path: '/tables/layout/$aid'
       fullPath: '/admin/outlets/$oid/tables/layout/$aid'
       preLoaderRoute: typeof AuthAdminOutletsOidTablesLayoutAidRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/tables/schedules/': {
       id: '/_auth/admin/outlets/$oid/tables/schedules/'
       path: '/tables/schedules'
       fullPath: '/admin/outlets/$oid/tables/schedules/'
       preLoaderRoute: typeof AuthAdminOutletsOidTablesSchedulesIndexRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/tables/schedules/$sid': {
       id: '/_auth/admin/outlets/$oid/tables/schedules/$sid'
       path: '/tables/schedules/$sid'
       fullPath: '/admin/outlets/$oid/tables/schedules/$sid'
       preLoaderRoute: typeof AuthAdminOutletsOidTablesSchedulesSidRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/tables/schedules/new': {
       id: '/_auth/admin/outlets/$oid/tables/schedules/new'
       path: '/tables/schedules/new'
       fullPath: '/admin/outlets/$oid/tables/schedules/new'
       preLoaderRoute: typeof AuthAdminOutletsOidTablesSchedulesNewRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/tables/schedules/$sid_/edit': {
       id: '/_auth/admin/outlets/$oid/tables/schedules/$sid_/edit'
       path: '/tables/schedules/$sid/edit'
       fullPath: '/admin/outlets/$oid/tables/schedules/$sid/edit'
       preLoaderRoute: typeof AuthAdminOutletsOidTablesSchedulesSidEditRouteImport
-      parentRoute: typeof AuthAdminOutletsOidRoute
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
   }
 }
 
-interface AuthAdminOutletsOidRouteChildren {
+interface AuthAdminOutletsOidRouteRouteChildren {
   AuthAdminOutletsOidDevicesRoute: typeof AuthAdminOutletsOidDevicesRoute
   AuthAdminOutletsOidVouchersRoute: typeof AuthAdminOutletsOidVouchersRoute
   AuthAdminOutletsOidIndexRoute: typeof AuthAdminOutletsOidIndexRoute
@@ -891,42 +892,45 @@ interface AuthAdminOutletsOidRouteChildren {
   AuthAdminOutletsOidTablesSchedulesSidEditRoute: typeof AuthAdminOutletsOidTablesSchedulesSidEditRoute
 }
 
-const AuthAdminOutletsOidRouteChildren: AuthAdminOutletsOidRouteChildren = {
-  AuthAdminOutletsOidDevicesRoute: AuthAdminOutletsOidDevicesRoute,
-  AuthAdminOutletsOidVouchersRoute: AuthAdminOutletsOidVouchersRoute,
-  AuthAdminOutletsOidIndexRoute: AuthAdminOutletsOidIndexRoute,
-  AuthAdminOutletsOidMenusMidRoute: AuthAdminOutletsOidMenusMidRoute,
-  AuthAdminOutletsOidMenusCategoriesRoute:
-    AuthAdminOutletsOidMenusCategoriesRoute,
-  AuthAdminOutletsOidMenusNewRoute: AuthAdminOutletsOidMenusNewRoute,
-  AuthAdminOutletsOidRolesRidRoute: AuthAdminOutletsOidRolesRidRoute,
-  AuthAdminOutletsOidRolesNewRoute: AuthAdminOutletsOidRolesNewRoute,
-  AuthAdminOutletsOidTablesAreasRoute: AuthAdminOutletsOidTablesAreasRoute,
-  AuthAdminOutletsOidUsersUidRoute: AuthAdminOutletsOidUsersUidRoute,
-  AuthAdminOutletsOidUsersNewRoute: AuthAdminOutletsOidUsersNewRoute,
-  AuthAdminOutletsOidMenusIndexRoute: AuthAdminOutletsOidMenusIndexRoute,
-  AuthAdminOutletsOidRolesIndexRoute: AuthAdminOutletsOidRolesIndexRoute,
-  AuthAdminOutletsOidTablesIndexRoute: AuthAdminOutletsOidTablesIndexRoute,
-  AuthAdminOutletsOidUsersIndexRoute: AuthAdminOutletsOidUsersIndexRoute,
-  AuthAdminOutletsOidTablesLayoutAidRoute:
-    AuthAdminOutletsOidTablesLayoutAidRoute,
-  AuthAdminOutletsOidTablesSchedulesSidRoute:
-    AuthAdminOutletsOidTablesSchedulesSidRoute,
-  AuthAdminOutletsOidTablesSchedulesNewRoute:
-    AuthAdminOutletsOidTablesSchedulesNewRoute,
-  AuthAdminOutletsOidTablesSchedulesIndexRoute:
-    AuthAdminOutletsOidTablesSchedulesIndexRoute,
-  AuthAdminOutletsOidTablesSchedulesSidEditRoute:
-    AuthAdminOutletsOidTablesSchedulesSidEditRoute,
-}
+const AuthAdminOutletsOidRouteRouteChildren: AuthAdminOutletsOidRouteRouteChildren =
+  {
+    AuthAdminOutletsOidDevicesRoute: AuthAdminOutletsOidDevicesRoute,
+    AuthAdminOutletsOidVouchersRoute: AuthAdminOutletsOidVouchersRoute,
+    AuthAdminOutletsOidIndexRoute: AuthAdminOutletsOidIndexRoute,
+    AuthAdminOutletsOidMenusMidRoute: AuthAdminOutletsOidMenusMidRoute,
+    AuthAdminOutletsOidMenusCategoriesRoute:
+      AuthAdminOutletsOidMenusCategoriesRoute,
+    AuthAdminOutletsOidMenusNewRoute: AuthAdminOutletsOidMenusNewRoute,
+    AuthAdminOutletsOidRolesRidRoute: AuthAdminOutletsOidRolesRidRoute,
+    AuthAdminOutletsOidRolesNewRoute: AuthAdminOutletsOidRolesNewRoute,
+    AuthAdminOutletsOidTablesAreasRoute: AuthAdminOutletsOidTablesAreasRoute,
+    AuthAdminOutletsOidUsersUidRoute: AuthAdminOutletsOidUsersUidRoute,
+    AuthAdminOutletsOidUsersNewRoute: AuthAdminOutletsOidUsersNewRoute,
+    AuthAdminOutletsOidMenusIndexRoute: AuthAdminOutletsOidMenusIndexRoute,
+    AuthAdminOutletsOidRolesIndexRoute: AuthAdminOutletsOidRolesIndexRoute,
+    AuthAdminOutletsOidTablesIndexRoute: AuthAdminOutletsOidTablesIndexRoute,
+    AuthAdminOutletsOidUsersIndexRoute: AuthAdminOutletsOidUsersIndexRoute,
+    AuthAdminOutletsOidTablesLayoutAidRoute:
+      AuthAdminOutletsOidTablesLayoutAidRoute,
+    AuthAdminOutletsOidTablesSchedulesSidRoute:
+      AuthAdminOutletsOidTablesSchedulesSidRoute,
+    AuthAdminOutletsOidTablesSchedulesNewRoute:
+      AuthAdminOutletsOidTablesSchedulesNewRoute,
+    AuthAdminOutletsOidTablesSchedulesIndexRoute:
+      AuthAdminOutletsOidTablesSchedulesIndexRoute,
+    AuthAdminOutletsOidTablesSchedulesSidEditRoute:
+      AuthAdminOutletsOidTablesSchedulesSidEditRoute,
+  }
 
-const AuthAdminOutletsOidRouteWithChildren =
-  AuthAdminOutletsOidRoute._addFileChildren(AuthAdminOutletsOidRouteChildren)
+const AuthAdminOutletsOidRouteRouteWithChildren =
+  AuthAdminOutletsOidRouteRoute._addFileChildren(
+    AuthAdminOutletsOidRouteRouteChildren,
+  )
 
-interface AuthAdminRouteChildren {
+interface AuthAdminRouteRouteChildren {
   AuthAdminNoAccessRoute: typeof AuthAdminNoAccessRoute
   AuthAdminIndexRoute: typeof AuthAdminIndexRoute
-  AuthAdminOutletsOidRoute: typeof AuthAdminOutletsOidRouteWithChildren
+  AuthAdminOutletsOidRouteRoute: typeof AuthAdminOutletsOidRouteRouteWithChildren
   AuthAdminOutletsNewRoute: typeof AuthAdminOutletsNewRoute
   AuthAdminVouchersVidRoute: typeof AuthAdminVouchersVidRoute
   AuthAdminVouchersNewRoute: typeof AuthAdminVouchersNewRoute
@@ -936,10 +940,10 @@ interface AuthAdminRouteChildren {
   AuthAdminVouchersVidEditRoute: typeof AuthAdminVouchersVidEditRoute
 }
 
-const AuthAdminRouteChildren: AuthAdminRouteChildren = {
+const AuthAdminRouteRouteChildren: AuthAdminRouteRouteChildren = {
   AuthAdminNoAccessRoute: AuthAdminNoAccessRoute,
   AuthAdminIndexRoute: AuthAdminIndexRoute,
-  AuthAdminOutletsOidRoute: AuthAdminOutletsOidRouteWithChildren,
+  AuthAdminOutletsOidRouteRoute: AuthAdminOutletsOidRouteRouteWithChildren,
   AuthAdminOutletsNewRoute: AuthAdminOutletsNewRoute,
   AuthAdminVouchersVidRoute: AuthAdminVouchersVidRoute,
   AuthAdminVouchersNewRoute: AuthAdminVouchersNewRoute,
@@ -949,44 +953,47 @@ const AuthAdminRouteChildren: AuthAdminRouteChildren = {
   AuthAdminVouchersVidEditRoute: AuthAdminVouchersVidEditRoute,
 }
 
-const AuthAdminRouteWithChildren = AuthAdminRoute._addFileChildren(
-  AuthAdminRouteChildren,
+const AuthAdminRouteRouteWithChildren = AuthAdminRouteRoute._addFileChildren(
+  AuthAdminRouteRouteChildren,
 )
 
-interface AuthPosRouteChildren {
+interface AuthPosRouteRouteChildren {
   AuthPosTablesRoute: typeof AuthPosTablesRoute
   AuthPosIndexRoute: typeof AuthPosIndexRoute
   AuthPosHistoryOridRoute: typeof AuthPosHistoryOridRoute
   AuthPosHistoryIndexRoute: typeof AuthPosHistoryIndexRoute
 }
 
-const AuthPosRouteChildren: AuthPosRouteChildren = {
+const AuthPosRouteRouteChildren: AuthPosRouteRouteChildren = {
   AuthPosTablesRoute: AuthPosTablesRoute,
   AuthPosIndexRoute: AuthPosIndexRoute,
   AuthPosHistoryOridRoute: AuthPosHistoryOridRoute,
   AuthPosHistoryIndexRoute: AuthPosHistoryIndexRoute,
 }
 
-const AuthPosRouteWithChildren =
-  AuthPosRoute._addFileChildren(AuthPosRouteChildren)
+const AuthPosRouteRouteWithChildren = AuthPosRouteRoute._addFileChildren(
+  AuthPosRouteRouteChildren,
+)
 
-interface AuthRouteChildren {
-  AuthAdminRoute: typeof AuthAdminRouteWithChildren
+interface AuthRouteRouteChildren {
+  AuthAdminRouteRoute: typeof AuthAdminRouteRouteWithChildren
+  AuthPosRouteRoute: typeof AuthPosRouteRouteWithChildren
   AuthChangePasswordRoute: typeof AuthChangePasswordRoute
-  AuthPosRoute: typeof AuthPosRouteWithChildren
 }
 
-const AuthRouteChildren: AuthRouteChildren = {
-  AuthAdminRoute: AuthAdminRouteWithChildren,
+const AuthRouteRouteChildren: AuthRouteRouteChildren = {
+  AuthAdminRouteRoute: AuthAdminRouteRouteWithChildren,
+  AuthPosRouteRoute: AuthPosRouteRouteWithChildren,
   AuthChangePasswordRoute: AuthChangePasswordRoute,
-  AuthPosRoute: AuthPosRouteWithChildren,
 }
 
-const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
+const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
+  AuthRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthRoute: AuthRouteWithChildren,
+  AuthRouteRoute: AuthRouteRouteWithChildren,
   ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
   ResetPasswordRoute: ResetPasswordRoute,
