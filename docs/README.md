@@ -24,7 +24,8 @@ it.
   repositories; every request goes through one axios instance
   (`src/lib/http.ts`). ESLint fails an import that breaks the layers.
 - API types are generated from `../maki-be/api/openapi.yaml` and never
-  written by hand.
+  written by hand. They are committed, with a copy of the shared test
+  vectors, so building and testing need nothing outside this repository.
 - Every user-facing string comes from `src/locales/`; `npm run lint` fails
   when a key is missing in one language.
 - What a user sees follows `GET /me`'s permissions: the Owner manages

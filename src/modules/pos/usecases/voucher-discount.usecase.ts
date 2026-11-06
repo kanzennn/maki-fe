@@ -2,9 +2,8 @@ import type { VoucherTerms } from '../types'
 import { share } from './compute-totals.usecase'
 
 /**
- * The server's rule (maki-be/internal/voucher/discount.go), which the
- * Android cashier follows too, and which
- * maki-be/api/test-vectors/voucher-discounts.json pins down: a percentage
+ * The server's rule, which the Android cashier follows too, and which
+ * src/test/vectors/voucher-discounts.json pins down: a percentage
  * of the subtotal, rounded to the nearest rupiah, half up, then held to its
  * maximum; an amount as it is; either never past the subtotal. A subtotal
  * short of the minimum spend gets nothing, and `applies` is false: the sale

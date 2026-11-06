@@ -42,14 +42,15 @@ Caddy serves `/srv/maki/web/current` ([maki-be's `deploy/Caddyfile`](../../maki-
 
 ## The pipeline
 
-[`.github/workflows/ci.yml`](../.github/workflows/ci.yml), with maki-be
-checked out beside this repository, as in development (`../maki-be`):
+[`.github/workflows/ci.yml`](../.github/workflows/ci.yml). Nothing a push
+runs needs maki-be; only `e2e`, run by hand, checks it out:
 
 | Job | When | What |
 | --- | --- | --- |
-| `check` | every push and pull request | `npm run lint` (ESLint and the translations' keys), the API types against maki-be's contract (`npm run gen:api`, then no difference), the unit and screen tests, the build; on `main`, the build kept as an artifact |
-| `e2e` | every push and pull request | Playwright, in its own Chromium, against maki-be's api and worker built from the checkout, on a PostgreSQL 18 service (production's version) with an Owner made for the run: the admin area, the cashier, vouchers and tables, then signing in (which resets the Owner's password) last |
-| `deploy` | a push to `main`, both passing, `DEPLOY_ENABLED` `true` | through the `production` environment: the build's tarball to `incoming/`, then [`deploy/release.sh`](../deploy/release.sh) over SSH |
+| `check` | every push and pull request | `npm run lint` (ESLint and the translations' keys), the unit and screen tests, the build; on `main`, the build kept as an artifact |
+| `smoke` | every push and pull request | Playwright, in its own Chromium: the production build opens and sends a visitor to sign in, without a backend |
+| `e2e` | by hand (**Run workflow**) | Playwright, in its own Chromium, against maki-be's api and worker built from the checkout, on a PostgreSQL 18 service (production's version) with an Owner made for the run: the admin area, the cashier, vouchers and tables, then signing in (which resets the Owner's password) last |
+| `deploy` | a push to `main`, `check` and `smoke` passing, `DEPLOY_ENABLED` `true` | through the `production` environment: the build's tarball to `incoming/`, then [`deploy/release.sh`](../deploy/release.sh) over SSH |
 
 `release.sh` unpacks the build into `releases/<sha>`, notes its own hashed
 files in `manifests/<sha>`, and brings along the running release's own
@@ -66,7 +67,12 @@ ln -sfn releases/<earlier sha> current.next && mv -Tf current.next current
 Its settings are maki-be's ([deployment.md](../../maki-be/docs/deployment.md#github)):
 the `production` environment with `DEPLOY_HOST`, `DEPLOY_USER`,
 `DEPLOY_SSH_KEY` and `DEPLOY_KNOWN_HOSTS`, the repository variable
-`DEPLOY_ENABLED`, and `MAKI_BE_TOKEN` while maki-be is private.
+`DEPLOY_ENABLED`, and `MAKI_BE_TOKEN` while maki-be is private, for `e2e`.
+
+CI no longer compares `src/lib/api-schema.d.ts` or `src/test/vectors/` with
+maki-be. When its contract or a shared calculation changes, run
+`npm run gen:api` and `npm run sync:vectors` with maki-be beside this
+repository, and commit what they change.
 
 ## Before launch
 

@@ -26,9 +26,11 @@ port 8080.
 | `npm run test` | Vitest |
 | `npm run test:e2e` | Playwright (run `npx playwright install chromium` once first) |
 | `npm run gen:api` | Regenerate `src/lib/api-schema.d.ts` from `../maki-be/api/openapi.yaml` |
+| `npm run sync:vectors` | Copy the shared test vectors from `../maki-be/api/test-vectors` into `src/test/vectors` |
 
-`.github/workflows/ci.yml` runs the checks, the tests and the build, and the
-end-to-end tests against maki-be, on every push and pull request; from
+`.github/workflows/ci.yml` runs the checks, the tests, the build and the smoke
+test on every push and pull request, none of them needing maki-be; the
+end-to-end tests against it run by hand. From
 `main` it deploys the build to the VPS once deploys are enabled
 ([docs/deployment.md](docs/deployment.md)).
 

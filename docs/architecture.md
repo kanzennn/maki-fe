@@ -20,8 +20,7 @@ Dependencies point inwards only: presentation → application → domain.
 - `modules/` imports no React, router, form or UI library (`zustand/vanilla`,
   a store without React, is allowed), and nothing from `app/`, `components/`,
   `hooks/` or `providers/`. Within a module, files import each other by
-  relative path, and leave it only through the `@/` alias — except for files
-  outside `src/` (maki-be's test vectors);
+  relative path, and leave it only through the `@/` alias;
 - presentation never imports a repository: it calls a usecase;
 - only `lib/http.ts` imports axios, and nothing calls `fetch` (`window.fetch`,
   `globalThis.fetch`) directly;
@@ -227,15 +226,15 @@ and the screen says so.
 
 **The totals** are `priceCart` over `computeTotals`
 (`compute-totals.usecase.ts`), the server's rule in integers alone. Its
-test runs every case of `maki-be/api/test-vectors/order-totals.json`, the
-file the backend's tests read too.
+test runs every case of `src/test/vectors/order-totals.json`, a copy of the
+file the backend's tests read (`npm run sync:vectors`).
 
 **The voucher** the customer gives is typed in Detail Items
 (`voucher-field.tsx`) and checked with `POST /vouchers/validate`
 (`checkVoucher`), which needs the till as a sale does. Its terms go in the
 cart, one per order, and its discount is worked out again as the cart
 changes (`voucherDiscount`, run against
-`maki-be/api/test-vectors/voucher-discounts.json`), before the service
+`src/test/vectors/voucher-discounts.json`), before the service
 charge and the tax. Short of its minimum spend the panel says so and Pay is
 off. A refused code says why under the field; the summary and the receipt
 name the voucher ("Potongan (KODE)"). It stays as it was sent while a sale
@@ -699,15 +698,15 @@ would fall back to the root's full-screen one. The root keeps its full-page
   a Manager, a supervisor, a cashier, an outlet, its roles, and its
   categories and menus.
   `src/test/setup.ts` stubs `ResizeObserver`, which Radix's checkbox needs
-  and jsdom lacks, and gives `findBy` 5 seconds instead of 1: the whole
+  and jsdom lacks, and gives `findBy` 10 seconds instead of 1: the whole
   suite runs its files at once, each in a jsdom of its own, and on a busy
   machine a page took longer than a second to appear in a different file
   each run. For the same reason a test may take 15 seconds
   (`vite.config.ts`).
 - `npm run test:e2e` (Playwright) runs against the production build
   (`vite preview`, which proxies `/api` like the dev server). The smoke test
-  needs nothing else. The others need a running maki-be, and skip without
-  it:
+  needs nothing else, and runs on every push. The others need a running
+  maki-be, skip without it, and in CI run only by hand:
   - **Sign-in tests** (`e2e/auth.spec.ts`): an account they may change.
   - **Admin tests** (`e2e/admin.spec.ts`): the Owner. The Owner opens an
     outlet and gives it a Manager. The Manager chooses a password, sets up a

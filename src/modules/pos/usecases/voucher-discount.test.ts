@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest'
 
-// The backend's own file, which its Go tests read too.
-import vectors from '../../../../../maki-be/api/test-vectors/voucher-discounts.json'
+// A copy of the backend's file, which its Go tests read too: npm run
+// sync:vectors brings it up to date.
+import vectors from '@/test/vectors/voucher-discounts.json'
+
 import type { VoucherTerms } from '../types'
 import { voucherDiscount } from './voucher-discount.usecase'
 

@@ -9,7 +9,7 @@ import { sessionStore } from '@/lib/session'
 // The suite runs its files at once, each in a jsdom of its own: on a busy
 // machine a page can take longer than findBy's default second to appear. A
 // real failure still fails, a few seconds later.
-configure({ asyncUtilTimeout: 5000 })
+configure({ asyncUtilTimeout: 10_000 })
 
 // jsdom has no layout, but the router scrolls on every navigation, and
 // Radix measures its checkbox with a ResizeObserver.

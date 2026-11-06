@@ -2,7 +2,7 @@ import type { Totals, TotalsLine } from '../types'
 
 /**
  * The server's rule, which the Android cashier follows too, and which
- * maki-be/api/test-vectors/order-totals.json pins down: the subtotal is the
+ * src/test/vectors/order-totals.json pins down: the subtotal is the
  * lines' price × qty; the discount comes off it; the service charge is on
  * what is left, and the tax on that plus the service, each rounded to the
  * nearest rupiah, half up. Rates are basis points: 1000 is 10%.

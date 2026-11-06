@@ -63,10 +63,8 @@ const moduleRules = readdirSync(fileURLToPath(new URL('./src/modules', import.me
       regex: `^@/modules/${name}(/|$)`,
       message: `Within modules/${name}, import its own files by relative path.`,
     }
-    // Out of the module into src/, that is: two more steps up leave the app,
-    // where maki-be's test vectors are, and those stay relative.
     const leaving = (depth) => ({
-      regex: `^${'\\.\\./'.repeat(depth)}(?!(\\.\\./){2})`,
+      regex: `^${'\\.\\./'.repeat(depth)}`,
       message: 'Leave the module through the @/ alias, never a relative path.',
     })
     const base = [reactAndUi, presentationFolders, ownByAlias]
