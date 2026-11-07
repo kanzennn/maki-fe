@@ -20,6 +20,10 @@ globalThis.ResizeObserver ??= class {
   disconnect() {}
 }
 
+// jsdom shows no files either: the photo field's preview only needs an address.
+URL.createObjectURL ??= () => 'blob:preview'
+URL.revokeObjectURL ??= () => {}
+
 // Tests read the default language, whatever the machine's locale is.
 beforeEach(async () => {
   await i18n.changeLanguage('id')

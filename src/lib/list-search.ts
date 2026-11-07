@@ -15,6 +15,16 @@ export function listText(value: unknown): string | undefined {
   return typeof text === 'string' && text.trim() !== '' ? text : undefined
 }
 
+/**
+ * Several values: the array the router keeps, or the comma-separated text
+ * someone types. Anything else, or none, is none.
+ */
+export function listTexts(value: unknown): string[] | undefined {
+  const values = Array.isArray(value) ? value : (listText(value)?.split(',') ?? [])
+  const texts = values.filter((v): v is string => typeof v === 'string' && v.trim() !== '')
+  return texts.length ? texts : undefined
+}
+
 /** One of values, or none for anything else. */
 export function listChoice<T extends string>(value: unknown, values: readonly T[]): T | undefined {
   return values.find((v) => v === value)

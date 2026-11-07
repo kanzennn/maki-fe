@@ -228,6 +228,58 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/me/photo": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Change the signed-in user's profile photo
+         * @description Anyone may change their own photo. `upload_key` is a finished upload
+         *     from `POST /api/v1/uploads/presign`. The worker converts it within
+         *     seconds; `Me.photo_url` shows the old photo, or none, until then.
+         */
+        put: operations["setMyPhoto"];
+        post?: never;
+        /** Remove the signed-in user's profile photo */
+        delete: operations["removeMyPhoto"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/uploads/presign": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Ask for a place to upload a photo to
+         * @description The client then sends the file with `PUT` to `upload_url`, straight to
+         *     the private bucket, with the `Content-Type` it named here and exactly
+         *     the size it named here, both of which are signed in. It has 5 minutes.
+         *     It then sends `upload_key` when saving a menu or an account, or to
+         *     `PUT /api/v1/me/photo`. An upload nobody claims is deleted after 24
+         *     hours.
+         *
+         *     The worker opens the file: it must really be a JPG, PNG or WebP of at
+         *     most 8000 × 8000 pixels. One that isn't is logged and deleted, and
+         *     the row keeps the photo it has.
+         */
+        post: operations["presignUpload"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/me/email": {
         parameters: {
             query?: never;
@@ -1546,6 +1598,176 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/outlets/{oid}/payment-methods": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        /**
+         * The outlet's Payment Control
+         * @description Needs `payment.manage`. Every method, in the cashier's order.
+         */
+        get: operations["listPaymentMethods"];
+        /**
+         * Turn the outlet's payment methods on or off
+         * @description Needs `payment.manage`. Methods left out stay as they are. Cash stays
+         *     on (`payment_method_required`), and a method not released yet can't
+         *     be turned on (`payment_method_coming_soon`). A change is
+         *     `payment.updated` in the Log Action; saving what is so records
+         *     nothing. Each method's `method` is `required`, `oneof` or
+         *     `duplicate`, and its `is_enabled` is `required`.
+         */
+        put: operations["setPaymentMethods"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/outlets/{oid}/logs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        /**
+         * The outlet's Log Action
+         * @description Needs `log.view`. The outlet's entries alone, newest first.
+         */
+        get: operations["listOutletLogs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/owner/logs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The Log Action of every outlet
+         * @description The Owner, with `log.view`. Every entry, newest first.
+         */
+        get: operations["listOwnerLogs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/outlets/{oid}/dashboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        /**
+         * The outlet's dashboard
+         * @description Needs `dashboard.view`. The dates are in the outlet's time zone. It
+         *     fills `hours`, `cashiers` and `tables`, and leaves `outlets` empty.
+         */
+        get: operations["getOutletDashboard"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/owner/dashboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * The dashboard of every outlet
+         * @description The Owner, with `dashboard.view`. Each outlet's days are its own, in
+         *     its time zone. It fills `outlets`, the best first, and leaves `hours`,
+         *     `cashiers` and `tables` empty.
+         */
+        get: operations["getOwnerDashboard"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/outlets/{oid}/realtime/ticket": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * A ticket to connect to the outlet's live messages
+         * @description For whoever may act in the outlet. Good for one connection, within
+         *     the seconds it says.
+         */
+        post: operations["createRealtimeTicket"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/outlets/{oid}/realtime": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        /**
+         * The outlet's live messages, over a WebSocket
+         * @description A WebSocket upgrade. Each message is JSON, `{"topics": [...]}`, naming
+         *     what changed: `catalog` (menus, prices, stock, rates, payment
+         *     methods), `tables` (areas, tables, schedules, the dine-in mode) or
+         *     `orders` (sales and voids); the client loads that data again through
+         *     its usual endpoints. The server closes with code 4000 when the client
+         *     should connect again with a new ticket, which it does at the latest
+         *     after 15 minutes. A client that was away should reload everything it
+         *     shows when it is back.
+         */
+        get: operations["connectRealtime"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/outlets/{oid}/dine-in-mode": {
         parameters: {
             query?: never;
@@ -1647,11 +1869,35 @@ export interface components {
             refresh_expires_in?: number;
             user: components["schemas"]["Me"];
         };
+        PresignUploadRequest: {
+            /** @enum {string} */
+            purpose: "menu_image" | "user_photo";
+            /** @enum {string} */
+            content_type: "image/jpeg" | "image/png" | "image/webp";
+            /**
+             * Format: int64
+             * @description The file's exact size in bytes, at most 2 MB.
+             */
+            size: number;
+        };
+        UploadTicket: {
+            /** @description A presigned address to `PUT` the file to. */
+            upload_url: string;
+            /** @example uploads/tz4a98xxat96iws9zmbrgj3a */
+            upload_key: string;
+            /** Format: date-time */
+            expires_at: string;
+        };
+        SetPhotoRequest: {
+            upload_key: string;
+        };
         Me: {
             /** @example tz4a98xxat96iws9zmbrgj3a */
             user_id: string;
             username: string;
             name: string;
+            /** @description A short-lived address of the photo; null without one. */
+            photo_url: string | null;
             /** Format: email */
             email: string | null;
             email_verified: boolean;
@@ -1853,6 +2099,8 @@ export interface components {
             name: string;
         };
         Staff: {
+            /** @description A short-lived address of the photo; null without one. */
+            photo_url: string | null;
             user_id: string;
             name: string;
             username: string;
@@ -1877,6 +2125,8 @@ export interface components {
             meta: components["schemas"]["ListMeta"];
         };
         CreateStaffRequest: {
+            /** @description A finished upload, to become the account's photo. */
+            upload_key?: string | null;
             name: string;
             /** @description 3 to 32 lowercase letters, digits, dots, dashes or underscores; stored in lower case. */
             username: string;
@@ -1894,6 +2144,10 @@ export interface components {
             is_manager: boolean;
         };
         UpdateStaffRequest: {
+            /** @description A finished upload, to become the account's photo; the old one shows until the worker is done. */
+            upload_key?: string | null;
+            /** @description Takes the photo away. `upload_key` wins if both are sent. */
+            remove_photo?: boolean;
             name: string;
             /** Format: email */
             email?: string | null;
@@ -1970,8 +2224,10 @@ export interface components {
              * @example 18000
              */
             price: number;
-            /** @description The photo on the CDN; null until photos arrive, and for a menu without one. */
+            /** @description The 800 × 800 photo on the CDN; null for a menu without one. */
             image_url: string | null;
+            /** @description The 200 × 200 photo on the CDN; null for a menu without one. */
+            image_thumb_url: string | null;
             track_stock: boolean;
             /** @description The count, for a tracked menu. */
             stock_qty: number;
@@ -1991,6 +2247,10 @@ export interface components {
             meta: components["schemas"]["ListMeta"];
         };
         MenuInput: {
+            /** @description A finished upload, to become the menu's photo; the old one shows until the worker is done. */
+            upload_key?: string | null;
+            /** @description On PUT, takes the photo away. `upload_key` wins if both are sent. */
+            remove_image?: boolean;
             name: string;
             category_id: string;
             /**
@@ -2094,6 +2354,163 @@ export interface components {
             revoked_at: string | null;
             revoked_by: components["schemas"]["DevicePerson"] | null;
         };
+        PaymentControlMethod: {
+            /** @enum {string} */
+            method: "cash" | "qris" | "debit";
+            is_enabled: boolean;
+            /** @description False for a method not released yet, which stays off. */
+            available: boolean;
+        };
+        PaymentMethods: {
+            methods: components["schemas"]["PaymentControlMethod"][];
+        };
+        SetPaymentMethodsRequest: {
+            methods: {
+                method: string;
+                is_enabled: boolean;
+            }[];
+        };
+        ActionLog: {
+            action_log_id: string;
+            /** @description `<resource>.<what happened>`, such as `menu.updated`. */
+            action: string;
+            target_type: string | null;
+            target_id: string | null;
+            user: null | {
+                user_id: string;
+                name: string;
+                is_owner: boolean;
+                is_manager: boolean;
+                role_name: string | null;
+            };
+            outlet: null | {
+                outlet_id: string;
+                code: string;
+                name: string;
+            };
+            device: null | {
+                device_id: string;
+                code: string;
+                name: string;
+            };
+            /** @description The values before, as they were stored; null for none. */
+            before: {
+                [key: string]: unknown;
+            } | null;
+            /** @description The values after, as they were stored; null for none. */
+            after: {
+                [key: string]: unknown;
+            } | null;
+            ip: string | null;
+            /** Format: date-time */
+            occurred_at: string;
+            /** Format: date-time */
+            created_at: string;
+        };
+        ActionLogList: {
+            data: components["schemas"]["ActionLog"][];
+            meta: components["schemas"]["ListMeta"];
+        };
+        Dashboard: {
+            /** Format: date */
+            from: string;
+            /** Format: date */
+            to: string;
+            /** Format: date */
+            previous_from: string;
+            /** Format: date */
+            previous_to: string;
+            /** @description Sales are the paid orders; voids are apart. The previous figures are the period just before, as long. */
+            summary: {
+                /** Format: int64 */
+                sales: number;
+                transactions: number;
+                /** Format: int64 */
+                average_transaction: number;
+                /** Format: int64 */
+                items_sold: number;
+                void_count: number;
+                /** Format: int64 */
+                void_total: number;
+                /** Format: int64 */
+                previous_sales: number;
+                previous_transactions: number;
+            };
+            /** @description Every day of the period, those without a sale too. */
+            days: {
+                /** Format: date */
+                date: string;
+                /** Format: int64 */
+                sales: number;
+                transactions: number;
+            }[];
+            /** @description An outlet's, every hour of the day, 0 to 23. */
+            hours: {
+                hour: number;
+                /** Format: int64 */
+                sales: number;
+                transactions: number;
+            }[];
+            /** @description The Owner's ranking, the best first. */
+            outlets: {
+                outlet_id: string;
+                code: string;
+                name: string;
+                /** Format: int64 */
+                sales: number;
+                transactions: number;
+                /** Format: int64 */
+                previous_sales: number;
+                previous_transactions: number;
+            }[];
+            payment_methods: {
+                method: string;
+                /** Format: int64 */
+                amount: number;
+                transactions: number;
+            }[];
+            /** @description At most ten, the most sold first. */
+            top_menus: {
+                menu_id: string;
+                outlet_id: string;
+                name: string;
+                /** Format: int64 */
+                qty: number;
+                /** Format: int64 */
+                sales: number;
+            }[];
+            /** @description Menus at or below their alert, or out of stock, now, whatever the period. At most 50, the emptiest first. */
+            low_stock: {
+                menu_id: string;
+                outlet_id: string;
+                outlet_name: string;
+                name: string;
+                stock_qty: number;
+                stock_alert: number | null;
+                /** @enum {string} */
+                stock_status: "low" | "out";
+            }[];
+            /** @description An outlet's, the most sold first. */
+            cashiers: {
+                user_id: string;
+                name: string;
+                /** Format: int64 */
+                sales: number;
+                transactions: number;
+            }[];
+            /** @description An outlet's tables customers are seated at now, whatever the period. */
+            tables: {
+                table_id: string;
+                name: string;
+                area_name: string;
+                orders: number;
+            }[];
+        };
+        RealtimeTicket: {
+            ticket: string;
+            /** @description How many seconds it is good for. */
+            expires_in: number;
+        };
         DeviceList: {
             data: components["schemas"]["Device"][];
             meta: components["schemas"]["ListMeta"];
@@ -2163,8 +2580,10 @@ export interface components {
              * @description Rupiah.
              */
             price: number;
-            /** @description The photo's address, with the upload milestone; null until then. */
+            /** @description The 800 × 800 photo on the CDN; null for a menu without one. */
             image_url: string | null;
+            /** @description The 200 × 200 photo on the CDN; null for a menu without one. */
+            image_thumb_url: string | null;
             track_stock: boolean;
             /** @description The count, the most one order may take; null when the stock isn't tracked, always available. */
             stock_qty: number | null;
@@ -3415,6 +3834,15 @@ export interface components {
                 "application/json": components["schemas"]["ErrorEnvelope"];
             };
         };
+        /** @description This deployment has no object storage (`storage_unavailable`). */
+        StorageUnavailable: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": components["schemas"]["ErrorEnvelope"];
+            };
+        };
         /** @description Too many attempts (`rate_limited`). Wait `Retry-After` seconds. */
         RateLimited: {
             headers: {
@@ -3439,6 +3867,16 @@ export interface components {
         AreaID: string;
         TableID: string;
         ScheduleID: string;
+        /** @description From this instant. */
+        LogFrom: string;
+        /** @description Up to, not including, this instant, after `from`. */
+        LogTo: string;
+        /** @description Comma-separated. These actions alone. */
+        LogAction: string;
+        /** @description The period's first day, included. */
+        DashboardFrom: string;
+        /** @description The period's last day, included; at most 366 days long. */
+        DashboardTo: string;
         Page: number;
         PageSize: number;
     };
@@ -3787,6 +4225,101 @@ export interface operations {
             401: components["responses"]["Unauthorized"];
             422: components["responses"]["PasswordRejected"];
             429: components["responses"]["RateLimited"];
+        };
+    };
+    setMyPhoto: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SetPhotoRequest"];
+            };
+        };
+        responses: {
+            /** @description The worker takes it from here. */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["InvalidRequest"];
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["PasswordChangeRequired"];
+            /**
+             * @description The key isn't an upload's (`validation_failed`), or the upload
+             *     didn't finish or has expired (`upload_not_found`).
+             */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            503: components["responses"]["StorageUnavailable"];
+        };
+    };
+    removeMyPhoto: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Removed, or there was none. */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["PasswordChangeRequired"];
+        };
+    };
+    presignUpload: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PresignUploadRequest"];
+            };
+        };
+        responses: {
+            /** @description Where to upload. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UploadTicket"];
+                };
+            };
+            400: components["responses"]["InvalidRequest"];
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["PasswordChangeRequired"];
+            /** @description The purpose, the type or the size isn't allowed (`validation_failed`). */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            503: components["responses"]["StorageUnavailable"];
         };
     };
     changeEmail: {
@@ -6153,6 +6686,251 @@ export interface operations {
             401: components["responses"]["Unauthorized"];
             403: components["responses"]["Forbidden"];
             404: components["responses"]["OutletNotFound"];
+        };
+    };
+    listPaymentMethods: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The methods. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentMethods"];
+                };
+            };
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["Forbidden"];
+            404: components["responses"]["OutletNotFound"];
+        };
+    };
+    setPaymentMethods: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SetPaymentMethodsRequest"];
+            };
+        };
+        responses: {
+            /** @description The methods, as they are now. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentMethods"];
+                };
+            };
+            400: components["responses"]["InvalidRequest"];
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["Forbidden"];
+            404: components["responses"]["OutletNotFound"];
+            /** @description Cash turned off, or a method not released turned on. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            422: components["responses"]["ValidationFailed"];
+        };
+    };
+    listOutletLogs: {
+        parameters: {
+            query?: {
+                /** @description From this instant. */
+                from?: components["parameters"]["LogFrom"];
+                /** @description Up to, not including, this instant, after `from`. */
+                to?: components["parameters"]["LogTo"];
+                /** @description Comma-separated. These actions alone. */
+                action?: components["parameters"]["LogAction"];
+                user_id?: string;
+                page?: components["parameters"]["Page"];
+                page_size?: components["parameters"]["PageSize"];
+            };
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description A page of entries. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ActionLogList"];
+                };
+            };
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["Forbidden"];
+            404: components["responses"]["OutletNotFound"];
+            422: components["responses"]["ValidationFailed"];
+        };
+    };
+    listOwnerLogs: {
+        parameters: {
+            query?: {
+                /** @description From this instant. */
+                from?: components["parameters"]["LogFrom"];
+                /** @description Up to, not including, this instant, after `from`. */
+                to?: components["parameters"]["LogTo"];
+                /** @description Comma-separated. These actions alone. */
+                action?: components["parameters"]["LogAction"];
+                /** @description Comma-separated. Entries of these outlets alone. */
+                outlet_ids?: string;
+                /** @description The Owner's own actions alone. */
+                self?: boolean;
+                page?: components["parameters"]["Page"];
+                page_size?: components["parameters"]["PageSize"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description A page of entries. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ActionLogList"];
+                };
+            };
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["Forbidden"];
+            422: components["responses"]["ValidationFailed"];
+        };
+    };
+    getOutletDashboard: {
+        parameters: {
+            query: {
+                /** @description The period's first day, included. */
+                from: components["parameters"]["DashboardFrom"];
+                /** @description The period's last day, included; at most 366 days long. */
+                to: components["parameters"]["DashboardTo"];
+            };
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The dashboard. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Dashboard"];
+                };
+            };
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["Forbidden"];
+            404: components["responses"]["OutletNotFound"];
+            422: components["responses"]["ValidationFailed"];
+        };
+    };
+    getOwnerDashboard: {
+        parameters: {
+            query: {
+                /** @description The period's first day, included. */
+                from: components["parameters"]["DashboardFrom"];
+                /** @description The period's last day, included; at most 366 days long. */
+                to: components["parameters"]["DashboardTo"];
+                /** @description Comma-separated. These outlets alone; every outlet without it. */
+                outlet_ids?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The dashboard. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Dashboard"];
+                };
+            };
+            401: components["responses"]["Unauthorized"];
+            403: components["responses"]["Forbidden"];
+            422: components["responses"]["ValidationFailed"];
+        };
+    };
+    createRealtimeTicket: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The ticket. */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RealtimeTicket"];
+                };
+            };
+            401: components["responses"]["Unauthorized"];
+            404: components["responses"]["OutletNotFound"];
+        };
+    };
+    connectRealtime: {
+        parameters: {
+            query: {
+                ticket: string;
+            };
+            header?: never;
+            path: {
+                oid: components["parameters"]["OutletID"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Connected. */
+            101: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["Unauthorized"];
         };
     };
     getDineInMode: {

@@ -44,9 +44,13 @@ upgrade-insecure-requests
 - `font-src 'self'`: Plus Jakarta Sans ships with the app (Fontsource).
 - `connect-src 'self'`: the API is on the same domain, and `'self'` covers
   its WebSocket too.
-- `CDN_ORIGIN` and `STORAGE_ORIGIN` (maki-be's `.env`) are empty until menu
-  photos come: then the CDN in front of the public bucket, and the object
-  storage that private files and uploads go to (Go + Gin standard §9).
+- `CDN_ORIGIN` and `STORAGE_ORIGIN` (maki-be's `.env`) fill `img-src` and
+  `connect-src` with the CDN in front of the public bucket, and the object
+  storage that private files and uploads go to (Go + Gin standard §9). Empty,
+  photos don't show or upload. A host other than this Caddy, such as Vercel,
+  needs the same origins in its own CSP, and the API's origin and WebSocket in
+  `connect-src`.
+- A presigned upload carries no token and no cookie (`putToStorage`).
 
 Check them on the live domain: `curl -sI https://<domain>/`, and the
 browser's console shows no CSP violation on the admin area and the cashier.

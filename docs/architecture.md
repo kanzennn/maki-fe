@@ -134,10 +134,13 @@ items from the user's permissions, through the modules' `permissions.ts`:
 | Role | `role.view`, in the user's outlet |
 | User | `user.view`, in the user's outlet |
 | Perangkat | The Manager, in their outlet |
+| Pembayaran | `payment.manage`, in the user's outlet |
+| Log | `log.view`: the Owner's across outlets, or the user's outlet's |
 | Kasir | `checkout.create` |
 
 Voucher sits after Outlet for the Owner, and after Perangkat for the
-Manager.
+Manager. A Manager has more items than a phone has room for, so the bottom
+bar scrolls sideways.
 
 The Owner reaches an outlet's users, roles, menu and tables from that
 outlet's page.
@@ -183,6 +186,26 @@ The page says why an action is missing. In a role's checklist:
 
 - a permission the user lacks is locked, unless the role already had it;
 - ticking "manage" ticks "view".
+
+## Dashboard, logs, realtime and photos
+
+- **Dashboard:** `/admin` for whoever has `dashboard.view`, the Owner's across
+  outlets and the others' for their own; `/admin/outlets/$oid/dashboard` is one
+  outlet's, for the Owner. The period and the outlets are in the address bar.
+  Charts use Recharts, in `components/dashboard/`.
+- **Logs:** `/admin/logs` and `/admin/outlets/$oid/logs`, with `logActions` in
+  `modules/log/types.ts` naming every action the backend records.
+- **Realtime:** `hooks/use-outlet-live.ts`, mounted in the admin and cashier
+  frames, follows the user's outlet through `modules/realtime`
+  (`followOutlet`). A message says what changed and the hook invalidates those
+  queries. Connecting again gets a new ticket, and reloads everything. No
+  connection does no harm. The Owner has no outlet of their own, so isn't live.
+- **Photos:** `components/shared/photo-field.tsx` picks a file, with a preview,
+  and the form holds a `PhotoChoice`. A usecase checks the form first, so a form
+  that won't save uploads nothing, then `modules/upload` presigns and sends the
+  file (`putToStorage`), and the save goes with the key. `Photo` and `UserAvatar`
+  fall back to the emoji or the initials, as a profile photo's address expires.
+  `/account` is the user's own photo, from the header.
 
 ## The cashier
 
@@ -732,19 +755,24 @@ would fall back to the root's full-screen one. The root keeps its full-page
     table off and deletes one; the Owner reads it all. The cashier tests
     sell at a table too, release it, meet a table turned off after it was
     picked, and zoom the floor on a phone.
+  - **Module tests** (`e2e/modules.spec.ts`): the Owner too, for an outlet of
+    its own and its Manager. A menu saved in one browser appears in another
+    unasked; the Log Action, Payment Control and the dashboard open with what
+    they should; a photo meets a backend without storage and says so; the header
+    leads to the account page.
 
   | Variable | Value |
   | --- | --- |
   | `API_PROXY_TARGET` | The API, e.g. `http://127.0.0.1:18081` |
   | `E2E_USERNAME`, `E2E_PASSWORD` | Sign-in tests: an Owner account whose email isn't confirmed yet |
   | `E2E_WORKER_LOG` | Sign-in tests: the worker's output file, where the development log mailer writes the emailed links |
-  | `E2E_OWNER_USERNAME`, `E2E_OWNER_PASSWORD` | Admin, cashier, voucher and table tests: the backend's Owner |
+  | `E2E_OWNER_USERNAME`, `E2E_OWNER_PASSWORD` | Admin, cashier, voucher, table and module tests: the backend's Owner |
   | `PW_CHANNEL` | `msedge` or `chrome` to use a browser already installed instead of `npx playwright install chromium` |
 
   Run the backend against a throwaway schema (`DATABASE_URL` with
   `&search_path=<schema>`, then `api migrate` and `api create-owner`) so the
   tests never touch real data. The sign-in tests reset the Owner's password,
-  so run the admin, cashier, voucher and table tests first, in a run of
+  so run the admin, cashier, voucher, table and module tests first, in a run of
   their own:
-  `npx playwright test e2e/admin.spec.ts e2e/pos.spec.ts e2e/voucher.spec.ts e2e/tables.spec.ts`,
+  `npx playwright test e2e/admin.spec.ts e2e/pos.spec.ts e2e/voucher.spec.ts e2e/tables.spec.ts e2e/modules.spec.ts`,
   then the rest.

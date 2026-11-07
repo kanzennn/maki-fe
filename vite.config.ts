@@ -29,6 +29,8 @@ export default defineConfig({
         // same-origin request by it and skips the CORS allowlist. (Vite's
         // string shorthand would rewrite it to the target's.)
         changeOrigin: false,
+        // The outlet's live messages come over a WebSocket on the same path.
+        ws: true,
       },
     },
   },

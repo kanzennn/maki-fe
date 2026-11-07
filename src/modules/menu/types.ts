@@ -1,4 +1,5 @@
 import type { components } from '@/lib/api-schema'
+import type { PhotoChoice } from '@/modules/upload/types'
 
 export type Category = components['schemas']['Category']
 export type CategoryInput = components['schemas']['CategoryInput']
@@ -48,6 +49,8 @@ export const categoryFields = ['name', 'icon'] as const satisfies readonly (keyo
  * from initial_stock, for a menu that didn't track its stock yet.
  */
 export type MenuFormValues = {
+  /** The photo to save with it; nothing changes without one. */
+  photo?: PhotoChoice
   name: string
   category_id: string
   price: string

@@ -2,8 +2,14 @@ import { screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { json, renderApp, serve } from '@/test/app'
-import { listOf, testManager, testOutlet, testOwner, testRoles, testStaff, testSupervisor, testUser } from '@/test/fixtures'
+import { emptyDashboard, listOf, testManager, testOutlet, testOwner, testRoles, testStaff, testSupervisor, testUser } from '@/test/fixtures'
 import { unregisteredTill } from '@/test/pos'
+
+/** The Owner's front door, with nothing sold. */
+const ownerFrontDoor = {
+  'GET /api/v1/owner/dashboard': () => json(200, emptyDashboard),
+  'GET /api/v1/outlets': () => json(200, listOf([testOutlet])),
+}
 
 /** What /pos opens with on a device that isn't one of the outlet's yet. */
 const till = 'Perangkat ini belum terdaftar'
@@ -33,6 +39,7 @@ describe('routing', () => {
   })
 
   it('sends / to the admin area when signed in, and to sign-in otherwise', async () => {
+    serve({ 'GET /api/v1/outlets/o1/dashboard': () => json(200, emptyDashboard) })
     const { router } = renderApp('/', testManager)
     expect(await screen.findByRole('heading', { level: 1, name: 'Dasbor' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/admin')
@@ -64,10 +71,11 @@ function sidebar() {
 
 describe('the admin area', () => {
   it("shows the Owner the dashboard and the outlets, not an outlet's own pages", async () => {
+    serve(ownerFrontDoor)
     renderApp('/admin', testOwner)
 
     expect(await screen.findByRole('heading', { level: 1, name: 'Dasbor' })).toBeInTheDocument()
-    expect(sidebar()).toEqual(['Dasbor', 'Outlet', 'Voucher'])
+    expect(sidebar()).toEqual(['Dasbor', 'Outlet', 'Voucher', 'Log'])
   })
 
   it("shows a Manager their outlet's pages and the cashier, and which one is open", async () => {
@@ -77,7 +85,7 @@ describe('the admin area', () => {
     renderApp('/admin/outlets/o1/roles', testManager)
 
     expect(await screen.findByRole('heading', { level: 1, name: 'Role' })).toBeInTheDocument()
-    expect(sidebar()).toEqual(['Dasbor', 'Menu', 'Meja', 'Role', 'User', 'Perangkat', 'Voucher', 'Kasir'])
+    expect(sidebar()).toEqual(['Dasbor', 'Menu', 'Meja', 'Role', 'User', 'Perangkat', 'Voucher', 'Pembayaran', 'Log', 'Kasir'])
     const nav = screen.getAllByRole('navigation', { name: 'Menu utama' })[0]
     expect(within(nav).getByRole('link', { name: 'Role' })).toHaveAttribute('aria-current', 'page')
     expect(within(nav).getByRole('link', { name: 'Dasbor' })).not.toHaveAttribute('aria-current')
@@ -117,8 +125,7 @@ describe('the admin area', () => {
   })
 
   it('says so to a user whose permissions open no page yet', async () => {
-    // The Log Action has no page yet.
-    const { router } = renderApp('/admin', { ...testUser, permissions: ['log.view'] })
+    const { router } = renderApp('/admin', { ...testUser, permissions: [] })
 
     expect(
       await screen.findByRole('heading', { level: 1, name: 'Belum ada halaman untuk akun Anda' }),
@@ -158,6 +165,7 @@ describe('the admin area', () => {
   })
 
   it('keeps the Owner out of the cashier', async () => {
+    serve(ownerFrontDoor)
     const { router } = renderApp('/pos', testOwner)
 
     expect(await screen.findByRole('heading', { level: 1, name: 'Dasbor' })).toBeInTheDocument()
@@ -169,7 +177,7 @@ describe('the admin area', () => {
     renderApp('/admin/outlets/gone', testOwner)
 
     expect(await screen.findByRole('heading', { level: 1, name: 'Halaman tidak ditemukan' })).toBeInTheDocument()
-    expect(sidebar()).toEqual(['Dasbor', 'Outlet', 'Voucher'])
+    expect(sidebar()).toEqual(['Dasbor', 'Outlet', 'Voucher', 'Log'])
   })
 
   it("opens an outlet's pages for the Owner under its name, with tabs", async () => {
@@ -179,7 +187,7 @@ describe('the admin area', () => {
     expect(await screen.findByRole('heading', { level: 1, name: 'Maki Bandung' })).toBeInTheDocument()
     const tabs = screen.getByRole('navigation', { name: 'Bagian outlet' })
     expect(within(tabs).getByRole('link', { name: 'Info' })).toHaveAttribute('aria-current', 'page')
-    expect(within(tabs).getAllByRole('link').map((link) => link.textContent)).toEqual(['Info', 'User', 'Role', 'Menu', 'Meja', 'Perangkat', 'Voucher'])
+    expect(within(tabs).getAllByRole('link').map((link) => link.textContent)).toEqual(['Info', 'Dasbor', 'User', 'Role', 'Menu', 'Meja', 'Perangkat', 'Voucher', 'Log'])
     expect(screen.getByRole('heading', { level: 2, name: 'Detail outlet' })).toBeInTheDocument()
   })
 })

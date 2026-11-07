@@ -8,7 +8,8 @@
     "stockMode": "Stock mode",
     "initialStock": "Starting stock",
     "stockAlert": "Low stock threshold",
-    "active": "Show at the cashier"
+    "active": "Show at the cashier",
+    "photo": "Menu photo"
   },
   "form": {
     "chooseCategory": "Choose a category",

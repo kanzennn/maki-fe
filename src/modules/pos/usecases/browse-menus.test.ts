@@ -11,6 +11,7 @@ const menu = (menu_id: string, name: string, category_id: string, sku: string | 
   sku,
   price: 1000,
   image_url: null,
+  image_thumb_url: null,
   track_stock: false,
   stock_qty: null,
   stock_alert: null,

@@ -1,0 +1,173 @@
+{
+  "title": "Log Action",
+  "intro": "Semua aksi penting yang tercatat. Log tidak bisa diubah atau dihapus.",
+  "empty": "Tidak ada aksi yang cocok.",
+  "columns": {
+    "when": "Waktu",
+    "user": "User",
+    "outlet": "Outlet",
+    "action": "Aksi",
+    "target": "Target",
+    "source": "IP / perangkat",
+    "detail": "Detail"
+  },
+  "filters": {
+    "from": "Dari tanggal",
+    "to": "Sampai tanggal",
+    "actions": "Jenis aksi",
+    "allActions": "Semua aksi",
+    "someActions": "{{count}} aksi",
+    "apply": "Terapkan",
+    "clear": "Hapus pilihan",
+    "outlet": "Outlet",
+    "allOutlets": "Semua outlet",
+    "self": "Aksi saya sendiri",
+    "user": "User",
+    "allUsers": "Semua user"
+  },
+  "role": {
+    "owner": "Owner",
+    "manager": "Manager",
+    "staff": "Staf"
+  },
+  "nobody": "Tidak dikenal",
+  "none": "-",
+  "detail": {
+    "title": "Detail aksi",
+    "open": "Lihat detail {{action}}",
+    "field": "Isian",
+    "before": "Sebelum",
+    "after": "Sesudah",
+    "noChanges": "Aksi ini tidak menyimpan nilai.",
+    "recordedAt": "Diterima server"
+  },
+  "groups": {
+    "auth": "Akun",
+    "outlet": "Outlet",
+    "voucher": "Voucher",
+    "role": "Role",
+    "user": "User",
+    "category": "Kategori",
+    "menu": "Menu",
+    "stock": "Stok",
+    "area": "Area",
+    "table": "Meja",
+    "table_schedule": "Jadwal meja",
+    "dine_in_mode": "Mode dine-in",
+    "order": "Transaksi",
+    "payment": "Metode bayar",
+    "device": "Perangkat"
+  },
+  "targets": {
+    "area": "Area",
+    "category": "Kategori",
+    "device": "Perangkat",
+    "menu": "Menu",
+    "order": "Transaksi",
+    "outlet": "Outlet",
+    "role": "Role",
+    "session": "Sesi",
+    "table": "Meja",
+    "table_schedule": "Jadwal",
+    "user": "User",
+    "voucher": "Voucher"
+  },
+  "actions": {
+    "auth": {
+      "login": "Masuk",
+      "logout": "Keluar",
+      "login_failed": "Gagal masuk",
+      "owner_created": "Akun Owner dibuat",
+      "session_revoked": "Sesi diakhiri",
+      "password_changed": "Ganti password",
+      "password_reset_requested": "Minta reset password",
+      "password_reset": "Reset password berhasil",
+      "email_change_requested": "Minta ganti email",
+      "email_verified": "Email terverifikasi"
+    },
+    "outlet": {
+      "created": "Outlet dibuat",
+      "updated": "Outlet diubah",
+      "activated": "Outlet diaktifkan",
+      "deactivated": "Outlet dinonaktifkan",
+      "deleted": "Outlet dihapus"
+    },
+    "voucher": {
+      "created": "Voucher dibuat",
+      "updated": "Voucher diubah",
+      "activated": "Voucher diaktifkan",
+      "deactivated": "Voucher dinonaktifkan",
+      "deleted": "Voucher dihapus"
+    },
+    "role": {
+      "created": "Role dibuat",
+      "updated": "Role diubah",
+      "deleted": "Role dihapus"
+    },
+    "user": {
+      "created": "User dibuat",
+      "updated": "User diubah",
+      "role_changed": "Role user diganti",
+      "promoted": "Dijadikan Manager",
+      "demoted": "Dilepas dari Manager",
+      "activated": "User diaktifkan",
+      "deactivated": "User dinonaktifkan",
+      "password_reset": "Password user direset",
+      "deleted": "User dihapus",
+      "photo_changed": "Foto user diganti",
+      "photo_removed": "Foto user dihapus"
+    },
+    "category": {
+      "created": "Kategori dibuat",
+      "updated": "Kategori diubah",
+      "activated": "Kategori diaktifkan",
+      "deactivated": "Kategori dinonaktifkan",
+      "reordered": "Urutan kategori diubah",
+      "deleted": "Kategori dihapus"
+    },
+    "menu": {
+      "created": "Menu dibuat",
+      "updated": "Menu diubah",
+      "activated": "Menu diaktifkan",
+      "deactivated": "Menu dinonaktifkan",
+      "deleted": "Menu dihapus"
+    },
+    "stock": {
+      "adjusted": "Stok disesuaikan"
+    },
+    "area": {
+      "created": "Area dibuat",
+      "updated": "Area diubah",
+      "reordered": "Urutan area diubah",
+      "layout_updated": "Layout diubah",
+      "deleted": "Area dihapus"
+    },
+    "table": {
+      "created": "Meja dibuat",
+      "updated": "Meja diubah",
+      "activated": "Meja diaktifkan",
+      "deactivated": "Meja dinonaktifkan",
+      "released": "Meja dikosongkan",
+      "deleted": "Meja dihapus"
+    },
+    "table_schedule": {
+      "created": "Jadwal dibuat",
+      "updated": "Jadwal diubah",
+      "cancelled": "Jadwal dibatalkan"
+    },
+    "dine_in_mode": {
+      "updated": "Mode dine-in diganti"
+    },
+    "order": {
+      "created": "Transaksi",
+      "voided": "Transaksi di-void"
+    },
+    "payment": {
+      "updated": "Metode bayar diubah"
+    },
+    "device": {
+      "activated": "Perangkat didaftarkan",
+      "revoked": "Perangkat dicabut"
+    }
+  }
+}

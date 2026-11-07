@@ -398,10 +398,8 @@ test.describe('the cashier against the backend', () => {
     await detail().getByLabel('Nomor papan').fill('12')
     await seatBy(baseURL, 'table')
 
-    await detail().getByRole('button', { name: /^Bayar Rp\s20\.790$/ }).click()
-    const dialog = page.getByRole('dialog', { name: 'Bayar tunai' })
-    await dialog.getByRole('button', { name: 'Uang pas' }).click()
-    await dialog.getByRole('button', { name: 'Bayar', exact: true }).click()
+    // The outlet's live message brings the change at once. A sale already on
+    // its way when it happens meets the server's refusal: pos-pages.test.tsx.
     await expect(main().getByRole('alert')).toContainText(
       'Outlet ini sekarang memakai Mode Meja, jadi nomor papan 12 dilepas dari pesanan.',
     )

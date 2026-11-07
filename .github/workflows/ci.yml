@@ -140,7 +140,7 @@ jobs:
         env:
           E2E_OWNER_USERNAME: e2e.owner
           E2E_OWNER_PASSWORD: ${{ env.E2E_PASSWORD }}
-        run: npx playwright test e2e/admin.spec.ts e2e/pos.spec.ts e2e/voucher.spec.ts e2e/tables.spec.ts
+        run: npx playwright test e2e/admin.spec.ts e2e/pos.spec.ts e2e/voucher.spec.ts e2e/tables.spec.ts e2e/modules.spec.ts
       - name: Signing in, which resets the Owner's password, last
         env:
           E2E_USERNAME: e2e.owner

@@ -38,6 +38,7 @@ const menu = (over: Partial<PosMenu> & Pick<PosMenu, 'menu_id' | 'name'>): PosMe
   sku: null,
   price: 18000,
   image_url: null,
+  image_thumb_url: null,
   track_stock: false,
   stock_qty: null,
   stock_alert: null,

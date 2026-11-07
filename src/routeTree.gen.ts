@@ -15,10 +15,12 @@ import { Route as ForgotPasswordRouteImport } from './app/forgot-password'
 import { Route as LoginRouteImport } from './app/login'
 import { Route as ResetPasswordRouteImport } from './app/reset-password'
 import { Route as VerifyEmailRouteImport } from './app/verify-email'
+import { Route as AuthAccountRouteImport } from './app/_auth/account'
 import { Route as AuthAdminRouteRouteImport } from './app/_auth/admin/route'
 import { Route as AuthChangePasswordRouteImport } from './app/_auth/change-password'
 import { Route as AuthPosRouteRouteImport } from './app/_auth/pos/route'
 import { Route as AuthAdminIndexRouteImport } from './app/_auth/admin/index'
+import { Route as AuthAdminLogsRouteImport } from './app/_auth/admin/logs'
 import { Route as AuthAdminNoAccessRouteImport } from './app/_auth/admin/no-access'
 import { Route as AuthPosIndexRouteImport } from './app/_auth/pos/index'
 import { Route as AuthPosTablesRouteImport } from './app/_auth/pos/tables'
@@ -31,7 +33,10 @@ import { Route as AuthAdminVouchersNewRouteImport } from './app/_auth/admin/vouc
 import { Route as AuthPosHistoryIndexRouteImport } from './app/_auth/pos/history/index'
 import { Route as AuthPosHistoryOridRouteImport } from './app/_auth/pos/history/$orid'
 import { Route as AuthAdminOutletsOidIndexRouteImport } from './app/_auth/admin/outlets/$oid/index'
+import { Route as AuthAdminOutletsOidDashboardRouteImport } from './app/_auth/admin/outlets/$oid/dashboard'
 import { Route as AuthAdminOutletsOidDevicesRouteImport } from './app/_auth/admin/outlets/$oid/devices'
+import { Route as AuthAdminOutletsOidLogsRouteImport } from './app/_auth/admin/outlets/$oid/logs'
+import { Route as AuthAdminOutletsOidPaymentMethodsRouteImport } from './app/_auth/admin/outlets/$oid/payment-methods'
 import { Route as AuthAdminOutletsOidVouchersRouteImport } from './app/_auth/admin/outlets/$oid/vouchers'
 import { Route as AuthAdminOutletsOidEditRouteImport } from './app/_auth/admin/outlets/$oid_.edit'
 import { Route as AuthAdminVouchersVidEditRouteImport } from './app/_auth/admin/vouchers/$vid_.edit'
@@ -82,6 +87,11 @@ const VerifyEmailRoute = VerifyEmailRouteImport.update({
   path: '/verify-email',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthAccountRoute = AuthAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
 const AuthAdminRouteRoute = AuthAdminRouteRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -100,6 +110,11 @@ const AuthPosRouteRoute = AuthPosRouteRouteImport.update({
 const AuthAdminIndexRoute = AuthAdminIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AuthAdminRouteRoute,
+} as any)
+const AuthAdminLogsRoute = AuthAdminLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
   getParentRoute: () => AuthAdminRouteRoute,
 } as any)
 const AuthAdminNoAccessRoute = AuthAdminNoAccessRouteImport.update({
@@ -164,10 +179,27 @@ const AuthAdminOutletsOidIndexRoute =
     path: '/',
     getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
+const AuthAdminOutletsOidDashboardRoute =
+  AuthAdminOutletsOidDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
+  } as any)
 const AuthAdminOutletsOidDevicesRoute =
   AuthAdminOutletsOidDevicesRouteImport.update({
     id: '/devices',
     path: '/devices',
+    getParentRoute: () => AuthAdminOutletsOidRouteRoute,
+  } as any)
+const AuthAdminOutletsOidLogsRoute = AuthAdminOutletsOidLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => AuthAdminOutletsOidRouteRoute,
+} as any)
+const AuthAdminOutletsOidPaymentMethodsRoute =
+  AuthAdminOutletsOidPaymentMethodsRouteImport.update({
+    id: '/payment-methods',
+    path: '/payment-methods',
     getParentRoute: () => AuthAdminOutletsOidRouteRoute,
   } as any)
 const AuthAdminOutletsOidVouchersRoute =
@@ -298,7 +330,9 @@ export interface FileRoutesByFullPath {
   '/verify-email': typeof VerifyEmailRoute
   '/admin': typeof AuthAdminRouteRouteWithChildren
   '/pos': typeof AuthPosRouteRouteWithChildren
+  '/account': typeof AuthAccountRoute
   '/change-password': typeof AuthChangePasswordRoute
+  '/admin/logs': typeof AuthAdminLogsRoute
   '/admin/no-access': typeof AuthAdminNoAccessRoute
   '/pos/tables': typeof AuthPosTablesRoute
   '/admin/': typeof AuthAdminIndexRoute
@@ -311,7 +345,10 @@ export interface FileRoutesByFullPath {
   '/admin/outlets/': typeof AuthAdminOutletsIndexRoute
   '/admin/vouchers/': typeof AuthAdminVouchersIndexRoute
   '/pos/history/': typeof AuthPosHistoryIndexRoute
+  '/admin/outlets/$oid/dashboard': typeof AuthAdminOutletsOidDashboardRoute
   '/admin/outlets/$oid/devices': typeof AuthAdminOutletsOidDevicesRoute
+  '/admin/outlets/$oid/logs': typeof AuthAdminOutletsOidLogsRoute
+  '/admin/outlets/$oid/payment-methods': typeof AuthAdminOutletsOidPaymentMethodsRoute
   '/admin/outlets/$oid/vouchers': typeof AuthAdminOutletsOidVouchersRoute
   '/admin/outlets/$oid/edit': typeof AuthAdminOutletsOidEditRoute
   '/admin/vouchers/$vid/edit': typeof AuthAdminVouchersVidEditRoute
@@ -340,7 +377,9 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/account': typeof AuthAccountRoute
   '/change-password': typeof AuthChangePasswordRoute
+  '/admin/logs': typeof AuthAdminLogsRoute
   '/admin/no-access': typeof AuthAdminNoAccessRoute
   '/pos/tables': typeof AuthPosTablesRoute
   '/admin': typeof AuthAdminIndexRoute
@@ -352,7 +391,10 @@ export interface FileRoutesByTo {
   '/admin/outlets': typeof AuthAdminOutletsIndexRoute
   '/admin/vouchers': typeof AuthAdminVouchersIndexRoute
   '/pos/history': typeof AuthPosHistoryIndexRoute
+  '/admin/outlets/$oid/dashboard': typeof AuthAdminOutletsOidDashboardRoute
   '/admin/outlets/$oid/devices': typeof AuthAdminOutletsOidDevicesRoute
+  '/admin/outlets/$oid/logs': typeof AuthAdminOutletsOidLogsRoute
+  '/admin/outlets/$oid/payment-methods': typeof AuthAdminOutletsOidPaymentMethodsRoute
   '/admin/outlets/$oid/vouchers': typeof AuthAdminOutletsOidVouchersRoute
   '/admin/outlets/$oid/edit': typeof AuthAdminOutletsOidEditRoute
   '/admin/vouchers/$vid/edit': typeof AuthAdminVouchersVidEditRoute
@@ -385,7 +427,9 @@ export interface FileRoutesById {
   '/verify-email': typeof VerifyEmailRoute
   '/_auth/admin': typeof AuthAdminRouteRouteWithChildren
   '/_auth/pos': typeof AuthPosRouteRouteWithChildren
+  '/_auth/account': typeof AuthAccountRoute
   '/_auth/change-password': typeof AuthChangePasswordRoute
+  '/_auth/admin/logs': typeof AuthAdminLogsRoute
   '/_auth/admin/no-access': typeof AuthAdminNoAccessRoute
   '/_auth/pos/tables': typeof AuthPosTablesRoute
   '/_auth/admin/': typeof AuthAdminIndexRoute
@@ -398,7 +442,10 @@ export interface FileRoutesById {
   '/_auth/admin/outlets/': typeof AuthAdminOutletsIndexRoute
   '/_auth/admin/vouchers/': typeof AuthAdminVouchersIndexRoute
   '/_auth/pos/history/': typeof AuthPosHistoryIndexRoute
+  '/_auth/admin/outlets/$oid/dashboard': typeof AuthAdminOutletsOidDashboardRoute
   '/_auth/admin/outlets/$oid/devices': typeof AuthAdminOutletsOidDevicesRoute
+  '/_auth/admin/outlets/$oid/logs': typeof AuthAdminOutletsOidLogsRoute
+  '/_auth/admin/outlets/$oid/payment-methods': typeof AuthAdminOutletsOidPaymentMethodsRoute
   '/_auth/admin/outlets/$oid/vouchers': typeof AuthAdminOutletsOidVouchersRoute
   '/_auth/admin/outlets/$oid_/edit': typeof AuthAdminOutletsOidEditRoute
   '/_auth/admin/vouchers/$vid_/edit': typeof AuthAdminVouchersVidEditRoute
@@ -431,7 +478,9 @@ export interface FileRouteTypes {
     | '/verify-email'
     | '/admin'
     | '/pos'
+    | '/account'
     | '/change-password'
+    | '/admin/logs'
     | '/admin/no-access'
     | '/pos/tables'
     | '/admin/'
@@ -444,7 +493,10 @@ export interface FileRouteTypes {
     | '/admin/outlets/'
     | '/admin/vouchers/'
     | '/pos/history/'
+    | '/admin/outlets/$oid/dashboard'
     | '/admin/outlets/$oid/devices'
+    | '/admin/outlets/$oid/logs'
+    | '/admin/outlets/$oid/payment-methods'
     | '/admin/outlets/$oid/vouchers'
     | '/admin/outlets/$oid/edit'
     | '/admin/vouchers/$vid/edit'
@@ -473,7 +525,9 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/verify-email'
+    | '/account'
     | '/change-password'
+    | '/admin/logs'
     | '/admin/no-access'
     | '/pos/tables'
     | '/admin'
@@ -485,7 +539,10 @@ export interface FileRouteTypes {
     | '/admin/outlets'
     | '/admin/vouchers'
     | '/pos/history'
+    | '/admin/outlets/$oid/dashboard'
     | '/admin/outlets/$oid/devices'
+    | '/admin/outlets/$oid/logs'
+    | '/admin/outlets/$oid/payment-methods'
     | '/admin/outlets/$oid/vouchers'
     | '/admin/outlets/$oid/edit'
     | '/admin/vouchers/$vid/edit'
@@ -517,7 +574,9 @@ export interface FileRouteTypes {
     | '/verify-email'
     | '/_auth/admin'
     | '/_auth/pos'
+    | '/_auth/account'
     | '/_auth/change-password'
+    | '/_auth/admin/logs'
     | '/_auth/admin/no-access'
     | '/_auth/pos/tables'
     | '/_auth/admin/'
@@ -530,7 +589,10 @@ export interface FileRouteTypes {
     | '/_auth/admin/outlets/'
     | '/_auth/admin/vouchers/'
     | '/_auth/pos/history/'
+    | '/_auth/admin/outlets/$oid/dashboard'
     | '/_auth/admin/outlets/$oid/devices'
+    | '/_auth/admin/outlets/$oid/logs'
+    | '/_auth/admin/outlets/$oid/payment-methods'
     | '/_auth/admin/outlets/$oid/vouchers'
     | '/_auth/admin/outlets/$oid_/edit'
     | '/_auth/admin/vouchers/$vid_/edit'
@@ -607,6 +669,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerifyEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_auth/account': {
+      id: '/_auth/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AuthAccountRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
     '/_auth/admin': {
       id: '/_auth/admin'
       path: '/admin'
@@ -633,6 +702,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AuthAdminIndexRouteImport
+      parentRoute: typeof AuthAdminRouteRoute
+    }
+    '/_auth/admin/logs': {
+      id: '/_auth/admin/logs'
+      path: '/logs'
+      fullPath: '/admin/logs'
+      preLoaderRoute: typeof AuthAdminLogsRouteImport
       parentRoute: typeof AuthAdminRouteRoute
     }
     '/_auth/admin/no-access': {
@@ -719,11 +795,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthAdminOutletsOidIndexRouteImport
       parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
+    '/_auth/admin/outlets/$oid/dashboard': {
+      id: '/_auth/admin/outlets/$oid/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/outlets/$oid/dashboard'
+      preLoaderRoute: typeof AuthAdminOutletsOidDashboardRouteImport
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
+    }
     '/_auth/admin/outlets/$oid/devices': {
       id: '/_auth/admin/outlets/$oid/devices'
       path: '/devices'
       fullPath: '/admin/outlets/$oid/devices'
       preLoaderRoute: typeof AuthAdminOutletsOidDevicesRouteImport
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
+    }
+    '/_auth/admin/outlets/$oid/logs': {
+      id: '/_auth/admin/outlets/$oid/logs'
+      path: '/logs'
+      fullPath: '/admin/outlets/$oid/logs'
+      preLoaderRoute: typeof AuthAdminOutletsOidLogsRouteImport
+      parentRoute: typeof AuthAdminOutletsOidRouteRoute
+    }
+    '/_auth/admin/outlets/$oid/payment-methods': {
+      id: '/_auth/admin/outlets/$oid/payment-methods'
+      path: '/payment-methods'
+      fullPath: '/admin/outlets/$oid/payment-methods'
+      preLoaderRoute: typeof AuthAdminOutletsOidPaymentMethodsRouteImport
       parentRoute: typeof AuthAdminOutletsOidRouteRoute
     }
     '/_auth/admin/outlets/$oid/vouchers': {
@@ -870,7 +967,10 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthAdminOutletsOidRouteRouteChildren {
+  AuthAdminOutletsOidDashboardRoute: typeof AuthAdminOutletsOidDashboardRoute
   AuthAdminOutletsOidDevicesRoute: typeof AuthAdminOutletsOidDevicesRoute
+  AuthAdminOutletsOidLogsRoute: typeof AuthAdminOutletsOidLogsRoute
+  AuthAdminOutletsOidPaymentMethodsRoute: typeof AuthAdminOutletsOidPaymentMethodsRoute
   AuthAdminOutletsOidVouchersRoute: typeof AuthAdminOutletsOidVouchersRoute
   AuthAdminOutletsOidIndexRoute: typeof AuthAdminOutletsOidIndexRoute
   AuthAdminOutletsOidMenusMidRoute: typeof AuthAdminOutletsOidMenusMidRoute
@@ -894,7 +994,11 @@ interface AuthAdminOutletsOidRouteRouteChildren {
 
 const AuthAdminOutletsOidRouteRouteChildren: AuthAdminOutletsOidRouteRouteChildren =
   {
+    AuthAdminOutletsOidDashboardRoute: AuthAdminOutletsOidDashboardRoute,
     AuthAdminOutletsOidDevicesRoute: AuthAdminOutletsOidDevicesRoute,
+    AuthAdminOutletsOidLogsRoute: AuthAdminOutletsOidLogsRoute,
+    AuthAdminOutletsOidPaymentMethodsRoute:
+      AuthAdminOutletsOidPaymentMethodsRoute,
     AuthAdminOutletsOidVouchersRoute: AuthAdminOutletsOidVouchersRoute,
     AuthAdminOutletsOidIndexRoute: AuthAdminOutletsOidIndexRoute,
     AuthAdminOutletsOidMenusMidRoute: AuthAdminOutletsOidMenusMidRoute,
@@ -928,6 +1032,7 @@ const AuthAdminOutletsOidRouteRouteWithChildren =
   )
 
 interface AuthAdminRouteRouteChildren {
+  AuthAdminLogsRoute: typeof AuthAdminLogsRoute
   AuthAdminNoAccessRoute: typeof AuthAdminNoAccessRoute
   AuthAdminIndexRoute: typeof AuthAdminIndexRoute
   AuthAdminOutletsOidRouteRoute: typeof AuthAdminOutletsOidRouteRouteWithChildren
@@ -941,6 +1046,7 @@ interface AuthAdminRouteRouteChildren {
 }
 
 const AuthAdminRouteRouteChildren: AuthAdminRouteRouteChildren = {
+  AuthAdminLogsRoute: AuthAdminLogsRoute,
   AuthAdminNoAccessRoute: AuthAdminNoAccessRoute,
   AuthAdminIndexRoute: AuthAdminIndexRoute,
   AuthAdminOutletsOidRouteRoute: AuthAdminOutletsOidRouteRouteWithChildren,
@@ -978,12 +1084,14 @@ const AuthPosRouteRouteWithChildren = AuthPosRouteRoute._addFileChildren(
 interface AuthRouteRouteChildren {
   AuthAdminRouteRoute: typeof AuthAdminRouteRouteWithChildren
   AuthPosRouteRoute: typeof AuthPosRouteRouteWithChildren
+  AuthAccountRoute: typeof AuthAccountRoute
   AuthChangePasswordRoute: typeof AuthChangePasswordRoute
 }
 
 const AuthRouteRouteChildren: AuthRouteRouteChildren = {
   AuthAdminRouteRoute: AuthAdminRouteRouteWithChildren,
   AuthPosRouteRoute: AuthPosRouteRouteWithChildren,
+  AuthAccountRoute: AuthAccountRoute,
   AuthChangePasswordRoute: AuthChangePasswordRoute,
 }
 

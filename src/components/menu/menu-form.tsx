@@ -7,6 +7,7 @@ import { ChoiceTiles } from '@/components/shared/choice-tiles'
 import { FormField } from '@/components/shared/form-field'
 import { FormAlert } from '@/components/shared/form-message'
 import { NumberField } from '@/components/shared/number-field'
+import { PhotoField } from '@/components/shared/photo-field'
 import { SelectField } from '@/components/shared/select-field'
 import { TextareaField } from '@/components/shared/textarea-field'
 import { useFieldError } from '@/hooks/use-field-error'
@@ -19,8 +20,10 @@ import { Label } from '@/components/ui/label'
 
 import { validationResolver } from '@/hooks/validation-resolver'
 import { menuFields, type Category, type Menu, type MenuFormValues } from '@/modules/menu/types'
+import { noPhotoChange } from '@/modules/upload/types'
 import { validateMenuForm } from '@/modules/menu/validations/menu.validation'
 
+import { CategoryIcon } from './category-icon'
 import { menuFormValues } from './menu-form-values'
 
 /**
@@ -56,6 +59,8 @@ export function MenuForm({
     setError(null)
     try {
       await onSubmit(values)
+      // It went up with this save; another save mustn't send it again.
+      form.setValue('photo', noPhotoChange)
     } catch (caught) {
       if (caught instanceof ApiError && caught.code === 'menu_sku_taken') {
         form.setError('sku', { type: 'api', message: apiErrorMessage(tCommon, caught) }, { shouldFocus: true })
@@ -68,6 +73,19 @@ export function MenuForm({
   return (
     <form onSubmit={form.handleSubmit(submit)} noValidate className="grid max-w-xl gap-4">
       {error && <FormAlert>{error}</FormAlert>}
+      <Controller
+        name="photo"
+        control={form.control}
+        render={({ field }) => (
+          <PhotoField
+            label={t('fields.photo')}
+            currentUrl={menu?.image_url}
+            fallback={<CategoryIcon icon={menu?.category.icon ?? null} className="size-10" />}
+            value={field.value ?? noPhotoChange}
+            onChange={field.onChange}
+          />
+        )}
+      />
       <FormField label={t('fields.name')} error={fieldError(errors.name)} {...form.register('name')} />
       <SelectField label={t('fields.category')} error={fieldError(errors.category_id)} {...form.register('category_id')}>
         <option value="" disabled>

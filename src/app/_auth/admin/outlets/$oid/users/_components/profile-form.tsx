@@ -1,19 +1,22 @@
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import type { Role } from '@/modules/role/types'
 import { FormField } from '@/components/shared/form-field'
 import { FormAlert } from '@/components/shared/form-message'
+import { PhotoField } from '@/components/shared/photo-field'
 import { SelectField } from '@/components/shared/select-field'
 import { useFieldError } from '@/hooks/use-field-error'
 import { apiErrorMessage } from '@/lib/api-error-message'
 import { placeFieldErrors } from '@/components/shared/form-errors'
 import { Button } from '@/components/shared/button'
+import { initialsOf } from '@/lib/initials'
 
 import { validationResolver } from '@/hooks/validation-resolver'
 import { staffProfileFields, type Staff, type StaffProfileValues } from '@/modules/user/types'
 import { validateStaffProfile } from '@/modules/user/validations/staff.validation'
+import { noPhotoChange } from '@/modules/upload/types'
 
 /**
  * An account's name, email and phone, and a staff member's role. An email
@@ -41,6 +44,7 @@ export function ProfileForm({
       phone: staff.phone ?? '',
       role_id: staff.role?.role_id ?? '',
       is_manager: staff.is_manager,
+      photo: noPhotoChange,
     },
   })
   const { errors, isSubmitting, isDirty } = form.formState
@@ -49,6 +53,8 @@ export function ProfileForm({
     setError(null)
     try {
       await onSubmit(values)
+      // It went up with this save; another save mustn't send it again.
+      form.reset({ ...values, photo: noPhotoChange })
     } catch (caught) {
       if (!placeFieldErrors(caught, staffProfileFields, form.setError)) setError(apiErrorMessage(tCommon, caught))
     }
@@ -57,6 +63,20 @@ export function ProfileForm({
   return (
     <form onSubmit={form.handleSubmit(submit)} noValidate className="grid max-w-xl gap-4">
       {error && <FormAlert>{error}</FormAlert>}
+      <Controller
+        name="photo"
+        control={form.control}
+        render={({ field }) => (
+          <PhotoField
+            label={t('fields.photo')}
+            round
+            currentUrl={staff.photo_url}
+            fallback={<span className="text-headline-md text-on-surface">{initialsOf(staff.name)}</span>}
+            value={field.value ?? noPhotoChange}
+            onChange={field.onChange}
+          />
+        )}
+      />
       <FormField label={t('fields.name')} error={fieldError(errors.name)} {...form.register('name')} />
       {!staff.is_manager && (
         <SelectField

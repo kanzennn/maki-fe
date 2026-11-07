@@ -147,6 +147,21 @@ export const http = {
     })),
 }
 
+/**
+ * Sends a file to a presigned address, straight to the object storage: no
+ * token and no cookie go with it, and its answer isn't the API's. The type
+ * and the size are signed into the address, so the file must be the one asked
+ * about.
+ */
+export async function putToStorage(url: string, file: File): Promise<void> {
+  try {
+    await axios.put(url, file, { adapter: 'fetch', headers: { 'Content-Type': file.type } })
+  } catch (error) {
+    const status = axios.isAxiosError(error) ? error.response?.status : undefined
+    throw new ApiError(status ?? 502, undefined, 'upload_failed')
+  }
+}
+
 /** A path of the API's contract, below the base URL: /outlets/{oid}/menus. */
 export type ApiPath = keyof paths extends infer P ? (P extends `/api/v1${infer Rest}` ? Rest : never) : never
 

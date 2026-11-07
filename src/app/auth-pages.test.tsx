@@ -8,7 +8,7 @@ import { routeDefaults } from '@/providers/route-defaults'
 import { routeTree } from '@/routeTree.gen'
 import { sessionStore } from '@/lib/session'
 import type { Me } from '@/modules/auth/types'
-import { testManager, testUser } from '@/test/fixtures'
+import { testManager, testUser, emptyDashboard } from '@/test/fixtures'
 import { unregisteredTill } from '@/test/pos'
 
 import { ensureSession } from '@/modules/auth/usecases/ensure-session.usecase'
@@ -26,6 +26,8 @@ const apiError = (status: number, code: string, details?: Record<string, unknown
 function serve(routes: Record<string, (request: Request) => Response | Promise<Response>>) {
   const requests: Request[] = []
   vi.stubGlobal('fetch', async (request: Request) => {
+    // The pages' live messages stay off, and out of what a test counts.
+    if (new URL(request.url).pathname.endsWith('/realtime/ticket')) return apiError(404, 'not_found')
     requests.push(request.clone())
     const route = routes[`${request.method} ${new URL(request.url).pathname}`]
     return route ? route(request) : apiError(401, 'unauthorized')
@@ -130,7 +132,10 @@ describe('sign-in', () => {
 
 describe('the session', () => {
   it('is restored from the refresh cookie after a reload', async () => {
-    serve({ 'POST /api/v1/auth/refresh': () => json(200, session(testManager)) })
+    serve({
+      'POST /api/v1/auth/refresh': () => json(200, session(testManager)),
+      'GET /api/v1/outlets/o1/dashboard': () => json(200, emptyDashboard),
+    })
     renderApp('/admin')
 
     expect(await screen.findByRole('heading', { level: 1, name: 'Dasbor' })).toBeInTheDocument()
@@ -250,6 +255,7 @@ describe('changing the password', () => {
       'POST /api/v1/auth/refresh': () => json(200, session({ ...testManager, must_change_password: true })),
       'PUT /api/v1/me/password': () => json(204, undefined),
       'GET /api/v1/me': () => json(200, testManager),
+      'GET /api/v1/outlets/o1/dashboard': () => json(200, emptyDashboard),
     })
     const router = renderApp('/change-password')
     const user = userEvent.setup()

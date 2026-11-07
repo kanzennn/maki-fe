@@ -8,7 +8,8 @@
     "password": "Temporary password",
     "confirm": "Repeat the temporary password",
     "lastLogin": "Last signed in",
-    "created": "Created"
+    "created": "Created",
+    "photo": "Profile photo"
   },
   "manager": "Manager",
   "noRole": "No role",

@@ -1,4 +1,60 @@
 {
   "title": "Dasbor",
-  "pending": "Isi dasbor dibuat bersama modul dashboard."
+  "allOutlets": "Semua outlet",
+  "empty": "Belum ada penjualan di periode ini.",
+  "stockFine": "Stok semua menu aman.",
+  "noneSeated": "Tidak ada meja yang sedang terisi.",
+  "filters": {
+    "period": "Periode",
+    "today": "Hari ini",
+    "week": "7 hari",
+    "month30": "30 hari",
+    "thisMonth": "Bulan ini",
+    "from": "Dari tanggal",
+    "to": "Sampai tanggal",
+    "outlets": "Outlet"
+  },
+  "cards": {
+    "sales": "Total penjualan",
+    "transactions": "Jumlah transaksi",
+    "average": "Rata-rata transaksi",
+    "items": "Item terjual",
+    "voids": "Transaksi void"
+  },
+  "growth": {
+    "up": "Naik {{percent}} dari periode sebelumnya",
+    "down": "Turun {{percent}} dari periode sebelumnya",
+    "none": "Belum ada pembanding"
+  },
+  "charts": {
+    "perDay": "Penjualan per hari",
+    "perHour": "Penjualan per jam",
+    "perOutlet": "Penjualan per outlet",
+    "methods": "Komposisi metode bayar"
+  },
+  "tables": {
+    "outlets": "Ranking outlet",
+    "topMenus": "Menu terlaris",
+    "lowStock": "Stok menipis dan habis",
+    "cashiers": "Penjualan per kasir",
+    "seated": "Meja terisi"
+  },
+  "columns": {
+    "outlet": "Outlet",
+    "sales": "Penjualan",
+    "transactions": "Transaksi",
+    "growth": "Pertumbuhan",
+    "menu": "Menu",
+    "qty": "Terjual",
+    "stock": "Stok",
+    "status": "Status",
+    "cashier": "Kasir",
+    "table": "Meja",
+    "area": "Area",
+    "orders": "Pesanan"
+  },
+  "stock": {
+    "low": "Menipis",
+    "out": "Habis"
+  }
 }

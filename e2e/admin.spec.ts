@@ -79,7 +79,7 @@ test.describe('the admin area against the backend', () => {
 
     await expect(page.getByRole('heading', { level: 1, name: 'Dasbor' })).toBeVisible()
     const nav = page.getByRole('navigation', { name: 'Menu utama' })
-    await expect(nav.getByRole('link')).toHaveText(['Dasbor', 'Menu', 'Meja', 'Role', 'User', 'Perangkat', 'Voucher', 'Kasir'])
+    await expect(nav.getByRole('link')).toHaveText(['Dasbor', 'Menu', 'Meja', 'Role', 'User', 'Perangkat', 'Voucher', 'Pembayaran', 'Log', 'Kasir'])
     await expect(page.getByRole('banner')).toContainText(outlet.name)
 
     await nav.getByRole('link', { name: 'Role' }).click()

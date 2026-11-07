@@ -1,0 +1,173 @@
+{
+  "title": "Action log",
+  "intro": "Every important action on record. The log can't be changed or deleted.",
+  "empty": "No actions match.",
+  "columns": {
+    "when": "Time",
+    "user": "User",
+    "outlet": "Outlet",
+    "action": "Action",
+    "target": "Target",
+    "source": "IP / device",
+    "detail": "Details"
+  },
+  "filters": {
+    "from": "From",
+    "to": "To",
+    "actions": "Action types",
+    "allActions": "All actions",
+    "someActions": "{{count}} actions",
+    "apply": "Apply",
+    "clear": "Clear",
+    "outlet": "Outlet",
+    "allOutlets": "All outlets",
+    "self": "My own actions",
+    "user": "User",
+    "allUsers": "All users"
+  },
+  "role": {
+    "owner": "Owner",
+    "manager": "Manager",
+    "staff": "Staff"
+  },
+  "nobody": "Unknown",
+  "none": "-",
+  "detail": {
+    "title": "Action details",
+    "open": "See details of {{action}}",
+    "field": "Field",
+    "before": "Before",
+    "after": "After",
+    "noChanges": "This action stored no values.",
+    "recordedAt": "Received by the server"
+  },
+  "groups": {
+    "auth": "Account",
+    "outlet": "Outlet",
+    "voucher": "Voucher",
+    "role": "Role",
+    "user": "User",
+    "category": "Category",
+    "menu": "Menu",
+    "stock": "Stock",
+    "area": "Area",
+    "table": "Table",
+    "table_schedule": "Table schedule",
+    "dine_in_mode": "Dine-in mode",
+    "order": "Sale",
+    "payment": "Payment method",
+    "device": "Device"
+  },
+  "targets": {
+    "area": "Area",
+    "category": "Category",
+    "device": "Device",
+    "menu": "Menu",
+    "order": "Sale",
+    "outlet": "Outlet",
+    "role": "Role",
+    "session": "Session",
+    "table": "Table",
+    "table_schedule": "Schedule",
+    "user": "User",
+    "voucher": "Voucher"
+  },
+  "actions": {
+    "auth": {
+      "login": "Signed in",
+      "logout": "Signed out",
+      "login_failed": "Failed sign-in",
+      "owner_created": "Owner account created",
+      "session_revoked": "Session ended",
+      "password_changed": "Password changed",
+      "password_reset_requested": "Password reset requested",
+      "password_reset": "Password reset",
+      "email_change_requested": "Email change requested",
+      "email_verified": "Email verified"
+    },
+    "outlet": {
+      "created": "Outlet created",
+      "updated": "Outlet changed",
+      "activated": "Outlet activated",
+      "deactivated": "Outlet deactivated",
+      "deleted": "Outlet deleted"
+    },
+    "voucher": {
+      "created": "Voucher created",
+      "updated": "Voucher changed",
+      "activated": "Voucher activated",
+      "deactivated": "Voucher deactivated",
+      "deleted": "Voucher deleted"
+    },
+    "role": {
+      "created": "Role created",
+      "updated": "Role changed",
+      "deleted": "Role deleted"
+    },
+    "user": {
+      "created": "User created",
+      "updated": "User changed",
+      "role_changed": "User's role changed",
+      "promoted": "Made a Manager",
+      "demoted": "No longer a Manager",
+      "activated": "User activated",
+      "deactivated": "User deactivated",
+      "password_reset": "User's password reset",
+      "deleted": "User deleted",
+      "photo_changed": "User's photo changed",
+      "photo_removed": "User's photo removed"
+    },
+    "category": {
+      "created": "Category created",
+      "updated": "Category changed",
+      "activated": "Category activated",
+      "deactivated": "Category deactivated",
+      "reordered": "Categories reordered",
+      "deleted": "Category deleted"
+    },
+    "menu": {
+      "created": "Menu created",
+      "updated": "Menu changed",
+      "activated": "Menu activated",
+      "deactivated": "Menu deactivated",
+      "deleted": "Menu deleted"
+    },
+    "stock": {
+      "adjusted": "Stock adjusted"
+    },
+    "area": {
+      "created": "Area created",
+      "updated": "Area changed",
+      "reordered": "Areas reordered",
+      "layout_updated": "Layout changed",
+      "deleted": "Area deleted"
+    },
+    "table": {
+      "created": "Table created",
+      "updated": "Table changed",
+      "activated": "Table activated",
+      "deactivated": "Table deactivated",
+      "released": "Table released",
+      "deleted": "Table deleted"
+    },
+    "table_schedule": {
+      "created": "Schedule created",
+      "updated": "Schedule changed",
+      "cancelled": "Schedule cancelled"
+    },
+    "dine_in_mode": {
+      "updated": "Dine-in mode changed"
+    },
+    "order": {
+      "created": "Sale",
+      "voided": "Sale voided"
+    },
+    "payment": {
+      "updated": "Payment methods changed"
+    },
+    "device": {
+      "activated": "Device activated",
+      "revoked": "Device revoked"
+    }
+  }
+}

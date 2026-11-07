@@ -27,6 +27,8 @@ type Handler = (request: Request) => Response | Promise<Response>
 export function serve(routes: Record<string, Handler>) {
   const requests: Request[] = []
   vi.stubGlobal('fetch', async (request: Request) => {
+    // The pages' live messages stay off, and out of what a test counts.
+    if (new URL(request.url).pathname.endsWith('/realtime/ticket')) return apiError(404, 'not_found')
     requests.push(request.clone())
     const route = routes[`${request.method} ${new URL(request.url).pathname}`]
     return route ? route(request) : apiError(404, 'not_found')

@@ -1,6 +1,8 @@
 import { linkOptions } from '@tanstack/react-router'
 import {
   ArmchairIcon,
+  CreditCardIcon,
+  HistoryIcon,
   LayoutDashboardIcon,
   MonitorSmartphoneIcon,
   ReceiptTextIcon,
@@ -17,7 +19,9 @@ import type { Me } from '@/modules/auth/types'
 import { canViewDashboard } from '@/modules/dashboard/permissions'
 import { canManageDevices } from '@/modules/device/permissions'
 import { canViewMenus } from '@/modules/menu/permissions'
+import { canViewLogs } from '@/modules/log/permissions'
 import { canManageOutlets } from '@/modules/outlet/permissions'
+import { canManagePayments } from '@/modules/payment/permissions'
 import { canSell, canVoid } from '@/modules/pos/permissions'
 import { canViewRoles } from '@/modules/role/permissions'
 import { canViewTables } from '@/modules/table/permissions'
@@ -38,6 +42,7 @@ export function navItems(user: Me | null) {
   }
   if (canManageOutlets(user)) items.push(item('outlets', StoreIcon, linkOptions({ to: '/admin/outlets' })))
   if (canManageVouchers(user)) items.push(item('vouchers', TicketPercentIcon, linkOptions({ to: '/admin/vouchers' })))
+  if (user.is_owner && canViewLogs(user)) items.push(item('logs', HistoryIcon, linkOptions({ to: '/admin/logs' })))
   if (oid && canViewMenus(user)) {
     items.push(item('menus', UtensilsCrossedIcon, linkOptions({ to: '/admin/outlets/$oid/menus', params: { oid } })))
   }
@@ -62,6 +67,14 @@ export function navItems(user: Me | null) {
     items.push(
       item('vouchers', TicketPercentIcon, linkOptions({ to: '/admin/outlets/$oid/vouchers', params: { oid } })),
     )
+  }
+  if (oid && canManagePayments(user)) {
+    items.push(
+      item('payments', CreditCardIcon, linkOptions({ to: '/admin/outlets/$oid/payment-methods', params: { oid } })),
+    )
+  }
+  if (oid && canViewLogs(user)) {
+    items.push(item('logs', HistoryIcon, linkOptions({ to: '/admin/outlets/$oid/logs', params: { oid } })))
   }
   if (canSell(user)) {
     items.push(item('pos', ShoppingBagIcon, linkOptions({ to: '/pos' })))
@@ -91,6 +104,8 @@ export function posNavItems(user: Me | null, hasTables = false) {
 export type NavItem = ReturnType<typeof navItems>[number] | ReturnType<typeof posNavItems>[number]
 
 type NavKey =
+  | 'logs'
+  | 'payments'
   | 'dashboard'
   | 'outlets'
   | 'vouchers'

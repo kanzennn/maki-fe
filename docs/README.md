@@ -43,11 +43,9 @@ it.
 
 ## Known trade-offs and open items
 
-- **The dashboard is a placeholder.** Signing in works end to end —
-  sign-in, refresh, sign-out, password change, reset and email confirmation
-  — and so do outlets, roles, users, the menu with its stock, devices and
-  the cashier online; the dashboard still shows a heading and a "coming
-  with the module" line.
+- **A new photo shows on the next load.** The worker converts it within
+  seconds, and the worker's changes send no live message: the form's hint says
+  the old photo stays until then.
 - **The cashier is online only, in cash.** QRIS and debit show as coming
   soon. A voucher needs the server to
   check it, so it stays online-only when the offline mode comes. A reload empties the
@@ -62,8 +60,8 @@ it.
 - **An outlet's areas load as one page** of the API's largest, 100, as its
   categories do; its tables, for a schedule's form, a page of 100 at a
   time until they are all in.
-- **Menus have no photos yet.** They show their category's emoji until the
-  upload milestone brings photos.
+- **Photos need the backend's object storage.** Without it, saving with a
+  photo says so and keeps the form; no browser test has reached a real bucket.
 - **An outlet's categories load as one page** of the API's largest, 100:
   the category filter, the menu form and reordering need them all. An
   outlet with more would need a picker that searches.

@@ -79,7 +79,10 @@
     "dine_in_mode_changed": "How this outlet seats its dine-in customers just changed: at tables, or by number stands.",
     "schedule_not_found": "Schedule not found.",
     "schedule_closed": "This schedule is finished or cancelled, so it can't change any more.",
-    "schedule_overlaps": "This schedule overlaps another at the same tables."
+    "schedule_overlaps": "This schedule overlaps another at the same tables.",
+    "storage_unavailable": "Photos aren't available on this server yet. Save without one for now.",
+    "upload_not_found": "The photo's upload didn't finish or has expired. Choose it again.",
+    "upload_failed": "The photo couldn't be sent. Try again."
   },
   "nav": {
     "label": "Main menu",
@@ -91,6 +94,8 @@
     "users": "Users",
     "pos": "Cashier",
     "history": "Orders",
+    "payments": "Payments",
+    "logs": "Log",
     "devices": "Devices",
     "admin": "Admin",
     "tables": "Tables"
@@ -170,5 +175,16 @@
   "zoom": {
     "in": "Zoom in on the {{what}}",
     "out": "Zoom out of the {{what}}"
+  },
+  "photo": {
+    "choose": "Choose photo",
+    "change": "Change photo",
+    "remove": "Remove photo",
+    "undo": "Undo",
+    "hint": "JPG, PNG or WebP, up to 2 MB. Once saved, the photo takes a few seconds to process; the old one shows until then.",
+    "problem": {
+      "type": "Use a JPG, PNG or WebP file.",
+      "size": "A photo can be at most 2 MB."
+    }
   }
 }

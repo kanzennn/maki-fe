@@ -150,7 +150,7 @@ frame, `pos-layout.tsx`, and the sell screen) and `components/pos/`:
   its own; the chosen one `category-tile-active`. Below 840px the compact
   tile drops the count. *Semua menu* comes first.
 - **Menu cards:** the photo (the category's emoji on `surface-container`
-  until menus have photos), the name, the stock in words (*Tersedia 12*,
+  for a menu without one, or while it won't load), the name, the stock in words (*Tersedia 12*,
   *Selalu tersedia*), the price in `price-lg`. Low stock gets the
   `warning` badge at the photo's top left and its count in
   `on-warning-container`; sold out is the card on `surface-variant`, the

@@ -8,7 +8,8 @@
     "password": "Password sementara",
     "confirm": "Ulangi password sementara",
     "lastLogin": "Login terakhir",
-    "created": "Dibuat"
+    "created": "Dibuat",
+    "photo": "Foto profil"
   },
   "manager": "Manager",
   "noRole": "Tanpa role",

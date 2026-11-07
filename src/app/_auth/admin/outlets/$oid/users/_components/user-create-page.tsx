@@ -1,13 +1,16 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { useNavigate, useParams } from '@tanstack/react-router'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { UserRoundIcon } from 'lucide-react'
+import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import { ApiError } from '@/lib/http'
 import { allRolesQuery } from '@/hooks/role/role.queries'
 import { FormField } from '@/components/shared/form-field'
 import { FormAlert } from '@/components/shared/form-message'
+import { PhotoField } from '@/components/shared/photo-field'
+import { noPhotoChange } from '@/modules/upload/types'
 import { BackLink, PageHeader } from '@/components/shared/page-header'
 import { SelectField } from '@/components/shared/select-field'
 import { useFieldError } from '@/hooks/use-field-error'
@@ -52,6 +55,7 @@ export function UserCreatePage() {
       password: '',
       confirm: '',
       is_manager: manager,
+      photo: noPhotoChange,
     },
   })
   const { errors, isSubmitting } = form.formState
@@ -86,6 +90,19 @@ export function UserCreatePage() {
       />
       <form onSubmit={form.handleSubmit(submit)} noValidate className="grid max-w-xl gap-4">
         {error && <FormAlert>{error}</FormAlert>}
+        <Controller
+          name="photo"
+          control={form.control}
+          render={({ field }) => (
+            <PhotoField
+              label={t('fields.photo')}
+              round
+              fallback={<UserRoundIcon aria-hidden="true" className="size-10 text-icon-muted" />}
+              value={field.value ?? noPhotoChange}
+              onChange={field.onChange}
+            />
+          )}
+        />
         <FormField label={t('fields.name')} error={fieldError(errors.name)} {...form.register('name')} />
         <FormField
           label={t('fields.username')}

@@ -4,6 +4,7 @@ import { PlusIcon, TagsIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { CategoryIcon } from '@/components/menu/category-icon'
+import { Photo } from '@/components/shared/photo'
 import { Pagination } from '@/components/shared/pagination'
 import { PageHeader } from '@/components/shared/page-header'
 import { SearchField } from '@/components/shared/search-field'
@@ -167,7 +168,9 @@ function MenuRow({ outletId, menu }: { outletId: string; menu: Menu }) {
     <TableRow>
       <TableCell>
         <div className="flex items-start gap-2">
-          <CategoryIcon icon={menu.category.icon} className="mt-px" />
+          <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-control bg-surface-container">
+            <Photo url={menu.image_thumb_url} fallback={<CategoryIcon icon={menu.category.icon} />} />
+          </span>
           <div className="grid min-w-0 gap-0.5">
             <Link
               to="/admin/outlets/$oid/menus/$mid"

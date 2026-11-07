@@ -9,6 +9,7 @@ import { Pagination } from '@/components/shared/pagination'
 import { SearchField } from '@/components/shared/search-field'
 import { SelectField } from '@/components/shared/select-field'
 import { StatusBadge } from '@/components/shared/status-badge'
+import { UserAvatar } from '@/components/shared/user-avatar'
 import { useCan } from '@/hooks/use-can'
 import { useSession } from '@/hooks/use-session'
 import { formatDateTime } from '@/lib/time'
@@ -111,14 +112,19 @@ export function UserListPage() {
               {data.items.map((staff) => (
                 <TableRow key={staff.user_id}>
                   <TableCell>
-                    <Link
-                      to="/admin/outlets/$oid/users/$uid"
-                      params={{ oid, uid: staff.user_id }}
-                      className="text-title-md text-on-surface underline-offset-4 hover:underline"
-                    >
-                      {staff.name}
-                    </Link>
-                    <p className="text-label-md text-on-surface-variant">@{staff.username}</p>
+                    <div className="flex items-center gap-3">
+                      <UserAvatar name={staff.name} url={staff.photo_url} />
+                      <div className="min-w-0">
+                        <Link
+                          to="/admin/outlets/$oid/users/$uid"
+                          params={{ oid, uid: staff.user_id }}
+                          className="text-title-md text-on-surface underline-offset-4 hover:underline"
+                        >
+                          {staff.name}
+                        </Link>
+                        <p className="text-label-md text-on-surface-variant">@{staff.username}</p>
+                      </div>
+                    </div>
                   </TableCell>
                   <TableCell>
                     {staff.is_manager ? <Badge>{t('manager')}</Badge> : (staff.role?.name ?? t('noRole'))}

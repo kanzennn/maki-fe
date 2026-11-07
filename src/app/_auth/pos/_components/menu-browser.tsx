@@ -3,6 +3,7 @@ import { useId } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { CategoryIcon } from '@/components/menu/category-icon'
+import { Photo } from '@/components/shared/photo'
 import { formatRupiah } from '@/lib/money'
 import { formatNumber } from '@/lib/number'
 import { cn } from '@/lib/utils'
@@ -151,8 +152,8 @@ function CategoryTile({
 }
 
 /**
- * DESIGN.md's product card: the photo (the category's emoji until menus have
- * photos), the name, the stock, the price. Low stock gets the warning badge
+ * DESIGN.md's product card: the photo (the category's emoji for a menu without
+ * one), the name, the stock, the price. Low stock gets the warning badge
  * and its count in the warning colour; out of stock is pushed back in grey,
  * grayscale, and can't be picked.
  */
@@ -190,10 +191,16 @@ function MenuCard({
       )}
     >
       {/* The badges are said after the name (below), so the card is called by its name. */}
-      <span aria-hidden="true" className="relative grid aspect-[4/3] place-items-center bg-surface-container">
-        <span className={cn('text-[2.5rem]', out && 'grayscale')}>
-          {icon ?? <CategoryIcon icon={null} className="size-10" />}
-        </span>
+      <span aria-hidden="true" className="relative grid aspect-[4/3] place-items-center overflow-hidden bg-surface-container">
+        <Photo
+          url={menu.image_thumb_url}
+          className={cn('absolute inset-0', out && 'grayscale')}
+          fallback={
+            <span className={cn('text-[2.5rem]', out && 'grayscale')}>
+              {icon ?? <CategoryIcon icon={null} className="size-10" />}
+            </span>
+          }
+        />
         {menu.stock_status === 'low' && (
           <Badge variant="warning" className="absolute top-2 left-2">
             {t('menu.low')}

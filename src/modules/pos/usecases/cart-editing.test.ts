@@ -16,6 +16,7 @@ const menu = (over: Partial<PosMenu> = {}): PosMenu => ({
   sku: null,
   price: 18000,
   image_url: null,
+  image_thumb_url: null,
   track_stock: true,
   stock_qty: 3,
   stock_alert: null,

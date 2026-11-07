@@ -25,6 +25,11 @@ export function formatTime(iso: string, locale: string, timeZone: string): strin
   return new Intl.DateTimeFormat(locale, { timeStyle: 'short', timeZone }).format(new Date(iso))
 }
 
+/** The browser's time zone: for who looks across outlets, whose zones differ. */
+export function browserTimeZone(): string {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone
+}
+
 /**
  * The zone's offset from UTC at the instant, in minutes: 420 for Jakarta.
  * Worked out with Intl, so it follows the zone's own rules.

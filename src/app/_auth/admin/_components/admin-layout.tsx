@@ -1,6 +1,7 @@
 import { Outlet } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 
+import { useOutletLive } from '@/hooks/use-outlet-live'
 import { useSession } from '@/hooks/use-session'
 
 import { NavLink } from '@/components/layout/nav-link'
@@ -15,6 +16,7 @@ export function AdminLayout() {
   const { t } = useTranslation()
   const user = useSession((s) => s.user)
   const items = navItems(user)
+  useOutletLive(user?.outlet_id)
 
   return (
     <div className="flex-1 expanded:flex">
@@ -41,9 +43,10 @@ export function AdminLayout() {
           aria-label={t('nav.label')}
           className="fixed inset-x-0 bottom-0 z-40 border-t border-outline bg-surface pb-[env(safe-area-inset-bottom)] expanded:hidden"
         >
-          <ul className="flex">
+          {/* A Manager has more items than a phone has room for: the bar scrolls sideways. */}
+          <ul className="flex overflow-x-auto">
             {items.map((item) => (
-              <li key={item.key} className="min-w-0 flex-1">
+              <li key={item.key} className="min-w-20 flex-1 shrink-0">
                 <NavLink item={item} />
               </li>
             ))}

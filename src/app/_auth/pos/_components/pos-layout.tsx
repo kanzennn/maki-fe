@@ -7,6 +7,7 @@ import { floorQuery } from '@/hooks/table/table.queries'
 import { canSell } from '@/modules/pos/permissions'
 import { BottomSlotContext } from '@/providers/bottom-slot-context'
 import { PrintProvider } from '@/providers/print-provider'
+import { useOutletLive } from '@/hooks/use-outlet-live'
 import { useSession } from '@/hooks/use-session'
 
 import { NavLink } from '@/components/layout/nav-link'
@@ -28,6 +29,7 @@ export function PosLayout() {
   const { t } = useTranslation('pos')
   const user = useSession((s) => s.user)
   const { outletId } = route.useRouteContext()
+  useOutletLive(outletId)
   const floor = useQuery({ ...floorQuery(outletId), enabled: canSell(user) })
   const items = posNavItems(user, (floor.data?.areas.length ?? 0) > 0)
   const [slot, setSlot] = useState<HTMLDivElement | null>(null)

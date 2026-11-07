@@ -1,4 +1,5 @@
 import type { Menu, MenuFormValues } from '@/modules/menu/types'
+import { noPhotoChange } from '@/modules/upload/types'
 
 /** The menu form's starting values: a menu's, numbers as their digits, or a new menu's. */
 export function menuFormValues(menu?: Menu): MenuFormValues {
@@ -12,5 +13,6 @@ export function menuFormValues(menu?: Menu): MenuFormValues {
     initial_stock: '',
     stock_alert: menu?.stock_alert != null ? String(menu.stock_alert) : '',
     is_active: menu?.is_active ?? true,
+    photo: noPhotoChange,
   }
 }

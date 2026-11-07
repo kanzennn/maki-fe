@@ -78,7 +78,10 @@
     "dine_in_mode_changed": "Cara outlet ini mencatat tempat tamu dine-in baru saja berubah: di meja, atau dengan nomor papan.",
     "schedule_not_found": "Jadwal tidak ditemukan.",
     "schedule_closed": "Jadwal ini sudah selesai atau dibatalkan, jadi tidak bisa diubah lagi.",
-    "schedule_overlaps": "Jadwal ini bentrok dengan jadwal lain di meja yang sama."
+    "schedule_overlaps": "Jadwal ini bentrok dengan jadwal lain di meja yang sama.",
+    "storage_unavailable": "Foto belum tersedia di server ini. Simpan tanpa foto dulu.",
+    "upload_not_found": "Upload foto belum selesai atau sudah kedaluwarsa. Pilih fotonya lagi.",
+    "upload_failed": "Foto gagal dikirim. Coba lagi."
   },
   "nav": {
     "label": "Menu utama",
@@ -90,6 +93,8 @@
     "users": "User",
     "pos": "Kasir",
     "history": "Riwayat",
+    "payments": "Pembayaran",
+    "logs": "Log",
     "devices": "Perangkat",
     "admin": "Admin",
     "tables": "Meja"
@@ -168,5 +173,16 @@
   "zoom": {
     "in": "Perbesar {{what}}",
     "out": "Perkecil {{what}}"
+  },
+  "photo": {
+    "choose": "Pilih foto",
+    "change": "Ganti foto",
+    "remove": "Hapus foto",
+    "undo": "Urungkan",
+    "hint": "JPG, PNG, atau WebP, maksimal 2 MB. Setelah disimpan, foto diproses beberapa detik; foto lama tampil sampai selesai.",
+    "problem": {
+      "type": "Pakai file JPG, PNG, atau WebP.",
+      "size": "Ukuran foto maksimal 2 MB."
+    }
   }
 }

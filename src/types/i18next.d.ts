@@ -4,6 +4,8 @@ import type auth from '@/locales/id/auth.json'
 import type common from '@/locales/id/common.json'
 import type dashboard from '@/locales/id/dashboard.json'
 import type device from '@/locales/id/device.json'
+import type log from '@/locales/id/log.json'
+import type payment from '@/locales/id/payment.json'
 import type menu from '@/locales/id/menu.json'
 import type outlet from '@/locales/id/outlet.json'
 import type pos from '@/locales/id/pos.json'
@@ -23,6 +25,8 @@ declare module 'i18next' {
       auth: typeof auth
       dashboard: typeof dashboard
       device: typeof device
+      log: typeof log
+      payment: typeof payment
       menu: typeof menu
       outlet: typeof outlet
       pos: typeof pos

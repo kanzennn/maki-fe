@@ -8,7 +8,8 @@
     "stockMode": "Mode stok",
     "initialStock": "Stok awal",
     "stockAlert": "Ambang stok menipis",
-    "active": "Tampilkan di kasir"
+    "active": "Tampilkan di kasir",
+    "photo": "Foto menu"
   },
   "form": {
     "chooseCategory": "Pilih kategori",

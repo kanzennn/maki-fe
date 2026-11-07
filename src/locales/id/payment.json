@@ -1,0 +1,14 @@
+{
+  "title": "Metode bayar",
+  "intro": "Metode bayar yang muncul di kasir outlet ini.",
+  "comingSoon": "Segera hadir",
+  "methods": {
+    "cash": "Tunai",
+    "qris": "QRIS",
+    "debit": "Debit"
+  },
+  "locked": {
+    "required": "Selalu aktif, karena hanya tunai yang berjalan saat kasir offline.",
+    "comingSoon": "Belum tersedia."
+  }
+}

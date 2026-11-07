@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '@/components/shared/button'
+import { UserAvatar } from '@/components/shared/user-avatar'
 import { useSession } from '@/hooks/use-session'
 import { AUTH_UNAUTHORIZED } from '@/lib/http'
 import { signOut } from '@/modules/auth/usecases/sign-out.usecase'
@@ -19,6 +20,7 @@ export function SignedInLayout() {
   const { t } = useTranslation('auth')
   const { t: tCommon } = useTranslation()
   const name = useSession((s) => s.user?.name)
+  const photo = useSession((s) => s.user?.photo_url)
   const outlet = useSession((s) => s.user?.outlet?.name)
   const router = useRouter()
   const queryClient = useQueryClient()
@@ -49,7 +51,16 @@ export function SignedInLayout() {
           {outlet && <span className="truncate text-body-md text-on-surface-variant">{outlet}</span>}
         </div>
         <div className="flex shrink-0 items-center gap-4">
-          {name && <span className="hidden text-body-md text-on-surface sm:inline">{name}</span>}
+          {name && (
+            <Link
+              to="/account"
+              aria-label={t('account.open', { name })}
+              className="flex min-h-11 items-center gap-2 rounded-control underline-offset-4 outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            >
+              <UserAvatar name={name} url={photo} />
+              <span className="hidden text-body-md text-on-surface sm:inline">{name}</span>
+            </Link>
+          )}
           <Button variant="outline" className="h-11" onClick={() => void onSignOut()}>
             {t('signOut')}
           </Button>

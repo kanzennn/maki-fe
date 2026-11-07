@@ -1,4 +1,5 @@
 import type { components } from '@/lib/api-schema'
+import type { PhotoChoice } from '@/modules/upload/types'
 
 /** An account of an outlet: a Manager, or staff with a custom role. */
 export type Staff = components['schemas']['Staff']
@@ -13,6 +14,8 @@ export type StaffListState = { q?: string; status?: StaffStatus; role_id?: strin
 
 /** A new account's form, as typed: a Manager (the Owner's) or staff with a role. */
 export type NewStaffValues = {
+  /** The photo to save with it. */
+  photo?: PhotoChoice
   name: string
   username: string
   email: string
@@ -27,7 +30,15 @@ export type NewStaffValues = {
 export const newStaffFields = ['name', 'username', 'email', 'phone', 'role_id'] as const satisfies readonly (keyof NewStaffValues)[]
 
 /** An account's profile, and a staff member's role, as typed. */
-export type StaffProfileValues = { name: string; email: string; phone: string; role_id: string; is_manager: boolean }
+export type StaffProfileValues = {
+  name: string
+  email: string
+  phone: string
+  role_id: string
+  is_manager: boolean
+  /** The photo to save with it; nothing changes without one. */
+  photo?: PhotoChoice
+}
 
 export const staffProfileFields = ['name', 'email', 'phone', 'role_id'] as const satisfies readonly (keyof StaffProfileValues)[]
 

@@ -26,12 +26,14 @@ function OwnerFrame() {
   const { data: outlet } = useSuspenseQuery(outletQuery(oid))
   const tabs = [
     { key: 'info', link: linkOptions({ to: '/admin/outlets/$oid', params: { oid } }), exact: true },
+    { key: 'dashboard', link: linkOptions({ to: '/admin/outlets/$oid/dashboard', params: { oid } }), exact: false },
     { key: 'users', link: linkOptions({ to: '/admin/outlets/$oid/users', params: { oid } }), exact: false },
     { key: 'roles', link: linkOptions({ to: '/admin/outlets/$oid/roles', params: { oid } }), exact: false },
     { key: 'menus', link: linkOptions({ to: '/admin/outlets/$oid/menus', params: { oid } }), exact: false },
     { key: 'tables', link: linkOptions({ to: '/admin/outlets/$oid/tables', params: { oid } }), exact: false },
     { key: 'devices', link: linkOptions({ to: '/admin/outlets/$oid/devices', params: { oid } }), exact: false },
     { key: 'vouchers', link: linkOptions({ to: '/admin/outlets/$oid/vouchers', params: { oid } }), exact: false },
+    { key: 'logs', link: linkOptions({ to: '/admin/outlets/$oid/logs', params: { oid } }), exact: false },
   ] as const
 
   return (
