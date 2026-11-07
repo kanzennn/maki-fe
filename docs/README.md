@@ -51,9 +51,15 @@ it.
   check it, so it stays online-only when the offline mode comes. A reload empties the
   cart, which is never stored in the browser, and a sale whose answer never
   came is let go of only with a warning to check today's orders.
-- **Receipts print through the browser** to the till's 58 mm printer, with
-  the browser's print dialog. Printing without it (kiosk mode) and
-  Bluetooth printers on Android come later.
+- **Receipts print through the browser and Windows' driver**, on 58 or 80 mm
+  paper as each till is set (*Akun saya*), by hand or as soon as a sale is saved.
+  Install the USB printer in Windows, make it the default printer, and set its
+  paper size in the driver. To skip the print dialog, start the browser with
+  `--kiosk-printing`, for example
+  `msedge --kiosk-printing --app=https://your-maki-site`. WebUSB isn't used, so
+  no driver is replaced and `usb=()` stays in `Permissions-Policy`. No physical
+  printer has been tested yet: the page's size and layout are measured in the
+  e2e tests, not on paper.
 - **The layout editor needs a wide screen** (840px and up): on a phone the
   tables page only shows the layout. A table's place is a box of whole
   cells; the cashier draws a table in its shape, not turned.

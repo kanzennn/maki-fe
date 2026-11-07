@@ -141,8 +141,8 @@ test.describe('the cashier against the backend', () => {
 
     // One browser for every test: the till is this browser, by its cookie.
     page = await browser.newPage()
-    // The print dialog would wait for a person; the receipt's print layout
-    // is checked by eye.
+    // The print dialog would wait for a person; a test below measures the
+    // receipt's print layout.
     await page.addInitScript(() => {
       window.print = () => window.dispatchEvent(new Event('afterprint'))
     })
@@ -230,6 +230,47 @@ test.describe('the cashier against the backend', () => {
     await expect(main().getByText(`Transaksi ${sold[0]} sudah di-void.`)).toBeVisible()
     await expect(main().getByRole('article')).toContainText('VOID')
     await expect(main().getByRole('article')).toContainText('Alasan: Salah input')
+  })
+
+  test('a receipt prints alone, on the roll the till is set to', async () => {
+    for (const [paper, printable] of [
+      ['58', 48],
+      ['80', 72],
+    ] as const) {
+      await page.evaluate((next) => localStorage.setItem('maki.print', JSON.stringify({ paper: next, auto: false })), paper)
+      await page.reload()
+      await expect(page.getByRole('heading', { level: 1, name: sold[0] })).toBeVisible()
+      // Nothing ends this print: the receipt stays to be measured.
+      await page.evaluate(() => {
+        window.print = () => undefined
+      })
+      await page.getByRole('button', { name: 'Cetak ulang' }).click()
+
+      await page.emulateMedia({ media: 'print' })
+      const receipt = page.locator('.print-receipt')
+      await expect(receipt).toBeVisible()
+      await expect(page.locator('#root')).toBeHidden()
+      const box = await receipt.boundingBox()
+      expect(box?.width).toBeCloseTo((printable * 96) / 25.4, 0)
+      const fits = await receipt.evaluate((element) => element.scrollWidth <= element.clientWidth)
+      expect(fits).toBe(true)
+
+      // One page, the roll's width, and as tall as the receipt.
+      const pdf = (await page.pdf({ preferCSSPageSize: true })).toString('latin1')
+      const pages = [...pdf.matchAll(/\/MediaBox\s*\[\s*0 0 ([\d.]+) ([\d.]+)\s*\]/g)]
+      expect(pages).toHaveLength(1)
+      expect(Number(pages[0][1])).toBeCloseTo((Number(paper) * 72) / 25.4, 0)
+      expect(Number(pages[0][2])).toBeGreaterThanOrEqual(((box?.height ?? 0) * 72) / 96)
+
+      await page.emulateMedia({ media: 'screen' })
+      await page.evaluate(() => window.dispatchEvent(new Event('afterprint')))
+      await expect(receipt).toHaveCount(0)
+    }
+    await page.evaluate(() => localStorage.removeItem('maki.print'))
+    await page.reload()
+    await page.evaluate(() => {
+      window.print = () => window.dispatchEvent(new Event('afterprint'))
+    })
   })
 
   test('the cashier sells on the same till', async () => {

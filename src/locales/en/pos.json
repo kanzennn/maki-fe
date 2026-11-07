@@ -107,6 +107,13 @@
     "print": "Print receipt",
     "new": "New sale"
   },
+  "printer": {
+    "title": "Receipt printer",
+    "thisBrowser": "These settings apply to this till's browser only.",
+    "paper": "Paper width",
+    "auto": "Print the receipt as soon as the sale is saved",
+    "kiosk": "Install the USB printer in Windows and make it the default printer. To print without the dialog, start Chrome or Edge with the --kiosk-printing option."
+  },
   "receipt": {
     "label": "Receipt {{number}}",
     "number": "Receipt no.",

@@ -188,7 +188,7 @@ frame, `pos-layout.tsx`, and the sell screen) and `components/pos/`:
 - **What changed** since the catalog loaded (a price, the stock, the rates)
   is said in a `warning-container` box above the menus, until dismissed.
 - **The receipt** is a paper-white card on screen and the receipt alone in
-  print: 48mm of a 58mm roll, the outlet, a stand's number in
+  print: 48mm of a 58mm roll or 72mm of an 80mm one, the outlet, a stand's number in
   `headline-lg` under it for the waiter, the number on a line of its own,
   the time, cashier, type and table, the lines, then the figures (the discount as
   *Potongan (KODE)*) with a dashed rule before the total, and *VOID* with

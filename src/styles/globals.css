@@ -157,19 +157,31 @@
 }
 
 /*
- * A receipt printed from the cashier (features/pos/components/PrintProvider):
- * the receipt alone, on the till's 58 mm roll, of which 48 mm prints. It
- * sits in an element of its own outside #root, hidden on screen; printing
- * hides everything else, the open dialogs included.
+ * A receipt printed from the cashier (providers/print-provider.tsx): the
+ * receipt alone, on the till's roll, of which 48 mm prints on 58 mm paper and
+ * 72 mm on 80 mm. It sits in an element of its own outside #root, unseen on
+ * screen but laid out at its printed width, so the provider can measure it for
+ * the page's size; printing hides everything else, the open dialogs included.
  */
 .print-receipt {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 48mm;
+  padding: 3mm 0;
+  color: #000000;
+}
+
+.print-receipt[data-paper='80'] {
+  width: 72mm;
 }
 
 @media print {
-  @page {
-    size: 58mm auto;
-    margin: 0;
+  html,
+  body {
+    height: auto;
+    min-height: 0;
   }
 
   body > :not(.print-receipt) {
@@ -177,10 +189,8 @@
   }
 
   .print-receipt {
-    display: block;
-    width: 48mm;
+    position: static;
+    visibility: visible;
     margin: 0 auto;
-    padding: 3mm 0;
-    color: #000000;
   }
 }

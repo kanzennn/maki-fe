@@ -1,4 +1,5 @@
 import { CheckCircle2Icon, PrinterIcon } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { formatRupiah } from '@/lib/money'
@@ -7,11 +8,13 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 
 import { Receipt, type ReceiptOutlet } from '@/components/pos/receipt'
 import { usePrint } from '@/hooks/pos/use-print'
+import { usePrintSettings } from '@/hooks/pos/use-print-settings'
 import type { Order } from '@/modules/pos/types'
 
 /**
  * The sale is saved: the change to hand back, the receipt to look over or
- * print, and the way to the next customer.
+ * print, printed at once where the till is set to, and the way to the next
+ * customer.
  */
 export function SoldDialog({
   order,
@@ -24,6 +27,15 @@ export function SoldDialog({
 }) {
   const { t, i18n } = useTranslation('pos')
   const print = usePrint()
+  const auto = usePrintSettings((s) => s.auto)
+  // Once for a sale, however often the dialog renders.
+  const printedFor = useRef<string | null>(null)
+
+  useEffect(() => {
+    if (!order || !auto || printedFor.current === order.order_id) return
+    printedFor.current = order.order_id
+    print(order, outlet)
+  })
 
   return (
     <Dialog open={order !== null} onOpenChange={(open) => !open && onClose()}>

@@ -105,6 +105,13 @@
     "print": "Cetak struk",
     "new": "Transaksi baru"
   },
+  "printer": {
+    "title": "Printer struk",
+    "thisBrowser": "Pengaturan ini berlaku untuk browser di kasir ini saja.",
+    "paper": "Lebar kertas",
+    "auto": "Cetak struk otomatis setelah transaksi tersimpan",
+    "kiosk": "Pasang printer USB di Windows dan jadikan printer default. Agar struk tercetak tanpa dialog, buka Chrome atau Edge dengan opsi --kiosk-printing."
+  },
   "receipt": {
     "label": "Struk {{number}}",
     "number": "No. struk",

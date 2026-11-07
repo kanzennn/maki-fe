@@ -7,6 +7,7 @@ import { apiError, bodyOf, json, renderApp, serve } from '@/test/app'
 import { listOf, testManager, testUser } from '@/test/fixtures'
 
 import { useCart } from '@/hooks/pos/use-cart'
+import { usePrintSettings } from '@/hooks/pos/use-print-settings'
 import type {
   CreateOrderRequest,
   Order,
@@ -192,6 +193,8 @@ const panel = () => within(screen.getByRole('region', { name: 'Detail Items' }))
 beforeEach(() => {
   useCart.setState({ owner: null })
   useCart.getState().clear()
+  usePrintSettings.setState({ paper: '58', auto: false })
+  localStorage.removeItem('maki.print')
 })
 
 describe('a device that can’t sell', () => {
@@ -345,6 +348,41 @@ describe('the sell screen', () => {
     expect(document.querySelector('.print-receipt')).toBeNull()
     await userEvent.click(done.getByRole('button', { name: 'Transaksi baru' }))
     expect(panel().getByText('Belum ada pesanan. Pilih menu untuk mulai.')).toBeInTheDocument()
+  })
+
+  it("prints once by itself where the till is set to, on the till's roll", async () => {
+    usePrintSettings.setState({ paper: '80', auto: true })
+    const printed: { paper: string | null | undefined; page: string | null | undefined }[] = []
+    vi.spyOn(window, 'print').mockImplementation(() => {
+      printed.push({
+        paper: document.querySelector('.print-receipt')?.getAttribute('data-paper'),
+        page: document.querySelector('body > style')?.textContent,
+      })
+      window.dispatchEvent(new Event('afterprint'))
+    })
+    serve({
+      'GET /api/v1/outlets/o1/pos/device': () => json(200, device),
+      'GET /api/v1/outlets/o1/pos/catalog': () => json(200, catalog()),
+      'POST /api/v1/outlets/o1/orders': async (request) =>
+        json(201, taken((await request.json()) as CreateOrderRequest)),
+      'GET /api/v1/outlets/o1/orders': () => json(200, listOf([])),
+    })
+    renderApp('/pos', testUser)
+    await screen.findByRole('heading', { level: 1, name: 'Pilih menu' })
+
+    await userEvent.click(card('Es Kopi Susu'))
+    await userEvent.click(panel().getByRole('radio', { name: 'Takeaway' }))
+    await userEvent.click(panel().getByRole('button', { name: exactly('Bayar Rp 20.790') }))
+    const dialog = within(await screen.findByRole('dialog', { name: 'Bayar tunai' }))
+    await userEvent.click(dialog.getByRole('button', { name: exactly('Rp 50.000') }))
+    await userEvent.click(dialog.getByRole('button', { name: 'Bayar' }))
+
+    const done = within(await screen.findByRole('dialog', { name: 'Transaksi tersimpan' }))
+    expect(printed).toEqual([{ paper: '80', page: expect.stringMatching(/^@page { size: 80mm \d+mm; margin: 0; }$/) }])
+
+    // By hand it still prints again; a render alone doesn't.
+    await userEvent.click(done.getByRole('button', { name: 'Cetak struk' }))
+    expect(printed).toHaveLength(2)
   })
 
   describe('when the server doesn’t answer', () => {
@@ -1391,5 +1429,42 @@ describe("the outlet's devices", () => {
     serve({ 'GET /api/v1/outlets/o1/orders': () => json(200, listOf([])) })
     const { router } = renderApp('/admin/outlets/o1/devices', testUser)
     await waitFor(() => expect(router.state.location.pathname).toBe('/pos'))
+  })
+})
+
+describe("the till's printer settings", () => {
+  it("are on the account page of whoever sells, and stay with this browser", async () => {
+    serve({})
+    renderApp('/account', testUser)
+    const printer = within(await screen.findByRole('region', { name: 'Printer struk' }))
+
+    expect(printer.getByRole('radio', { name: '58 mm' })).toBeChecked()
+    expect(printer.getByText(/--kiosk-printing/)).toBeInTheDocument()
+    await userEvent.click(printer.getByRole('radio', { name: '80 mm' }))
+    await userEvent.click(printer.getByRole('checkbox', { name: /otomatis/ }))
+
+    expect(usePrintSettings.getState()).toMatchObject({ paper: '80', auto: true })
+    expect(JSON.parse(localStorage.getItem('maki.print') ?? 'null')).toEqual({ paper: '80', auto: true })
+  })
+
+  it('still apply where the browser keeps nothing', async () => {
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('blocked')
+    })
+    serve({})
+    renderApp('/account', testUser)
+    const printer = within(await screen.findByRole('region', { name: 'Printer struk' }))
+
+    await userEvent.click(printer.getByRole('radio', { name: '80 mm' }))
+
+    expect(usePrintSettings.getState().paper).toBe('80')
+  })
+
+  it('are not there for whoever does not sell', async () => {
+    serve({})
+    renderApp('/account', { ...testUser, permissions: ['menu.view'] })
+    await screen.findByRole('heading', { level: 1, name: 'Akun saya' })
+
+    expect(screen.queryByRole('region', { name: 'Printer struk' })).not.toBeInTheDocument()
   })
 })

@@ -6,13 +6,18 @@ import { Button } from '@/components/shared/button'
 import { FormAlert, FormNotice } from '@/components/shared/form-message'
 import { PageHeading } from '@/components/shared/page-heading'
 import { PhotoField } from '@/components/shared/photo-field'
+import { PrinterSettings } from '@/components/pos/printer-settings'
 import { initialsOf } from '@/lib/initials'
 import { useSession } from '@/hooks/use-session'
 import { apiErrorMessage } from '@/lib/api-error-message'
+import { canSell } from '@/modules/pos/permissions'
 import { noPhotoChange } from '@/modules/upload/types'
 import { changeMyPhoto, removeMyPhoto } from '@/modules/upload/usecases/my-photo.usecase'
 
-/** The signed-in user's own account: their photo, and the way to their password. */
+/**
+ * The signed-in user's own account: their photo, the way to their password,
+ * and, for whoever sells, how this till prints.
+ */
 export function AccountPage() {
   const { t } = useTranslation('auth')
   const { t: tCommon } = useTranslation()
@@ -70,6 +75,7 @@ export function AccountPage() {
       <Link to="/change-password" className="justify-self-start text-body-md text-primary-strong underline underline-offset-4">
         {t('account.changePassword')}
       </Link>
+      {canSell(user) && <PrinterSettings />}
     </main>
   )
 }

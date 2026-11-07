@@ -340,8 +340,13 @@ module's `chargeOrder`) never charges twice:
 **Receipts** (`components/pos/receipt.tsx`) are in the outlet's language and
 number style, whatever the screen's (`i18n.getFixedT(outlet.locale)`), as
 the spec prints them. Printing renders the receipt into an element of its
-own outside `#root`, and `window.print()` sends it, alone, to the till's
-58 mm roll (`styles/globals.css`, `@media print`).
+own outside `#root`, unseen but laid out at its printed width, and
+`window.print()` sends it, alone, to the till's roll (`styles/globals.css`,
+`@media print`). The provider measures it and writes the page's size, since CSS
+has no "as long as it takes": `size: 58mm auto` is invalid, and browsers drop it
+for their default paper. The roll and printing by itself are the browser's
+settings (`hooks/pos/use-print-settings.ts`, on the account page), as each till
+has its own printer.
 
 A receipt names the order's table, under its type, or shows its stand's
 number large under the outlet's name, for the waiter who brings the order.
